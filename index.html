@@ -103,7 +103,7 @@ body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1
 .btn-green:hover{background:#25945f}
 
 /* ===== Content ===== */
-.page{max-width:900px;margin:0 auto;padding:34px 28px 90px;animation:fadeUp .35s ease}
+.page{max-width:900px;margin:0 auto;padding:34px 28px 120px;animation:fadeUp .35s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .lesson-head{margin-bottom:26px}
 .lesson-kicker{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
@@ -301,8 +301,52 @@ table.cmd td .cdesc{color:var(--txt-dim);font-size:12.5px;margin-top:3px;display
 .page-foot{border-top:1px solid var(--border);padding:22px 28px;text-align:center;font-size:12px;color:var(--txt-faint)}
 .page-foot b{color:var(--green)}
 
+/* ===== Academic lesson number + bookmark ===== */
+.lesson-title-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.lesson-no{font-family:var(--mono);font-size:clamp(26px,4vw,34px);font-weight:800;color:transparent;-webkit-text-stroke:1.5px var(--green);letter-spacing:1px;flex-shrink:0;line-height:1}
+.bm-btn{background:var(--panel);border:1px solid var(--border2);border-radius:10px;width:40px;height:40px;font-size:17px;cursor:pointer;flex-shrink:0;transition:.15s;display:flex;align-items:center;justify-content:center}
+.bm-btn:hover{border-color:var(--amber);transform:translateY(-1px)}
+.bm-btn.on{background:rgba(255,180,84,.12);border-color:var(--amber)}
+.bm-wrap{margin:4px 18px 8px;background:rgba(255,180,84,.05);border:1px dashed rgba(255,180,84,.35);border-radius:10px;padding:8px 6px}
+.bm-head{font-size:12px;font-weight:800;color:var(--amber);padding:2px 8px 6px}
+.bm-empty{font-size:11px;color:var(--txt-faint);padding:2px 8px 4px;line-height:1.7}
+#toast{position:fixed;bottom:24px;right:50%;transform:translate(50%,20px);background:var(--panel2);border:1px solid var(--green-dim);color:var(--txt);border-radius:10px;padding:10px 22px;font-size:13px;font-weight:600;z-index:200;opacity:0;pointer-events:none;transition:.25s;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+#toast.show{opacity:1;transform:translate(50%,0)}
+
+/* ===== Reference cheat card ===== */
+.cheat-card{background:linear-gradient(135deg,rgba(57,197,207,.07),rgba(61,220,132,.05));border:1px solid rgba(57,197,207,.3);border-radius:var(--radius);padding:18px 20px;margin:24px 0;position:relative}
+.cheat-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.cheat-head .ch-ico{width:40px;height:40px;border-radius:11px;background:rgba(57,197,207,.12);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.cheat-head .ch-t{font-size:15px;font-weight:800;color:var(--cyan)}
+.cheat-head .ch-s{font-size:11.5px;color:var(--txt-dim);margin-top:2px}
+.cheat-head .ch-no{margin-right:auto;font-family:var(--mono);font-size:22px;font-weight:800;color:transparent;-webkit-text-stroke:1.2px var(--cyan);flex-shrink:0}
+.cheat-body ul.list{gap:9px;margin-bottom:0}
+.cheat-body ul.list li{font-size:14px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:9px;padding:8px 13px}
+
+/* ===== Light infographic diagrams (white-card style like the reference decks) ===== */
+.figure{background:#f4f7fb;border-color:#dbe4f0}
+.figure .fig-cap{color:#5a6b82;border-top-color:#dbe4f0}
+.figure .fig-cap b{color:#0e7490}
+
+/* figure title bar — navy bold header INSIDE the top of the card (reference style) */
+.fig-title{display:flex;align-items:baseline;gap:10px;font-size:15.5px;font-weight:800;color:#1d3a6b;line-height:1.5;padding-bottom:12px;margin-bottom:14px;border-bottom:1px solid #dbe4f0}
+.fig-title .ft-no{font-family:var(--mono);font-weight:800;font-size:13px;color:#fff;background:#1d3a6b;border-radius:7px;padding:2px 9px;flex-shrink:0}
+
+/* key-points checklist — free white bullet list under the card, on the dark bg (reference style) */
+.kp-list{list-style:none;padding:0;margin:14px 4px 26px;max-width:720px}
+.kp-list li{position:relative;padding:5px 26px 5px 4px;font-size:14.5px;color:#c9d5e6;line-height:1.9}
+.kp-list li::before{content:'';position:absolute;right:8px;top:14px;width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 6px rgba(61,220,132,.5)}
+.kp-list li:nth-child(odd)::before{background:#39c5cf;box-shadow:0 0 6px rgba(57,197,207,.5)}
+.kp-list li:nth-child(3n)::before{background:#ffb454;box-shadow:0 0 6px rgba(255,180,84,.5)}
+.kp-list code.ic{background:#1a2637;border:1px solid var(--border2);border-radius:6px;padding:1px 8px;font-size:12.5px;color:#4af29a;margin:0 3px}
+
+/* floating scroll button — round ↓ at bottom center (reference style) */
+.scroll-fab{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);border:none;color:#fff;font-size:22px;font-weight:800;cursor:pointer;z-index:90;box-shadow:0 8px 30px rgba(5,150,105,.45),0 2px 8px rgba(0,0,0,.4);transition:.2s;animation:fabPulse 2.4s ease-in-out infinite}
+.scroll-fab:hover{transform:translateX(-50%) scale(1.08);animation-play-state:paused}
+@keyframes fabPulse{0%,100%{box-shadow:0 8px 30px rgba(5,150,105,.45),0 2px 8px rgba(0,0,0,.4)}50%{box-shadow:0 8px 36px rgba(5,150,105,.7),0 2px 8px rgba(0,0,0,.4)}}
+
 @media(max-width:640px){
-  .page{padding:22px 16px 70px}
+  .page{padding:22px 16px 110px}
   .hero{padding:40px 16px 34px}
   .roadmap,.features{padding-left:16px;padding-right:16px}
   #topbar{padding:10px 14px}
@@ -331,11 +375,15 @@ table.cmd td .cdesc{color:var(--txt-dim);font-size:12.5px;margin-top:3px;display
     </div>
     <div class="progress-wrap">
       <div class="progress-bar"><div class="progress-fill" id="pfill" style="width:0%"></div></div>
-      <div class="progress-label"><span>تقدمك في الدورة</span><b id="pnum">0/22</b></div>
+      <div class="progress-label"><span>تقدمك في الدورة</span><b id="pnum">0/23</b></div>
     </div>
     <div class="sb-search">
       <input type="text" placeholder="ابحث في الدروس..." oninput="filterTOC(this.value)">
       <span class="sicon">🔍</span>
+    </div>
+    <div id="bm-wrap" class="bm-wrap" style="display:none">
+      <div class="bm-head">🔖 مرجعياتي المحفوظة</div>
+      <div id="bm-list"></div>
     </div>
     <nav id="toc"></nav>
     <div class="sb-foot">صُنع بحب للمتعلمين العرب 💚 <b>LinuxDojo</b></div>
@@ -381,21 +429,27 @@ const DIAGRAMS = {};
 function svgOpen(w, h) {
   return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#39c5cf"/></marker>
-<marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3ddc84"/></marker>
-<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff5f6e"/></marker>
-<marker id="aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ffb454"/></marker>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0e7490"/></marker>
+<marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+<marker id="aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker>
 </defs>`;
 }
-const box = (x, y, w, h, fill = '#161f30', stroke = '#2a3a52', rx = 10, sw = 1.5) =>
+const box = (x, y, w, h, fill = '#ffffff', stroke = '#c3d0e2', rx = 10, sw = 1.5) =>
   `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>`;
-const txt = (x, y, s, size = 13, fill = '#d5dde8', anchor = 'middle', weight = 'normal', mono = false) =>
-  `<text x="${x}" y="${y}" font-size="${size}" fill="${fill}" text-anchor="${anchor}" font-weight="${weight}" ${mono ? "class='mono'" : ''}>${s}</text>`;
-const txtR = (x, y, s, size = 13, fill = '#d5dde8', anchor = 'start', weight = 'normal') =>
-  `<text x="${x}" y="${y}" font-size="${size}" fill="${fill}" text-anchor="${anchor}" font-weight="${weight}" xml:space="preserve">${s}</text>`;
-const arrow = (x1, y1, x2, y2, color = '#39c5cf', marker = 'ah', dash = '', sw = 2) =>
+const AR_TXT = /[\u0600-\u06FF]/;
+/* Arabic text: render RTL (correct reading order) with swapped anchor so the
+   geometry (which pixel span the text occupies) stays identical to the LTR layout. */
+const anchorFor = (s, anchor) => AR_TXT.test(s)
+  ? (anchor === 'start' ? 'end' : anchor === 'end' ? 'start' : anchor)
+  : anchor;
+const txt = (x, y, s, size = 13, fill = '#1e293b', anchor = 'middle', weight = 'normal', mono = false) =>
+  `<text x="${x}" y="${y}" font-size="${size}" fill="${fill}" text-anchor="${anchorFor(s, anchor)}" direction="${AR_TXT.test(s) ? 'rtl' : 'ltr'}" font-weight="${weight}" ${mono ? "class='mono'" : ''}>${s}</text>`;
+const txtR = (x, y, s, size = 13, fill = '#1e293b', anchor = 'start', weight = 'normal') =>
+  `<text x="${x}" y="${y}" font-size="${size}" fill="${fill}" text-anchor="${anchorFor(s, anchor)}" direction="${AR_TXT.test(s) ? 'rtl' : 'ltr'}" font-weight="${weight}" xml:space="preserve">${s}</text>`;
+const arrow = (x1, y1, x2, y2, color = '#0e7490', marker = 'ah', dash = '', sw = 2) =>
   `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${sw}" ${dash ? `stroke-dasharray="${dash}"` : ''} marker-end="url(#${marker})"/>`;
-const arrowC = (d, color = '#39c5cf', marker = 'ah', dash = '') =>
+const arrowC = (d, color = '#0e7490', marker = 'ah', dash = '') =>
   `<path d="${d}" fill="none" stroke="${color}" stroke-width="2" ${dash ? `stroke-dasharray="${dash}"` : ''} marker-end="url(#${marker})"/>`;
 
 Object.assign(DIAGRAMS, {
@@ -404,370 +458,370 @@ Object.assign(DIAGRAMS, {
 
 /* Lesson 1: What is Linux — layers */
 'whatis-linux': svgOpen(760, 400) + `
-${box(230, 20, 300, 56, 'rgba(180,140,255,.1)', '#b48cff')}
-${txt(380, 46, '👤 المستخدم — You', 15, '#b48cff', 'middle', 'bold')}
-${txt(380, 66, 'الشخص الذي يكتب الأوامر', 11, '#8b98ab')}
-${arrow(380, 76, 380, 106, '#b48cff', 'ah')}
-${box(230, 108, 300, 62, 'rgba(57,197,207,.08)', '#39c5cf')}
-${txt(380, 132, '🖥️ التطبيقات والأدوات — Applications', 13.5, '#39c5cf', 'middle', 'bold')}
-${txt(380, 155, 'ls • vim • firefox • nginx', 12, '#8b98ab', 'middle', 'normal', true)}
-${arrow(380, 170, 380, 200, '#39c5cf', 'ah')}
-${box(230, 202, 300, 62, 'rgba(61,220,132,.08)', '#3ddc84')}
-${txt(380, 226, '🐚 الصدفة — Shell (Bash)', 13.5, '#3ddc84', 'middle', 'bold')}
-${txt(380, 249, 'المترجم: يحوّل أوامرك إلى نداءات نظام', 11, '#8b98ab')}
-${arrow(380, 264, 380, 294, '#3ddc84', 'ahg')}
-${box(230, 296, 300, 56, 'rgba(255,180,84,.08)', '#ffb454')}
-${txt(380, 319, '⚙️ النواة — Linux Kernel', 14, '#ffb454', 'middle', 'bold')}
-${txt(380, 340, 'قلب النظام: يدير كل شيء', 11, '#8b98ab')}
-${arrow(380, 352, 380, 378, '#ffb454', 'aha')}
+${box(230, 20, 300, 56, '#f5f3ff', '#7c3aed')}
+${txt(380, 46, '👤 المستخدم — You', 15, '#7c3aed', 'middle', 'bold')}
+${txt(380, 66, 'الشخص الذي يكتب الأوامر', 11, '#5a6b82')}
+${arrow(380, 76, 380, 106, '#7c3aed', 'ah')}
+${box(230, 108, 300, 62, '#ecfeff', '#0e7490')}
+${txt(380, 132, '🖥️ التطبيقات والأدوات — Applications', 13.5, '#0e7490', 'middle', 'bold')}
+${txt(380, 155, 'ls • vim • firefox • nginx', 12, '#5a6b82', 'middle', 'normal', true)}
+${arrow(380, 170, 380, 200, '#0e7490', 'ah')}
+${box(230, 202, 300, 62, '#ecfdf5', '#059669')}
+${txt(380, 226, '🐚 الصدفة — Shell (Bash)', 13.5, '#059669', 'middle', 'bold')}
+${txt(380, 249, 'المترجم: يحوّل أوامرك إلى نداءات نظام', 11, '#5a6b82')}
+${arrow(380, 264, 380, 294, '#059669', 'ahg')}
+${box(230, 296, 300, 56, '#fffbeb', '#b45309')}
+${txt(380, 319, '⚙️ النواة — Linux Kernel', 14, '#b45309', 'middle', 'bold')}
+${txt(380, 340, 'قلب النظام: يدير كل شيء', 11, '#5a6b82')}
+${arrow(380, 352, 380, 378, '#b45309', 'aha')}
 ${box(230, 380, 300, 0)}
-${txt(380, 392, '🔩 العتاد — Hardware (CPU / RAM / Disk)', 13, '#ff6ec7', 'middle', 'bold')}
+${txt(380, 392, '🔩 العتاد — Hardware (CPU / RAM / Disk)', 13, '#db2777', 'middle', 'bold')}
 </svg>`,
 
 /* Lesson 2: Distro family tree */
 'distros': svgOpen(780, 430) + `
-${txt(390, 30, '🌿 شجرة عائلة توزيعات لينكس', 15, '#fff', 'middle', 'bold')}
-${box(330, 44, 120, 40, 'rgba(255,180,84,.1)', '#ffb454')}
-${txt(390, 69, 'Linux Kernel', 13, '#ffb454', 'middle', 'bold')}
+${txt(390, 30, '🌿 شجرة عائلة توزيعات لينكس', 15, '#0f172a', 'middle', 'bold')}
+${box(330, 44, 120, 40, '#fffbeb', '#b45309')}
+${txt(390, 69, 'Linux Kernel', 13, '#b45309', 'middle', 'bold')}
 ${arrowC('M340,84 C280,120 220,130 170,150', '#c70036', 'ah')}
-${arrowC('M440,84 C500,120 560,130 610,150', '#10b981', 'ah')}
+${arrowC('M440,84 C500,120 560,130 610,150', '#059669', 'ah')}
 ${arrow(370, 84, 340, 150, '#c70036', 'ah')}
-${txt(170, 138, 'عائلة Debian', 12, '#ff6ec7', 'middle', 'bold')}
-${txt(610, 138, 'عائلة Red Hat', 12, '#39c5cf', 'middle', 'bold')}
-${txt(390, 130, 'أشمل العائلتين', 10, '#8b98ab')}
-${box(80, 152, 180, 44, 'rgba(199,0,54,.12)', '#c70036')}
-${txt(170, 171, 'Debian', 13, '#ff8fa8', 'middle', 'bold')}
-${txt(170, 188, 'المستقر — السيرفرات', 10, '#8b98ab')}
-${box(280, 152, 180, 44, 'rgba(199,0,54,.12)', '#c70036')}
-${txt(370, 171, 'Ubuntu / Kali', 13, '#ff8fa8', 'middle', 'bold')}
-${txt(370, 188, 'سهل — منتشر جدًا', 10, '#8b98ab')}
-${box(480, 152, 180, 44, 'rgba(16,185,129,.12)', '#10b981')}
-${txt(570, 171, 'RHEL ← Rocky / Alma', 12.5, '#5eead4', 'middle', 'bold')}
-${txt(570, 188, 'مؤسسي — سيرفرات الشركات', 10, '#8b98ab')}
-${box(480, 214, 180, 44, 'rgba(16,185,129,.12)', '#10b981')}
-${txt(570, 233, 'Fedora', 13, '#5eead4', 'middle', 'bold')}
-${txt(570, 250, 'مختبر تقنيات Red Hat', 10, '#8b98ab')}
-${arrow(570, 196, 570, 214, '#10b981', 'ah')}
-${box(680, 152, 90, 44, 'rgba(180,140,255,.12)', '#b48cff')}
-${txt(725, 171, 'Arch', 13, '#b48cff', 'middle', 'bold')}
-${txt(725, 188, 'Rolling', 10, '#8b98ab')}
-${box(80, 214, 180, 44, 'rgba(180,140,255,.12)', '#b48cff')}
-${txt(170, 233, 'Linux Mint', 13, '#b48cff', 'middle', 'bold')}
-${txt(170, 250, 'خفيف للمبتدئين', 10, '#8b98ab')}
+${txt(170, 138, 'عائلة Debian', 12, '#db2777', 'middle', 'bold')}
+${txt(610, 138, 'عائلة Red Hat', 12, '#0e7490', 'middle', 'bold')}
+${txt(390, 130, 'أشمل العائلتين', 10, '#5a6b82')}
+${box(80, 152, 180, 44, '#fff1f2', '#c70036')}
+${txt(170, 171, 'Debian', 13, '#dc2626', 'middle', 'bold')}
+${txt(170, 188, 'المستقر — السيرفرات', 10, '#5a6b82')}
+${box(280, 152, 180, 44, '#fff1f2', '#c70036')}
+${txt(370, 171, 'Ubuntu / Kali', 13, '#dc2626', 'middle', 'bold')}
+${txt(370, 188, 'سهل — منتشر جدًا', 10, '#5a6b82')}
+${box(480, 152, 180, 44, '#ecfdf5', '#059669')}
+${txt(570, 171, 'RHEL ← Rocky / Alma', 12.5, '#0f766e', 'middle', 'bold')}
+${txt(570, 188, 'مؤسسي — سيرفرات الشركات', 10, '#5a6b82')}
+${box(480, 214, 180, 44, '#ecfdf5', '#059669')}
+${txt(570, 233, 'Fedora', 13, '#0f766e', 'middle', 'bold')}
+${txt(570, 250, 'مختبر تقنيات Red Hat', 10, '#5a6b82')}
+${arrow(570, 196, 570, 214, '#059669', 'ah')}
+${box(680, 152, 90, 44, '#ede9fe', '#7c3aed')}
+${txt(725, 171, 'Arch', 13, '#7c3aed', 'middle', 'bold')}
+${txt(725, 188, 'Rolling', 10, '#5a6b82')}
+${box(80, 214, 180, 44, '#ede9fe', '#7c3aed')}
+${txt(170, 233, 'Linux Mint', 13, '#7c3aed', 'middle', 'bold')}
+${txt(170, 250, 'خفيف للمبتدئين', 10, '#5a6b82')}
 ${arrow(240, 196, 200, 214, '#c70036', 'ah')}
-${box(60, 300, 320, 100, 'rgba(61,220,132,.06)', '#1f7a4d')}
-${txt(220, 322, '🎓 المضيف (أنت) ستتعلم:', 12.5, '#3ddc84', 'start', 'bold')}
-${txtR(80, 345, '• Debian/Ubuntu: apt, .deb', 12, '#d5dde8', 'start')}
-${txtR(80, 366, '• Rocky/RHEL: dnf, .rpm', 12, '#d5dde8', 'start')}
-${txtR(80, 387, '• الفرق في الأوامر طفيف — المفاهيم واحدة!', 12, '#8b98ab', 'start')}
-${box(410, 300, 320, 100, 'rgba(57,197,207,.06)', '#1e6e75')}
-${txt(570, 322, '🛡️ عالم الـ SOC/Security:', 12.5, '#39c5cf', 'start', 'bold')}
-${txtR(430, 345, '• Kali: اختبار اختراق', 12, '#d5dde8', 'start')}
-${txtR(430, 366, '• Rocky/Debian: سيرفرات الإنتاج', 12, '#d5dde8', 'start')}
-${txtR(430, 387, '• فهم العائلتين = فرص عمل أوسع', 12, '#8b98ab', 'start')}
+${box(60, 300, 320, 100, '#ecfdf5', '#047857')}
+${txt(220, 322, '🎓 المضيف (أنت) ستتعلم:', 12.5, '#059669', 'start', 'bold')}
+${txtR(80, 345, '• Debian/Ubuntu: apt, .deb', 12, '#1e293b', 'start')}
+${txtR(80, 366, '• Rocky/RHEL: dnf, .rpm', 12, '#1e293b', 'start')}
+${txtR(80, 387, '• الفرق في الأوامر طفيف — المفاهيم واحدة!', 12, '#5a6b82', 'start')}
+${box(410, 300, 320, 100, '#ecfeff', '#0e9aa7')}
+${txt(570, 322, '🛡️ عالم الـ SOC/Security:', 12.5, '#0e7490', 'start', 'bold')}
+${txtR(430, 345, '• Kali: اختبار اختراق', 12, '#1e293b', 'start')}
+${txtR(430, 366, '• Rocky/Debian: سيرفرات الإنتاج', 12, '#1e293b', 'start')}
+${txtR(430, 387, '• فهم العائلتين = فرص عمل أوسع', 12, '#5a6b82', 'start')}
 </svg>`,
 
 /* Lesson 3: FHS tree */
 'fhs': svgOpen(780, 470) + `
-${txt(390, 28, '🌳 شجرة نظام الملفات — كل مجلد له وظيفة', 15, '#fff', 'middle', 'bold')}
-${box(340, 40, 100, 38, 'rgba(61,220,132,.12)', '#3ddc84')}
-${txt(390, 64, '/ (الجذر)', 14, '#3ddc84', 'middle', 'bold')}
-${arrow(330, 78, 190, 108, '#2a3a52', 'ah')}
-${arrow(370, 78, 390, 108, '#2a3a52', 'ah')}
-${arrow(450, 78, 590, 108, '#2a3a52', 'ah')}
-${box(70, 110, 240, 34, '#161f30', '#c70036')}
-${txt(190, 132, '/home  ←  ملفات المستخدمين', 12.5, '#ff8fa8', 'middle', 'bold')}
-${box(310, 110, 170, 34, '#161f30', '#ffb454')}
-${txt(395, 132, '/etc  ←  الإعدادات', 12.5, '#ffb454', 'middle', 'bold')}
-${box(500, 110, 210, 34, '#161f30', '#39c5cf')}
-${txt(605, 132, '/var/log  ←  سجلات النظام', 12.5, '#39c5cf', 'middle', 'bold')}
-${arrow(190, 144, 120, 172, '#2a3a52', 'ah')}
-${arrow(190, 144, 270, 172, '#2a3a52', 'ah')}
-${box(30, 174, 180, 34, '#161f30', '#2a3a52')}
-${txt(120, 196, '/home/ahmed', 12, '#8b98ab', 'middle', 'normal', true)}
-${box(220, 174, 180, 34, '#161f30', '#2a3a52')}
-${txt(310, 196, '/home/sara', 12, '#8b98ab', 'middle', 'normal', true)}
-${box(70, 232, 640, 190, 'rgba(22,31,48,.6)', '#1e2a3d', 12)}
-${txt(390, 256, '📂 باقي المجلدات المهمة', 13, '#fff', 'middle', 'bold')}
-${txtR(95, 284, '/bin , /usr/bin', 12.5, '#4af29a', 'start', 'bold', true)}
-${txtR(240, 284, '→ البرامج والأوامر التنفيذية (ls, cp...)', 12, '#8b98ab', 'start')}
-${txtR(95, 308, '/sbin', 12.5, '#4af29a', 'start', 'bold', true)}
-${txtR(240, 308, '→ أوامر النظام للمشرف root (fdisk, ip)', 12, '#8b98ab', 'start')}
-${txtR(95, 332, '/tmp', 12.5, '#4af29a', 'start', 'bold', true)}
-${txtR(240, 332, '→ ملفات مؤقتة — يُفرَّغ عند إعادة التشغيل', 12, '#8b98ab', 'start')}
-${txtR(95, 356, '/boot', 12.5, '#4af29a', 'start', 'bold', true)}
-${txtR(240, 356, '→ ملفات النواة والإقلاع (لا تلمسها!)', 12, '#8b98ab', 'start')}
-${txtR(95, 380, '/dev', 12.5, '#4af29a', 'start', 'bold', true)}
-${txtR(240, 380, '→ الأجهزة كملفات (/dev/sda القرص)', 12, '#8b98ab', 'start')}
-${txtR(95, 404, '/proc , /sys', 12.5, '#4af29a', 'start', 'bold', true)}
-${txtR(240, 404, '→ معلومات حية من النواة (الذاكرة، العمليات)', 12, '#8b98ab', 'start')}
+${txt(390, 28, '🌳 شجرة نظام الملفات — كل مجلد له وظيفة', 15, '#0f172a', 'middle', 'bold')}
+${box(340, 40, 100, 38, '#d1fae5', '#059669')}
+${txt(390, 64, '/ (الجذر)', 14, '#059669', 'middle', 'bold')}
+${arrow(330, 78, 190, 108, '#c3d0e2', 'ah')}
+${arrow(370, 78, 390, 108, '#c3d0e2', 'ah')}
+${arrow(450, 78, 590, 108, '#c3d0e2', 'ah')}
+${box(70, 110, 240, 34, '#ffffff', '#c70036')}
+${txt(190, 132, '/home  ←  ملفات المستخدمين', 12.5, '#dc2626', 'middle', 'bold')}
+${box(310, 110, 170, 34, '#ffffff', '#b45309')}
+${txt(395, 132, '/etc  ←  الإعدادات', 12.5, '#b45309', 'middle', 'bold')}
+${box(500, 110, 210, 34, '#ffffff', '#0e7490')}
+${txt(605, 132, '/var/log  ←  سجلات النظام', 12.5, '#0e7490', 'middle', 'bold')}
+${arrow(190, 144, 120, 172, '#c3d0e2', 'ah')}
+${arrow(190, 144, 270, 172, '#c3d0e2', 'ah')}
+${box(30, 174, 180, 34, '#ffffff', '#c3d0e2')}
+${txt(120, 196, '/home/ahmed', 12, '#5a6b82', 'middle', 'normal', true)}
+${box(220, 174, 180, 34, '#ffffff', '#c3d0e2')}
+${txt(310, 196, '/home/sara', 12, '#5a6b82', 'middle', 'normal', true)}
+${box(70, 232, 640, 190, '#ffffff', '#c3d0e2', 12)}
+${txt(390, 256, '📂 باقي المجلدات المهمة', 13, '#0f172a', 'middle', 'bold')}
+${txtR(95, 284, '/bin , /usr/bin', 12.5, '#047857', 'start', 'bold', true)}
+${txtR(240, 284, '→ البرامج والأوامر التنفيذية (ls, cp...)', 12, '#5a6b82', 'start')}
+${txtR(95, 308, '/sbin', 12.5, '#047857', 'start', 'bold', true)}
+${txtR(240, 308, '→ أوامر النظام للمشرف root (fdisk, ip)', 12, '#5a6b82', 'start')}
+${txtR(95, 332, '/tmp', 12.5, '#047857', 'start', 'bold', true)}
+${txtR(240, 332, '→ ملفات مؤقتة — يُفرَّغ عند إعادة التشغيل', 12, '#5a6b82', 'start')}
+${txtR(95, 356, '/boot', 12.5, '#047857', 'start', 'bold', true)}
+${txtR(240, 356, '→ ملفات النواة والإقلاع (لا تلمسها!)', 12, '#5a6b82', 'start')}
+${txtR(95, 380, '/dev', 12.5, '#047857', 'start', 'bold', true)}
+${txtR(240, 380, '→ الأجهزة كملفات (/dev/sda القرص)', 12, '#5a6b82', 'start')}
+${txtR(95, 404, '/proc , /sys', 12.5, '#047857', 'start', 'bold', true)}
+${txtR(240, 404, '→ معلومات حية من النواة (الذاكرة، العمليات)', 12, '#5a6b82', 'start')}
 </svg>`,
 
 /* Lesson 4: Terminal vs GUI */
 'terminal-vs-gui': svgOpen(760, 330) + `
-${txt(380, 28, 'لماذا الطرفية أقوى من الواجهة الرسومية؟', 15, '#fff', 'middle', 'bold')}
-${box(40, 55, 320, 110, 'rgba(57,197,207,.06)', '#1e6e75')}
-${txt(200, 80, '🖱️ الواجهة الرسومية (GUI)', 13.5, '#39c5cf', 'middle', 'bold')}
-${txtR(60, 105, '• تكرر نفس العمل يدويًا 100 مرة', 12, '#8b98ab', 'start')}
-${txtR(60, 127, '• تحتاج شاشة وسيرفر X/Wayland', 12, '#8b98ab', 'start')}
-${txtR(60, 149, '• بطيئة على السيرفرات البعيدة', 12, '#8b98ab', 'start')}
-${box(400, 55, 320, 110, 'rgba(61,220,132,.06)', '#1f7a4d')}
-${txt(560, 80, '⌨️ الطرفية (Terminal)', 13.5, '#3ddc84', 'middle', 'bold')}
-${txtR(420, 105, '• أتمتة كاملة: أمر واحد = 100 عملية', 12, '#8b98ab', 'start')}
-${txtR(420, 127, '• تعمل عبر SSH بدون واجهة', 12, '#8b98ab', 'start')}
-${txtR(420, 149, '• كل سيرفرات العالم تعمل هكذا', 12, '#8b98ab', 'start')}
-${box(140, 200, 480, 100, 'rgba(255,180,84,.05)', '#ffb454')}
-${txt(380, 224, '🏃 سباق حقيقي: أنشئ 1000 مجلد', 13, '#ffb454', 'middle', 'bold')}
-${txt(380, 252, 'GUI: 1000 نقرة × 3 ثوان = 50 دقيقة 😫', 12.5, '#ff8fa8', 'middle', 'normal', true)}
-${txt(380, 278, 'Terminal: mkdir folder{1..1000} = أقل من ثانية 🚀', 12.5, '#4af29a', 'middle', 'normal', true)}
+${txt(380, 28, 'لماذا الطرفية أقوى من الواجهة الرسومية؟', 15, '#0f172a', 'middle', 'bold')}
+${box(40, 55, 320, 110, '#ecfeff', '#0e9aa7')}
+${txt(200, 80, '🖱️ الواجهة الرسومية (GUI)', 13.5, '#0e7490', 'middle', 'bold')}
+${txtR(60, 105, '• تكرر نفس العمل يدويًا 100 مرة', 12, '#5a6b82', 'start')}
+${txtR(60, 127, '• تحتاج شاشة وسيرفر X/Wayland', 12, '#5a6b82', 'start')}
+${txtR(60, 149, '• بطيئة على السيرفرات البعيدة', 12, '#5a6b82', 'start')}
+${box(400, 55, 320, 110, '#ecfdf5', '#047857')}
+${txt(560, 80, '⌨️ الطرفية (Terminal)', 13.5, '#059669', 'middle', 'bold')}
+${txtR(420, 105, '• أتمتة كاملة: أمر واحد = 100 عملية', 12, '#5a6b82', 'start')}
+${txtR(420, 127, '• تعمل عبر SSH بدون واجهة', 12, '#5a6b82', 'start')}
+${txtR(420, 149, '• كل سيرفرات العالم تعمل هكذا', 12, '#5a6b82', 'start')}
+${box(140, 200, 480, 100, '#fffbeb', '#b45309')}
+${txt(380, 224, '🏃 سباق حقيقي: أنشئ 1000 مجلد', 13, '#b45309', 'middle', 'bold')}
+${txt(380, 252, 'GUI: 1000 نقرة × 3 ثوان = 50 دقيقة 😫', 12.5, '#dc2626', 'middle', 'normal', true)}
+${txt(380, 278, 'Terminal: mkdir folder{1..1000} = أقل من ثانية 🚀', 12.5, '#047857', 'middle', 'normal', true)}
 </svg>`,
 
 /* Lesson 5: Navigation map */
 'navigation': svgOpen(780, 380) + `
-${txt(390, 28, '🗺️ خريطة التنقل بين المجلدات — من أين أبدأ وإلى أين أذهب؟', 14, '#fff', 'middle', 'bold')}
-${box(20, 60, 150, 56, 'rgba(61,220,132,.1)', '#3ddc84')}
-${txt(95, 83, 'أنت هنا أول ما تفتح', 11, '#8b98ab')}
-${txt(95, 103, '/home/ahmed', 12.5, '#4af29a', 'middle', 'bold', true)}
-${txt(95, 140, 'cd ~', 12, '#ffb454', 'middle', 'bold', true)}
-${arrow(170, 88, 300, 88, '#39c5cf', 'ah')}
-${txt(235, 78, 'cd /etc', 11.5, '#39c5cf', 'middle', 'normal', true)}
-${box(300, 60, 170, 56, 'rgba(255,180,84,.1)', '#ffb454')}
-${txt(385, 83, 'إعدادات النظام', 11, '#8b98ab')}
-${txt(385, 103, '/etc', 13, '#ffb454', 'middle', 'bold', true)}
-${arrow(470, 88, 600, 88, '#39c5cf', 'ah')}
-${txt(535, 78, 'cd /var/log', 11.5, '#39c5cf', 'middle', 'normal', true)}
-${box(600, 60, 160, 56, 'rgba(57,197,207,.1)', '#39c5cf')}
-${txt(680, 83, 'سجلات الأحداث', 11, '#8b98ab')}
-${txt(680, 103, '/var/log', 13, '#39c5cf', 'middle', 'bold', true)}
-${box(150, 180, 480, 170, 'rgba(22,31,48,.7)', '#1e2a3d', 12)}
-${txt(390, 206, '🧭 بوصلة الأوامر', 13.5, '#fff', 'middle', 'bold')}
-${txtR(175, 234, 'pwd', 12.5, '#4af29a', 'start', 'bold', true)}
-${txtR(250, 234, '→ أين أنا الآن؟ (اطبع اسم المجلد)', 12, '#d5dde8', 'start')}
-${txtR(175, 258, 'ls', 12.5, '#4af29a', 'start', 'bold', true)}
-${txtR(250, 258, '→ ماذا يوجد حولي؟ (اعرض المحتويات)', 12, '#d5dde8', 'start')}
-${txtR(175, 282, 'cd ..', 12.5, '#4af29a', 'start', 'bold', true)}
-${txtR(250, 282, '→ اصعد درجة واحدة للأعلى', 12, '#d5dde8', 'start')}
-${txtR(175, 306, 'cd /', 12.5, '#4af29a', 'start', 'bold', true)}
-${txtR(250, 306, '→ اذهب إلى الجذر مباشرة', 12, '#d5dde8', 'start')}
-${txtR(175, 330, 'cd -', 12.5, '#4af29a', 'start', 'bold', true)}
-${txtR(250, 330, '→ ارجع للمجلد السابق (زِر الرجوع)', 12, '#d5dde8', 'start')}
+${txt(390, 28, '🗺️ خريطة التنقل بين المجلدات — من أين أبدأ وإلى أين أذهب؟', 14, '#0f172a', 'middle', 'bold')}
+${box(20, 60, 150, 56, '#ecfdf5', '#059669')}
+${txt(95, 83, 'أنت هنا أول ما تفتح', 11, '#5a6b82')}
+${txt(95, 103, '/home/ahmed', 12.5, '#047857', 'middle', 'bold', true)}
+${txt(95, 140, 'cd ~', 12, '#b45309', 'middle', 'bold', true)}
+${arrow(170, 88, 300, 88, '#0e7490', 'ah')}
+${txt(235, 78, 'cd /etc', 11.5, '#0e7490', 'middle', 'normal', true)}
+${box(300, 60, 170, 56, '#fffbeb', '#b45309')}
+${txt(385, 83, 'إعدادات النظام', 11, '#5a6b82')}
+${txt(385, 103, '/etc', 13, '#b45309', 'middle', 'bold', true)}
+${arrow(470, 88, 600, 88, '#0e7490', 'ah')}
+${txt(535, 78, 'cd /var/log', 11.5, '#0e7490', 'middle', 'normal', true)}
+${box(600, 60, 160, 56, '#cffafe', '#0e7490')}
+${txt(680, 83, 'سجلات الأحداث', 11, '#5a6b82')}
+${txt(680, 103, '/var/log', 13, '#0e7490', 'middle', 'bold', true)}
+${box(150, 180, 480, 170, '#ffffff', '#c3d0e2', 12)}
+${txt(390, 206, '🧭 بوصلة الأوامر', 13.5, '#0f172a', 'middle', 'bold')}
+${txtR(175, 234, 'pwd', 12.5, '#047857', 'start', 'bold', true)}
+${txtR(250, 234, '→ أين أنا الآن؟ (اطبع اسم المجلد)', 12, '#1e293b', 'start')}
+${txtR(175, 258, 'ls', 12.5, '#047857', 'start', 'bold', true)}
+${txtR(250, 258, '→ ماذا يوجد حولي؟ (اعرض المحتويات)', 12, '#1e293b', 'start')}
+${txtR(175, 282, 'cd ..', 12.5, '#047857', 'start', 'bold', true)}
+${txtR(250, 282, '→ اصعد درجة واحدة للأعلى', 12, '#1e293b', 'start')}
+${txtR(175, 306, 'cd /', 12.5, '#047857', 'start', 'bold', true)}
+${txtR(250, 306, '→ اذهب إلى الجذر مباشرة', 12, '#1e293b', 'start')}
+${txtR(175, 330, 'cd -', 12.5, '#047857', 'start', 'bold', true)}
+${txtR(250, 330, '→ ارجع للمجلد السابق (زِر الرجوع)', 12, '#1e293b', 'start')}
 </svg>`,
 
 /* ============ Unit 2 ============ */
 
 /* Lesson 6: Users & Groups */
 'users-groups': svgOpen(780, 420) + `
-${txt(390, 28, '👥 خريطة العلاقات: المستخدم ← الجروب ← الصلاحية', 14.5, '#fff', 'middle', 'bold')}
-${box(30, 60, 200, 62, 'rgba(61,220,132,.1)', '#3ddc84')}
-${txt(130, 83, 'المستخدم ahmed', 13, '#4af29a', 'middle', 'bold', true)}
-${txt(130, 106, 'uid=1001', 12, '#8b98ab', 'middle', 'normal', true)}
-${box(300, 60, 200, 62, 'rgba(57,197,207,.1)', '#39c5cf')}
-${txt(400, 83, 'الجروب developers', 12.5, '#39c5cf', 'middle', 'bold', true)}
-${txt(400, 106, 'gid=2001', 12, '#8b98ab', 'middle', 'normal', true)}
-${box(570, 60, 180, 62, 'rgba(255,180,84,.1)', '#ffb454')}
-${txt(660, 83, 'الملف app.py', 13, '#ffb454', 'middle', 'bold', true)}
-${txt(660, 106, 'owner: dev group: rw', 11, '#8b98ab', 'middle', 'normal', true)}
-${arrow(230, 91, 300, 91, '#39c5cf', 'ah')}
-${txt(265, 81, 'ينتمي لـ', 11, '#8b98ab')}
-${arrow(500, 91, 570, 91, '#39c5cf', 'ah')}
-${txt(535, 81, 'له صلاحية', 11, '#8b98ab')}
-${box(30, 170, 350, 96, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(205, 194, '📄 الملفات الثلاثة الحاكمة', 12.5, '#fff', 'middle', 'bold')}
-${txtR(48, 220, '/etc/passwd  → من هم المستخدمون؟', 12, '#4af29a', 'start', 'normal', true)}
-${txtR(48, 242, '/etc/group   → ما هي الجروبات؟', 12, '#4af29a', 'start', 'normal', true)}
-${txtR(48, 258, '/etc/shadow  → الباسوردات مشفّرة 🔒', 12, '#ff8fa8', 'start', 'normal', true)}
-${box(410, 170, 340, 96, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(580, 194, '👑 المستخدم الجذر root', 12.5, '#ff6ec7', 'middle', 'bold')}
-${txtR(428, 220, 'uid=0 — لا يقف أمامه شيء', 12, '#d5dde8', 'start')}
-${txtR(428, 242, 'يستخدم sudo للتخفي به', 12, '#d5dde8', 'start')}
-${box(30, 300, 720, 92, 'rgba(61,220,132,.05)', '#1f7a4d', 12)}
-${txt(390, 324, '🛡️ زاوية المحقق: لماذا تهمّ الجروبات في الـ SOC؟', 12.5, '#3ddc84', 'middle', 'bold')}
-${txt(390, 350, 'المهاجم الذي يستولي على جروب sudo يملك السيرفر كله — راقب دائمًا من يُضاف إلى wheel/sudo', 12, '#d5dde8')}
-${txt(390, 374, 'grep -E "sudo|wheel" /etc/group  ← أول أمر تحقق به', 12, '#ffb454', 'middle', 'normal', true)}
+${txt(390, 28, '👥 خريطة العلاقات: المستخدم ← الجروب ← الصلاحية', 14.5, '#0f172a', 'middle', 'bold')}
+${box(30, 60, 200, 62, '#ecfdf5', '#059669')}
+${txt(130, 83, 'المستخدم ahmed', 13, '#047857', 'middle', 'bold', true)}
+${txt(130, 106, 'uid=1001', 12, '#5a6b82', 'middle', 'normal', true)}
+${box(300, 60, 200, 62, '#cffafe', '#0e7490')}
+${txt(400, 83, 'الجروب developers', 12.5, '#0e7490', 'middle', 'bold', true)}
+${txt(400, 106, 'gid=2001', 12, '#5a6b82', 'middle', 'normal', true)}
+${box(570, 60, 180, 62, '#fffbeb', '#b45309')}
+${txt(660, 83, 'الملف app.py', 13, '#b45309', 'middle', 'bold', true)}
+${txt(660, 106, 'owner: dev group: rw', 11, '#5a6b82', 'middle', 'normal', true)}
+${arrow(230, 91, 300, 91, '#0e7490', 'ah')}
+${txt(265, 81, 'ينتمي لـ', 11, '#5a6b82')}
+${arrow(500, 91, 570, 91, '#0e7490', 'ah')}
+${txt(535, 81, 'له صلاحية', 11, '#5a6b82')}
+${box(30, 170, 350, 96, '#ffffff', '#c3d0e2', 12)}
+${txt(205, 194, '📄 الملفات الثلاثة الحاكمة', 12.5, '#0f172a', 'middle', 'bold')}
+${txtR(48, 220, '/etc/passwd  → من هم المستخدمون؟', 12, '#047857', 'start', 'normal', true)}
+${txtR(48, 242, '/etc/group   → ما هي الجروبات؟', 12, '#047857', 'start', 'normal', true)}
+${txtR(48, 258, '/etc/shadow  → الباسوردات مشفّرة 🔒', 12, '#dc2626', 'start', 'normal', true)}
+${box(410, 170, 340, 96, '#fdf2f8', '#db2777', 12)}
+${txt(580, 194, '👑 المستخدم الجذر root', 12.5, '#db2777', 'middle', 'bold')}
+${txtR(428, 220, 'uid=0 — لا يقف أمامه شيء', 12, '#1e293b', 'start')}
+${txtR(428, 242, 'يستخدم sudo للتخفي به', 12, '#1e293b', 'start')}
+${box(30, 300, 720, 92, '#f0fdf4', '#047857', 12)}
+${txt(390, 324, '🛡️ زاوية المحقق: لماذا تهمّ الجروبات في الـ SOC؟', 12.5, '#059669', 'middle', 'bold')}
+${txt(390, 350, 'المهاجم الذي يستولي على جروب sudo يملك السيرفر كله — راقب دائمًا من يُضاف إلى wheel/sudo', 12, '#1e293b')}
+${txt(390, 374, 'grep -E "sudo|wheel" /etc/group  ← أول أمر تحقق به', 12, '#b45309', 'middle', 'normal', true)}
 </svg>`,
 
 /* Lesson 7: Permissions breakdown */
 'permissions': svgOpen(780, 380) + `
-${txt(390, 30, '🔓 فك شفرة صلاحيات الملف — سطر ls -l مقطّعًا', 15, '#fff', 'middle', 'bold')}
-${txt(390, 66, '-  rwx  r-x  r--  ahmed  dev  app.py', 17, '#4af29a', 'middle', 'bold', true)}
-${txt(390, 86, '↓    ↓    ↓    ↓    ↓      ↓', 14, '#8b98ab', 'middle', 'normal', true)}
-${box(30, 100, 140, 76, 'rgba(255,95,110,.1)', '#ff5f6e', 10)}
-${txt(100, 122, 'النوع', 12.5, '#ff5f6e', 'middle', 'bold')}
-${txt(100, 143, '- ملف', 11.5, '#d5dde8', 'middle', 'normal', true)}
-${txt(100, 161, 'd مجلد', 11.5, '#d5dde8', 'middle', 'normal', true)}
-${box(180, 100, 170, 76, 'rgba(61,220,132,.1)', '#3ddc84', 10)}
-${txt(265, 122, 'rwx — المالك Owner', 12, '#4af29a', 'middle', 'bold')}
-${txt(265, 143, 'read / write / execute', 11, '#d5dde8', 'middle', 'normal', true)}
-${txt(265, 161, 'ahmed فقط', 11, '#8b98ab', 'middle')}
-${box(360, 100, 170, 76, 'rgba(57,197,207,.1)', '#39c5cf', 10)}
-${txt(445, 122, 'r-x — الجروب Group', 12, '#39c5cf', 'middle', 'bold')}
-${txt(445, 143, 'يقرأ وينفّذ — لا يعدّل', 11, '#d5dde8', 'middle')}
-${txt(445, 161, 'أعضاء dev', 11, '#8b98ab', 'middle')}
-${box(540, 100, 170, 76, 'rgba(180,140,255,.1)', '#b48cff', 10)}
-${txt(625, 122, 'r-- — الآخرون Others', 12, '#b48cff', 'middle', 'bold')}
-${txt(625, 143, 'قراءة فقط', 11, '#d5dde8', 'middle')}
-${txt(625, 161, 'أي شخص آخر', 11, '#8b98ab', 'middle')}
-${box(30, 210, 340, 140, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(200, 234, '🔢 الحساب الثماني (Octal)', 12.5, '#fff', 'middle', 'bold')}
-${txt(200, 262, 'rwx  = 4+2+1 = 7', 13, '#4af29a', 'middle', 'normal', true)}
-${txt(200, 285, 'r-x  = 4+0+1 = 5', 13, '#39c5cf', 'middle', 'normal', true)}
-${txt(200, 308, 'r--  = 4+0+0 = 4', 13, '#b48cff', 'middle', 'normal', true)}
-${txt(200, 336, 'إذن: chmod 754 app.py', 12.5, '#ffb454', 'middle', 'bold', true)}
-${box(400, 210, 350, 140, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(575, 234, '🚨 الأعلام الخطرة — عين الـ SOC', 12.5, '#ff6ec7', 'middle', 'bold')}
-${txtR(418, 262, 'SUID (rws)  → ينفّذ بصلاحية المالك', 12, '#d5dde8', 'start', 'normal', true)}
-${txtR(418, 285, 'SGID (rws على مجلد) → يورّث الجروب', 12, '#d5dde8', 'start', 'normal', true)}
-${txtR(418, 308, 'Sticky (t) → /tmp الملف لصاحبه فقط', 12, '#d5dde8', 'start', 'normal', true)}
-${txtR(418, 336, 'find / -perm -4000  ← اكتشفها فورًا', 12, '#ffb454', 'start', 'normal', true)}
+${txt(390, 30, '🔓 فك شفرة صلاحيات الملف — سطر ls -l مقطّعًا', 15, '#0f172a', 'middle', 'bold')}
+${txt(390, 66, '-  rwx  r-x  r--  ahmed  dev  app.py', 17, '#047857', 'middle', 'bold', true)}
+${txt(390, 86, '↓    ↓    ↓    ↓    ↓      ↓', 14, '#5a6b82', 'middle', 'normal', true)}
+${box(30, 100, 140, 76, '#fef2f2', '#dc2626', 10)}
+${txt(100, 122, 'النوع', 12.5, '#dc2626', 'middle', 'bold')}
+${txt(100, 143, '- ملف', 11.5, '#1e293b', 'middle', 'normal', true)}
+${txt(100, 161, 'd مجلد', 11.5, '#1e293b', 'middle', 'normal', true)}
+${box(180, 100, 170, 76, '#ecfdf5', '#059669', 10)}
+${txt(265, 122, 'rwx — المالك Owner', 12, '#047857', 'middle', 'bold')}
+${txt(265, 143, 'read / write / execute', 11, '#1e293b', 'middle', 'normal', true)}
+${txt(265, 161, 'ahmed فقط', 11, '#5a6b82', 'middle')}
+${box(360, 100, 170, 76, '#cffafe', '#0e7490', 10)}
+${txt(445, 122, 'r-x — الجروب Group', 12, '#0e7490', 'middle', 'bold')}
+${txt(445, 143, 'يقرأ وينفّذ — لا يعدّل', 11, '#1e293b', 'middle')}
+${txt(445, 161, 'أعضاء dev', 11, '#5a6b82', 'middle')}
+${box(540, 100, 170, 76, '#f5f3ff', '#7c3aed', 10)}
+${txt(625, 122, 'r-- — الآخرون Others', 12, '#7c3aed', 'middle', 'bold')}
+${txt(625, 143, 'قراءة فقط', 11, '#1e293b', 'middle')}
+${txt(625, 161, 'أي شخص آخر', 11, '#5a6b82', 'middle')}
+${box(30, 210, 340, 140, '#ffffff', '#c3d0e2', 12)}
+${txt(200, 234, '🔢 الحساب الثماني (Octal)', 12.5, '#0f172a', 'middle', 'bold')}
+${txt(200, 262, 'rwx  = 4+2+1 = 7', 13, '#047857', 'middle', 'normal', true)}
+${txt(200, 285, 'r-x  = 4+0+1 = 5', 13, '#0e7490', 'middle', 'normal', true)}
+${txt(200, 308, 'r--  = 4+0+0 = 4', 13, '#7c3aed', 'middle', 'normal', true)}
+${txt(200, 336, 'إذن: chmod 754 app.py', 12.5, '#b45309', 'middle', 'bold', true)}
+${box(400, 210, 350, 140, '#fdf2f8', '#db2777', 12)}
+${txt(575, 234, '🚨 الأعلام الخطرة — عين الـ SOC', 12.5, '#db2777', 'middle', 'bold')}
+${txtR(418, 262, 'SUID (rws)  → ينفّذ بصلاحية المالك', 12, '#1e293b', 'start', 'normal', true)}
+${txtR(418, 285, 'SGID (rws على مجلد) → يورّث الجروب', 12, '#1e293b', 'start', 'normal', true)}
+${txtR(418, 308, 'Sticky (t) → /tmp الملف لصاحبه فقط', 12, '#1e293b', 'start', 'normal', true)}
+${txtR(418, 336, 'find / -perm -4000  ← اكتشفها فورًا', 12, '#b45309', 'start', 'normal', true)}
 </svg>`,
 
 /* Lesson 8: Process tree & states */
 'processes': svgOpen(780, 400) + `
-${txt(390, 28, '⚙️ شجرة العمليات ودورة حياتها — من systemd إلى آخر عملية', 14, '#fff', 'middle', 'bold')}
-${box(310, 48, 160, 44, 'rgba(255,180,84,.12)', '#ffb454')}
-${txt(390, 68, 'systemd (PID 1)', 13, '#ffb454', 'middle', 'bold', true)}
-${txt(390, 85, 'جدّ كل العمليات', 10.5, '#8b98ab')}
-${arrow(340, 92, 200, 126, '#39c5cf', 'ah')}
-${arrow(390, 92, 390, 126, '#39c5cf', 'ah')}
-${arrow(440, 92, 580, 126, '#39c5cf', 'ah')}
-${box(110, 128, 180, 42, '#161f30', '#2a3a52')}
-${txt(200, 147, 'sshd', 12.5, '#4af29a', 'middle', 'bold', true)}
-${txt(200, 163, 'خادم الاتصال البعيد', 10, '#8b98ab')}
-${box(300, 128, 180, 42, '#161f30', '#2a3a52')}
-${txt(390, 147, 'nginx', 12.5, '#4af29a', 'middle', 'bold', true)}
-${txt(390, 163, 'خادم الويب', 10, '#8b98ab')}
-${box(490, 128, 180, 42, '#161f30', '#2a3a52')}
-${txt(580, 147, 'mysqld', 12.5, '#4af29a', 'middle', 'bold', true)}
-${txt(580, 163, 'قاعدة البيانات', 10, '#8b98ab')}
-${arrow(200, 170, 200, 196, '#39c5cf', 'ah')}
-${box(110, 198, 180, 36, 'rgba(57,197,207,.08)', '#1e6e75')}
-${txt(200, 221, 'bash (ابن sshd)', 12, '#39c5cf', 'middle', 'normal', true)}
-${arrow(200, 234, 200, 258, '#39c5cf', 'ah')}
-${box(110, 260, 180, 36, 'rgba(61,220,132,.08)', '#1f7a4d')}
-${txt(200, 283, 'ls (حفيد — يعمل وينتهي)', 11.5, '#4af29a', 'middle', 'normal', true)}
-${box(30, 320, 340, 62, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(200, 342, '🚦 حالات العملية', 12.5, '#fff', 'middle', 'bold')}
-${txt(200, 364, 'R تعمل ← S نائمة ← D إدخال/إخراج ← Z ميتة (زومبي!) ← T متوقفة', 11, '#d5dde8', 'middle', 'normal', true)}
-${box(400, 320, 350, 62, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(575, 342, '🛡️ عين الـ SOC:', 12.5, '#ff6ec7', 'middle', 'bold')}
-${txt(575, 364, 'عملية غريبة؟ ps aux --sort=-%cpu | head -20', 11.5, '#ffb454', 'middle', 'normal', true)}
+${txt(390, 28, '⚙️ شجرة العمليات ودورة حياتها — من systemd إلى آخر عملية', 14, '#0f172a', 'middle', 'bold')}
+${box(310, 48, 160, 44, '#fef3c7', '#b45309')}
+${txt(390, 68, 'systemd (PID 1)', 13, '#b45309', 'middle', 'bold', true)}
+${txt(390, 85, 'جدّ كل العمليات', 10.5, '#5a6b82')}
+${arrow(340, 92, 200, 126, '#0e7490', 'ah')}
+${arrow(390, 92, 390, 126, '#0e7490', 'ah')}
+${arrow(440, 92, 580, 126, '#0e7490', 'ah')}
+${box(110, 128, 180, 42, '#ffffff', '#c3d0e2')}
+${txt(200, 147, 'sshd', 12.5, '#047857', 'middle', 'bold', true)}
+${txt(200, 163, 'خادم الاتصال البعيد', 10, '#5a6b82')}
+${box(300, 128, 180, 42, '#ffffff', '#c3d0e2')}
+${txt(390, 147, 'nginx', 12.5, '#047857', 'middle', 'bold', true)}
+${txt(390, 163, 'خادم الويب', 10, '#5a6b82')}
+${box(490, 128, 180, 42, '#ffffff', '#c3d0e2')}
+${txt(580, 147, 'mysqld', 12.5, '#047857', 'middle', 'bold', true)}
+${txt(580, 163, 'قاعدة البيانات', 10, '#5a6b82')}
+${arrow(200, 170, 200, 196, '#0e7490', 'ah')}
+${box(110, 198, 180, 36, '#ecfeff', '#0e9aa7')}
+${txt(200, 221, 'bash (ابن sshd)', 12, '#0e7490', 'middle', 'normal', true)}
+${arrow(200, 234, 200, 258, '#0e7490', 'ah')}
+${box(110, 260, 180, 36, '#ecfdf5', '#047857')}
+${txt(200, 283, 'ls (حفيد — يعمل وينتهي)', 11.5, '#047857', 'middle', 'normal', true)}
+${box(30, 320, 340, 66, '#ffffff', '#c3d0e2', 12)}
+${txt(200, 342, '🚦 حالات العملية', 12.5, '#0f172a', 'middle', 'bold')}
+${txt(200, 364, 'R تعمل ← S نائمة ← D إدخال/إخراج ← Z زومبي ← T متوقفة', 10, '#1e293b', 'middle', 'normal', true)}
+${box(400, 320, 350, 62, '#fdf2f8', '#db2777', 12)}
+${txt(575, 342, '🛡️ عين الـ SOC:', 12.5, '#db2777', 'middle', 'bold')}
+${txt(575, 364, 'عملية غريبة؟ ps aux --sort=-%cpu | head -20', 11.5, '#b45309', 'middle', 'normal', true)}
 </svg>`,
 
 /* Lesson 9: systemd boot flow */
 'systemd': svgOpen(780, 340) + `
-${txt(390, 28, '🔄 رحلة إقلاع النظام: من زر الباور حتى شاشة الدخول', 14, '#fff', 'middle', 'bold')}
-${box(20, 50, 160, 50, 'rgba(255,95,110,.08)', '#ff5f6e', 10)}
-${txt(100, 70, '1️⃣ BIOS/UEFI', 12.5, '#ff5f6e', 'middle', 'bold')}
-${txt(100, 89, 'يفحص العتاد', 10.5, '#8b98ab')}
-${arrow(180, 75, 220, 75, '#39c5cf', 'ah')}
-${box(220, 50, 160, 50, 'rgba(255,180,84,.08)', '#ffb454', 10)}
-${txt(300, 70, '2️⃣ GRUB', 12.5, '#ffb454', 'middle', 'bold')}
-${txt(300, 89, 'قائمة الإقلاع', 10.5, '#8b98ab')}
-${arrow(380, 75, 420, 75, '#39c5cf', 'ah')}
-${box(420, 50, 160, 50, 'rgba(61,220,132,.08)', '#3ddc84', 10)}
-${txt(500, 70, '3️⃣ Kernel', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(500, 89, 'النواة تحمّل نفسها', 10.5, '#8b98ab')}
-${arrow(580, 75, 620, 75, '#39c5cf', 'ah')}
-${box(620, 50, 140, 50, 'rgba(57,197,207,.08)', '#39c5cf', 10)}
-${txt(690, 70, '4️⃣ systemd', 12.5, '#39c5cf', 'middle', 'bold')}
-${txt(690, 89, 'PID 1 يبدأ!', 10.5, '#8b98ab')}
-${arrow(690, 100, 690, 130, '#39c5cf', 'ah')}
-${arrowC('M690,130 C690,180 400,150 390,180', '#39c5cf', 'ah')}
-${box(240, 182, 300, 46, 'rgba(180,140,255,.08)', '#b48cff', 10)}
-${txt(390, 202, 'systemd يشغّل الـ Targets (مجموعات خدمات)', 12, '#b48cff', 'middle', 'bold')}
-${txt(390, 220, 'multi-user.target = السيرفر | graphical.target = سطح مكتب', 10.5, '#8b98ab')}
-${box(30, 250, 720, 70, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(390, 272, '🛠️ أوامرك اليومية مع systemd', 12.5, '#fff', 'middle', 'bold')}
-${txt(390, 298, 'systemctl status nginx  •  systemctl enable --now nginx  •  journalctl -u nginx -f', 12, '#4af29a', 'middle', 'normal', true)}
+${txt(390, 28, '🔄 رحلة إقلاع النظام: من زر الباور حتى شاشة الدخول', 14, '#0f172a', 'middle', 'bold')}
+${box(20, 50, 160, 50, '#fef2f2', '#dc2626', 10)}
+${txt(100, 70, '1️⃣ BIOS/UEFI', 12.5, '#dc2626', 'middle', 'bold')}
+${txt(100, 89, 'يفحص العتاد', 10.5, '#5a6b82')}
+${arrow(180, 75, 220, 75, '#0e7490', 'ah')}
+${box(220, 50, 160, 50, '#fffbeb', '#b45309', 10)}
+${txt(300, 70, '2️⃣ GRUB', 12.5, '#b45309', 'middle', 'bold')}
+${txt(300, 89, 'قائمة الإقلاع', 10.5, '#5a6b82')}
+${arrow(380, 75, 420, 75, '#0e7490', 'ah')}
+${box(420, 50, 160, 50, '#ecfdf5', '#059669', 10)}
+${txt(500, 70, '3️⃣ Kernel', 12.5, '#047857', 'middle', 'bold')}
+${txt(500, 89, 'النواة تحمّل نفسها', 10.5, '#5a6b82')}
+${arrow(580, 75, 620, 75, '#0e7490', 'ah')}
+${box(620, 50, 140, 50, '#ecfeff', '#0e7490', 10)}
+${txt(690, 70, '4️⃣ systemd', 12.5, '#0e7490', 'middle', 'bold')}
+${txt(690, 89, 'PID 1 يبدأ!', 10.5, '#5a6b82')}
+${arrow(690, 100, 690, 130, '#0e7490', 'ah')}
+${arrowC('M690,130 C690,180 400,150 390,180', '#0e7490', 'ah')}
+${box(240, 182, 300, 46, '#f5f3ff', '#7c3aed', 10)}
+${txt(390, 202, 'systemd يشغّل الـ Targets (مجموعات خدمات)', 12, '#7c3aed', 'middle', 'bold')}
+${txt(390, 220, 'multi-user.target = السيرفر | graphical.target = سطح مكتب', 10.5, '#5a6b82')}
+${box(30, 250, 720, 70, '#ffffff', '#c3d0e2', 12)}
+${txt(390, 272, '🛠️ أوامرك اليومية مع systemd', 12.5, '#0f172a', 'middle', 'bold')}
+${txt(390, 298, 'systemctl status nginx  •  systemctl enable --now nginx  •  journalctl -u nginx -f', 12, '#047857', 'middle', 'normal', true)}
 </svg>`,
 
 /* Lesson 10: Package management flow */
 'packages': svgOpen(780, 360) + `
-${txt(390, 28, '📦 دورة حياة الحزمة: من المستودع البعيد إلى نظامك', 14, '#fff', 'middle', 'bold')}
-${box(20, 55, 220, 60, 'rgba(57,197,207,.1)', '#39c5cf', 10)}
-${txt(130, 77, '☁️ المستودع Repository', 12.5, '#39c5cf', 'middle', 'bold')}
-${txt(130, 100, 'مكتبة ضخمة على الإنترنت', 10.5, '#8b98ab')}
-${arrow(240, 85, 300, 85, '#39c5cf', 'ah')}
-${txt(270, 75, 'apt update / dnf check', 10, '#8b98ab', 'middle', 'normal', true)}
-${box(300, 55, 200, 60, 'rgba(255,180,84,.1)', '#ffb454', 10)}
-${txt(400, 77, '📦 الحزمة', 12.5, '#ffb454', 'middle', 'bold')}
-${txt(400, 100, '.deb أو .rpm', 11, '#8b98ab', 'middle', 'normal', true)}
-${arrow(500, 85, 560, 85, '#39c5cf', 'ah')}
-${txt(530, 75, 'apt install / dnf install', 10, '#8b98ab', 'middle', 'normal', true)}
-${box(560, 55, 200, 60, 'rgba(61,220,132,.1)', '#3ddc84', 10)}
-${txt(660, 77, '✅ مثبتة وتعمل', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(660, 100, 'مع تبعياتها dependencies', 10.5, '#8b98ab')}
-${box(20, 150, 350, 90, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(195, 172, '🐧 عائلة Debian', 12.5, '#ff8fa8', 'middle', 'bold')}
-${txt(195, 196, 'apt update && apt install nginx', 11.5, '#4af29a', 'middle', 'normal', true)}
-${txt(195, 219, 'dpkg -i package.deb', 11.5, '#4af29a', 'middle', 'normal', true)}
-${box(410, 150, 350, 90, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(585, 172, '🎩 عائلة Red Hat/Rocky', 12.5, '#5eead4', 'middle', 'bold')}
-${txt(585, 196, 'dnf install nginx', 11.5, '#4af29a', 'middle', 'normal', true)}
-${txt(585, 219, 'rpm -ivh package.rpm', 11.5, '#4af29a', 'middle', 'normal', true)}
-${box(20, 265, 740, 70, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(390, 287, '🛡️ زاوية الـ SOC: التثبيت من خارج المستودعات الرسمية مصدر خطر شائع', 12, '#ff6ec7', 'middle', 'bold')}
-${txt(390, 312, 'تحقق دائمًا: apt list --installed | tail / dnf history — من ثبّت ماذا ومتى؟', 11.5, '#ffb454', 'middle', 'normal', true)}
+${txt(390, 28, '📦 دورة حياة الحزمة: من المستودع البعيد إلى نظامك', 14, '#0f172a', 'middle', 'bold')}
+${box(20, 55, 220, 60, '#cffafe', '#0e7490', 10)}
+${txt(130, 77, '☁️ المستودع Repository', 12.5, '#0e7490', 'middle', 'bold')}
+${txt(130, 100, 'مكتبة ضخمة على الإنترنت', 10.5, '#5a6b82')}
+${arrow(240, 85, 300, 85, '#0e7490', 'ah')}
+${txt(270, 75, 'apt update / dnf check', 10, '#5a6b82', 'middle', 'normal', true)}
+${box(300, 55, 200, 60, '#fffbeb', '#b45309', 10)}
+${txt(400, 77, '📦 الحزمة', 12.5, '#b45309', 'middle', 'bold')}
+${txt(400, 100, '.deb أو .rpm', 11, '#5a6b82', 'middle', 'normal', true)}
+${arrow(500, 85, 560, 85, '#0e7490', 'ah')}
+${txt(530, 75, 'apt install / dnf install', 10, '#5a6b82', 'middle', 'normal', true)}
+${box(560, 55, 200, 60, '#ecfdf5', '#059669', 10)}
+${txt(660, 77, '✅ مثبتة وتعمل', 12.5, '#047857', 'middle', 'bold')}
+${txt(660, 100, 'مع تبعياتها dependencies', 10.5, '#5a6b82')}
+${box(20, 150, 350, 90, '#ffffff', '#c3d0e2', 12)}
+${txt(195, 172, '🐧 عائلة Debian', 12.5, '#dc2626', 'middle', 'bold')}
+${txt(195, 196, 'apt update && apt install nginx', 11.5, '#047857', 'middle', 'normal', true)}
+${txt(195, 219, 'dpkg -i package.deb', 11.5, '#047857', 'middle', 'normal', true)}
+${box(410, 150, 350, 90, '#ffffff', '#c3d0e2', 12)}
+${txt(585, 172, '🎩 عائلة Red Hat/Rocky', 12.5, '#0f766e', 'middle', 'bold')}
+${txt(585, 196, 'dnf install nginx', 11.5, '#047857', 'middle', 'normal', true)}
+${txt(585, 219, 'rpm -ivh package.rpm', 11.5, '#047857', 'middle', 'normal', true)}
+${box(20, 265, 740, 70, '#fdf2f8', '#db2777', 12)}
+${txt(390, 287, '🛡️ زاوية الـ SOC: التثبيت من خارج المستودعات الرسمية مصدر خطر شائع', 12, '#db2777', 'middle', 'bold')}
+${txt(390, 312, 'تحقق دائمًا: apt list --installed | tail / dnf history — من ثبّت ماذا ومتى؟', 11.5, '#b45309', 'middle', 'normal', true)}
 </svg>`,
 
 /* Lesson 11: Storage LVM */
 'storage': svgOpen(780, 360) + `
-${txt(390, 28, '🗄️ طبقات التخزين: من القرص الصلب إلى المجلد الذي تراه', 14, '#fff', 'middle', 'bold')}
-${box(20, 50, 130, 54, 'rgba(255,95,110,.08)', '#ff5f6e', 10)}
-${txt(85, 70, '💽 القرص', 12.5, '#ff5f6e', 'middle', 'bold')}
-${txt(85, 91, '/dev/sda', 11, '#8b98ab', 'middle', 'normal', true)}
-${arrow(150, 77, 190, 77, '#39c5cf', 'ah')}
-${box(190, 50, 130, 54, 'rgba(255,180,84,.08)', '#ffb454', 10)}
-${txt(255, 70, '📊 التقسيم', 12.5, '#ffb454', 'middle', 'bold')}
-${txt(255, 91, 'sda1, sda2...', 11, '#8b98ab', 'middle', 'normal', true)}
-${arrow(320, 77, 360, 77, '#39c5cf', 'ah')}
-${box(360, 50, 130, 54, 'rgba(61,220,132,.08)', '#3ddc84', 10)}
-${txt(425, 70, '🧱 نظام ملفات', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(425, 91, 'ext4 / xfs', 11, '#8b98ab', 'middle', 'normal', true)}
-${arrow(490, 77, 530, 77, '#39c5cf', 'ah')}
-${box(530, 50, 220, 54, 'rgba(57,197,207,.08)', '#39c5cf', 10)}
-${txt(640, 70, '📁 نقطة التحميل mount', 12.5, '#39c5cf', 'middle', 'bold')}
-${txt(640, 91, '/data — مجلد تراه وتستخدمه', 10.5, '#8b98ab')}
-${box(20, 140, 460, 90, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(250, 162, '🧪 LVM — المرن الاحترافي (توسيع الأقراص بدون إيقاف الخدمة)', 12, '#fff', 'middle', 'bold')}
-${txt(250, 186, 'Disk → PV (Physical Volume) → VG (مجموعة تخزين) → LV (قسم منطقي)', 11.5, '#4af29a', 'middle', 'normal', true)}
-${txt(250, 210, 'lvextend -r -L +10G /dev/vg_data/lv_app  ← وسّع 10GB لحظيًا!', 11.5, '#ffb454', 'middle', 'normal', true)}
-${box(510, 140, 250, 90, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(635, 162, '🛡️ فحص الأقراص:', 12.5, '#ff6ec7', 'middle', 'bold')}
-${txt(635, 186, 'df -h  → المساحة المتاحة', 11, '#d5dde8', 'middle', 'normal', true)}
-${txt(635, 210, 'lsblk  → شكل الشجرة', 11, '#d5dde8', 'middle', 'normal', true)}
-${box(20, 255, 740, 70, 'rgba(255,95,110,.05)', '#ff5f6e', 12)}
-${txt(390, 277, '⚠️ امتلأ القرص 100%؟ السيرفر يتوقف عن العمل!', 12.5, '#ff5f6e', 'middle', 'bold')}
-${txt(390, 302, 'مراقبة دورية: df -h | awk \'$5+0 > 85\' ← إنذار مبكر قبل الكارثة', 11.5, '#ffb454', 'middle', 'normal', true)}
+${txt(390, 28, '🗄️ طبقات التخزين: من القرص الصلب إلى المجلد الذي تراه', 14, '#0f172a', 'middle', 'bold')}
+${box(20, 50, 130, 54, '#fef2f2', '#dc2626', 10)}
+${txt(85, 70, '💽 القرص', 12.5, '#dc2626', 'middle', 'bold')}
+${txt(85, 91, '/dev/sda', 11, '#5a6b82', 'middle', 'normal', true)}
+${arrow(150, 77, 190, 77, '#0e7490', 'ah')}
+${box(190, 50, 130, 54, '#fffbeb', '#b45309', 10)}
+${txt(255, 70, '📊 التقسيم', 12.5, '#b45309', 'middle', 'bold')}
+${txt(255, 91, 'sda1, sda2...', 11, '#5a6b82', 'middle', 'normal', true)}
+${arrow(320, 77, 360, 77, '#0e7490', 'ah')}
+${box(360, 50, 130, 54, '#ecfdf5', '#059669', 10)}
+${txt(425, 70, '🧱 نظام ملفات', 12.5, '#047857', 'middle', 'bold')}
+${txt(425, 91, 'ext4 / xfs', 11, '#5a6b82', 'middle', 'normal', true)}
+${arrow(490, 77, 530, 77, '#0e7490', 'ah')}
+${box(530, 50, 220, 54, '#ecfeff', '#0e7490', 10)}
+${txt(640, 70, '📁 نقطة التحميل mount', 12.5, '#0e7490', 'middle', 'bold')}
+${txt(640, 91, '/data — مجلد تراه وتستخدمه', 10.5, '#5a6b82')}
+${box(20, 140, 460, 90, '#ffffff', '#c3d0e2', 12)}
+${txt(250, 162, '🧪 LVM — المرن الاحترافي (توسيع الأقراص بدون إيقاف الخدمة)', 12, '#0f172a', 'middle', 'bold')}
+${txt(250, 186, 'Disk → PV (Physical Volume) → VG (مجموعة تخزين) → LV (قسم منطقي)', 11.5, '#047857', 'middle', 'normal', true)}
+${txt(250, 210, 'lvextend -r -L +10G /dev/vg_data/lv_app  ← وسّع 10GB لحظيًا!', 11.5, '#b45309', 'middle', 'normal', true)}
+${box(510, 140, 250, 90, '#fdf2f8', '#db2777', 12)}
+${txt(635, 162, '🛡️ فحص الأقراص:', 12.5, '#db2777', 'middle', 'bold')}
+${txt(635, 186, 'df -h  → المساحة المتاحة', 11, '#1e293b', 'middle', 'normal', true)}
+${txt(635, 210, 'lsblk  → شكل الشجرة', 11, '#1e293b', 'middle', 'normal', true)}
+${box(20, 255, 740, 70, '#fef2f2', '#dc2626', 12)}
+${txt(390, 277, '⚠️ امتلأ القرص 100%؟ السيرفر يتوقف عن العمل!', 12.5, '#dc2626', 'middle', 'bold')}
+${txt(390, 302, 'مراقبة دورية: df -h | awk \'$5+0 > 85\' ← إنذار مبكر قبل الكارثة', 11.5, '#b45309', 'middle', 'normal', true)}
 </svg>`,
 
 /* Lesson 12: Logging pipeline */
 'logs': svgOpen(780, 340) + `
-${txt(390, 28, '📝 إلى أين تذهب أحداث النظام؟ — خط أنابيب السجلات', 14, '#fff', 'middle', 'bold')}
-${box(20, 55, 180, 60, 'rgba(180,140,255,.1)', '#b48cff', 10)}
-${txt(110, 77, '🔥 الحدث يقع', 12.5, '#b48cff', 'middle', 'bold')}
-${txt(110, 100, 'تسجيل دخول فاشل، خطأ خدمة...', 10, '#8b98ab')}
-${arrow(200, 85, 250, 85, '#39c5cf', 'ah')}
-${box(250, 55, 180, 60, 'rgba(61,220,132,.1)', '#3ddc84', 10)}
-${txt(340, 77, '✍️ systemd-journald', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(340, 100, 'يجمع من كل الخدمات', 10.5, '#8b98ab')}
-${arrow(430, 85, 480, 85, '#39c5cf', 'ah')}
-${txt(455, 75, 'يرسل نسخة', 10, '#8b98ab', 'middle')}
-${box(480, 55, 270, 60, 'rgba(57,197,207,.1)', '#39c5cf', 10)}
-${txt(615, 77, '📂 rsyslog → ملفات /var/log/', 12, '#39c5cf', 'middle', 'bold')}
-${txt(615, 100, 'auth.log • syslog • secure', 10.5, '#8b98ab', 'middle', 'normal', true)}
-${box(20, 150, 350, 100, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(195, 174, '🔍 أدوات القراءة', 12.5, '#fff', 'middle', 'bold')}
-${txtR(38, 200, 'journalctl -f      → تابع مباشر (لايف)', 11.5, '#4af29a', 'start', 'normal', true)}
-${txtR(38, 224, 'journalctl -u ssh  → سجل خدمة محددة', 11.5, '#4af29a', 'start', 'normal', true)}
-${txtR(38, 244, 'tail -f /var/log/auth.log', 11.5, '#4af29a', 'start', 'normal', true)}
-${box(400, 150, 360, 100, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(580, 174, '🛡️ صياد المخترقين — ماذا أبحث؟', 12.5, '#ff6ec7', 'middle', 'bold')}
-${txtR(418, 200, 'Failed password → محاولات تخمين', 11.5, '#d5dde8', 'start')}
-${txtR(418, 224, 'session opened → من دخل ومتى', 11.5, '#d5dde8', 'start')}
-${txtR(418, 244, 'grep "Failed" /var/log/auth.log | wc -l', 11.5, '#ffb454', 'start', 'normal', true)}
-${box(20, 275, 740, 45, 'rgba(255,180,84,.05)', '#ffb454', 12)}
-${txt(390, 296, 'قاعدة ذهبية: المهاجم المحترف يمسح آثاره — أرسل السجلات لخادم مركزي (rsyslog remote / SIEM) ليصعب مسحها', 11.5, '#ffb454')}
+${txt(390, 28, '📝 إلى أين تذهب أحداث النظام؟ — خط أنابيب السجلات', 14, '#0f172a', 'middle', 'bold')}
+${box(20, 55, 180, 60, '#f5f3ff', '#7c3aed', 10)}
+${txt(110, 77, '🔥 الحدث يقع', 12.5, '#7c3aed', 'middle', 'bold')}
+${txt(110, 100, 'تسجيل دخول فاشل، خطأ خدمة...', 10, '#5a6b82')}
+${arrow(200, 85, 250, 85, '#0e7490', 'ah')}
+${box(250, 55, 180, 60, '#ecfdf5', '#059669', 10)}
+${txt(340, 77, '✍️ systemd-journald', 12.5, '#047857', 'middle', 'bold')}
+${txt(340, 100, 'يجمع من كل الخدمات', 10.5, '#5a6b82')}
+${arrow(430, 85, 480, 85, '#0e7490', 'ah')}
+${txt(455, 75, 'يرسل نسخة', 10, '#5a6b82', 'middle')}
+${box(480, 55, 270, 60, '#cffafe', '#0e7490', 10)}
+${txt(615, 77, '📂 rsyslog → ملفات /var/log/', 12, '#0e7490', 'middle', 'bold')}
+${txt(615, 100, 'auth.log • syslog • secure', 10.5, '#5a6b82', 'middle', 'normal', true)}
+${box(20, 150, 350, 100, '#ffffff', '#c3d0e2', 12)}
+${txt(195, 174, '🔍 أدوات القراءة', 12.5, '#0f172a', 'middle', 'bold')}
+${txtR(38, 200, 'journalctl -f      → تابع مباشر (لايف)', 11.5, '#047857', 'start', 'normal', true)}
+${txtR(38, 224, 'journalctl -u ssh  → سجل خدمة محددة', 11.5, '#047857', 'start', 'normal', true)}
+${txtR(38, 244, 'tail -f /var/log/auth.log', 11.5, '#047857', 'start', 'normal', true)}
+${box(400, 150, 360, 100, '#fdf2f8', '#db2777', 12)}
+${txt(580, 174, '🛡️ صياد المخترقين — ماذا أبحث؟', 12.5, '#db2777', 'middle', 'bold')}
+${txtR(418, 200, 'Failed password → محاولات تخمين', 11.5, '#1e293b', 'start')}
+${txtR(418, 224, 'session opened → من دخل ومتى', 11.5, '#1e293b', 'start')}
+${txtR(418, 244, 'grep "Failed" /var/log/auth.log | wc -l', 11.5, '#b45309', 'start', 'normal', true)}
+${box(20, 275, 740, 45, '#fffbeb', '#b45309', 12)}
+${txt(390, 296, 'قاعدة ذهبية: المهاجم المحترف يمسح آثاره — أرسل السجلات لخادم مركزي (rsyslog remote / SIEM) ليصعب مسحها', 11.5, '#b45309')}
 </svg>`,
 });
 
@@ -779,349 +833,350 @@ Object.assign(DIAGRAMS, {
 
 /* Lesson 13: Network stack */
 'network-stack': svgOpen(780, 400) + `
-${txt(390, 28, '🌐 كيف يسافر طلبك من متصفحك إلى الخادم؟', 14.5, '#fff', 'middle', 'bold')}
-${box(20, 50, 320, 70, 'rgba(61,220,132,.08)', '#3ddc84', 10)}
-${txt(180, 72, '💻 جهازك (العميل)', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(180, 94, 'https://example.com', 11.5, '#8b98ab', 'middle', 'normal', true)}
-${txt(180, 110, 'DNS: ترجمة الاسم إلى IP ← 93.184.216.34', 11, '#39c5cf', 'middle', 'normal', true)}
-${arrow(340, 85, 440, 85, '#39c5cf', 'ah')}
-${txt(390, 75, 'TCP handshake', 10.5, '#8b98ab', 'middle', 'normal', true)}
-${box(440, 50, 320, 70, 'rgba(57,197,207,.08)', '#39c5cf', 10)}
-${txt(600, 72, '🖥️ الخادم (Server)', 12.5, '#39c5cf', 'middle', 'bold')}
-${txt(600, 94, 'IP عام + Port 443 مفتوح', 11.5, '#8b98ab', 'middle')}
-${txt(600, 110, 'nginx يسمع على المنفذ ويرد', 11, '#d5dde8', 'middle')}
-${box(20, 150, 350, 110, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(195, 174, '🔌 ما هو المنفذ Port؟', 12.5, '#fff', 'middle', 'bold')}
-${txtR(38, 200, '22   → SSH (إدارة بعيدة آمنة)', 11.5, '#4af29a', 'start', 'normal', true)}
-${txtR(38, 224, '80   → HTTP ويب غير مشفّر', 11.5, '#4af29a', 'start', 'normal', true)}
-${txtR(38, 248, '443  → HTTPS ويب مشفّر 🔒', 11.5, '#4af29a', 'start', 'normal', true)}
-${box(410, 150, 350, 110, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(585, 174, '🧰 صندوق أدوات الشبكات', 12.5, '#fff', 'middle', 'bold')}
-${txtR(428, 200, 'ip a        → عناوين جهازي', 11.5, '#4af29a', 'start', 'normal', true)}
-${txtR(428, 224, 'ss -tulpn   → من يسمع على أي منفذ؟', 11.5, '#4af29a', 'start', 'normal', true)}
-${txtR(428, 248, 'ping / traceroute → هل الطريق سالك؟', 11.5, '#4af29a', 'start', 'normal', true)}
-${box(20, 290, 740, 90, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(390, 314, '🛡️ زاوية SOC: منفذ مفتوح = باب في القلعة', 12.5, '#ff6ec7', 'middle', 'bold')}
-${txt(390, 338, 'قارن دائمًا: ss -tulpn (الواقع) مع ما يجب أن يكون مفتوحًا حسب الخدمات المعتمدة (السياسة)', 11.5, '#d5dde8')}
-${txt(390, 362, 'منفذ غريب يسمع على 0.0.0.0؟ ابدأ التحقيق فورًا: ss -tulpn | grep -v -E ":(22|443)\\s"', 11, '#ffb454', 'middle', 'normal', true)}
+${txt(390, 28, '🌐 كيف يسافر طلبك من متصفحك إلى الخادم؟', 14.5, '#0f172a', 'middle', 'bold')}
+${box(20, 50, 320, 70, '#ecfdf5', '#059669', 10)}
+${txt(180, 72, '💻 جهازك (العميل)', 12.5, '#047857', 'middle', 'bold')}
+${txt(180, 94, 'https://example.com', 11.5, '#5a6b82', 'middle', 'normal', true)}
+${txt(180, 110, 'DNS: ترجمة الاسم إلى IP ← 93.184.216.34', 11, '#0e7490', 'middle', 'normal', true)}
+${arrow(340, 85, 440, 85, '#0e7490', 'ah')}
+${txt(390, 75, 'TCP handshake', 10.5, '#5a6b82', 'middle', 'normal', true)}
+${box(440, 50, 320, 70, '#ecfeff', '#0e7490', 10)}
+${txt(600, 72, '🖥️ الخادم (Server)', 12.5, '#0e7490', 'middle', 'bold')}
+${txt(600, 94, 'IP عام + Port 443 مفتوح', 11.5, '#5a6b82', 'middle')}
+${txt(600, 110, 'nginx يسمع على المنفذ ويرد', 11, '#1e293b', 'middle')}
+${box(20, 150, 350, 110, '#ffffff', '#c3d0e2', 12)}
+${txt(195, 174, '🔌 ما هو المنفذ Port؟', 12.5, '#0f172a', 'middle', 'bold')}
+${txtR(38, 200, '22   → SSH (إدارة بعيدة آمنة)', 11.5, '#047857', 'start', 'normal', true)}
+${txtR(38, 224, '80   → HTTP ويب غير مشفّر', 11.5, '#047857', 'start', 'normal', true)}
+${txtR(38, 248, '443  → HTTPS ويب مشفّر 🔒', 11.5, '#047857', 'start', 'normal', true)}
+${box(410, 150, 350, 110, '#ffffff', '#c3d0e2', 12)}
+${txt(585, 174, '🧰 صندوق أدوات الشبكات', 12.5, '#0f172a', 'middle', 'bold')}
+${txtR(428, 200, 'ip a        → عناوين جهازي', 11.5, '#047857', 'start', 'normal', true)}
+${txtR(428, 224, 'ss -tulpn   → من يسمع على أي منفذ؟', 11.5, '#047857', 'start', 'normal', true)}
+${txtR(428, 248, 'ping / traceroute → هل الطريق سالك؟', 11.5, '#047857', 'start', 'normal', true)}
+${box(20, 290, 740, 90, '#fdf2f8', '#db2777', 12)}
+${txt(390, 314, '🛡️ زاوية SOC: منفذ مفتوح = باب في القلعة', 12.5, '#db2777', 'middle', 'bold')}
+${txt(390, 338, 'قارن دائمًا: ss -tulpn (الواقع) مع ما يجب أن يكون مفتوحًا حسب الخدمات المعتمدة (السياسة)', 11.5, '#1e293b')}
+${txt(390, 362, 'منفذ غريب يسمع على 0.0.0.0؟ ابدأ التحقيق فورًا: ss -tulpn | grep -v -E ":(22|443)\\s"', 11, '#b45309', 'middle', 'normal', true)}
 </svg>`,
 
 /* Lesson 14: SSH flow */
 'ssh': svgOpen(780, 380) + `
-${txt(390, 28, '🔐 جلسة SSH كاملة: من الأمر الأول حتى الاتصال الآمن', 14, '#fff', 'middle', 'bold')}
-${box(20, 52, 250, 74, 'rgba(61,220,132,.08)', '#3ddc84', 10)}
-${txt(145, 74, '💻 لابتوبك', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(145, 96, 'ssh ahmed@10.0.0.50', 11.5, '#ffb454', 'middle', 'normal', true)}
-${txt(145, 116, 'المفتاح الخاص يبقى هنا 🔒', 10.5, '#8b98ab', 'middle')}
-${arrow(270, 89, 330, 89, '#39c5cf', 'ah')}
-${txt(300, 78, 'تشفير', 10.5, '#8b98ab', 'middle')}
-${txt(300, 102, 'E2E', 10.5, '#8b98ab', 'middle')}
-${box(330, 52, 250, 74, 'rgba(57,197,207,.08)', '#39c5cf', 10)}
-${txt(455, 74, '🖥️ السيرفر البعيد', 12.5, '#39c5cf', 'middle', 'bold')}
-${txt(455, 96, 'sshd يسمع على المنفذ 22', 11.5, '#8b98ab', 'middle', 'normal', true)}
-${txt(455, 116, 'يتحقق من المفتاح العام', 10.5, '#d5dde8', 'middle')}
-${box(620, 52, 140, 74, 'rgba(180,140,255,.08)', '#b48cff', 10)}
-${txt(690, 74, '🔑 التحقق', 12.5, '#b48cff', 'middle', 'bold')}
-${txt(690, 96, 'هل الـ fingerprint', 10.5, '#8b98ab', 'middle')}
-${txt(690, 114, 'مطابق لأول مرة؟', 10.5, '#8b98ab', 'middle')}
-${arrow(580, 89, 620, 89, '#39c5cf', 'ah')}
-${box(20, 160, 460, 100, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(250, 182, '🔑 زوج المفاتيح — الفكرة الأساسية', 12.5, '#fff', 'middle', 'bold')}
-${txt(250, 206, 'ssh-keygen -t ed25519', 12, '#4af29a', 'middle', 'normal', true)}
-${txt(250, 230, 'الخاص ~/.ssh/id_ed25519 (سِرّي — لا يغادر جهازك أبدًا)', 10.8, '#ff8fa8', 'middle')}
-${txt(250, 250, 'العام ~/.ssh/id_ed25519.pub (انسخه للسيرفر: ssh-copy-id)', 10.8, '#4af29a', 'middle')}
-${box(510, 160, 250, 100, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(635, 182, '🛡️ تحصين sshd:', 12.5, '#ff6ec7', 'middle', 'bold')}
-${txtR(528, 206, 'PasswordAuthentication no', 10.5, '#d5dde8', 'start', 'normal', true)}
-${txtR(528, 228, 'PermitRootLogin no', 10.5, '#d5dde8', 'start', 'normal', true)}
-${txtR(528, 250, 'تغيير المنفذ + fail2ban', 10.5, '#d5dde8', 'start')}
-${box(20, 285, 740, 75, 'rgba(255,180,84,.05)', '#ffb454', 12)}
-${txt(390, 307, '📊 أمر المحقق: من يحاول الدخول الآن؟', 12.5, '#ffb454', 'middle', 'bold')}
-${txt(390, 331, "journalctl -u ssh | grep 'Failed password' | awk '{print $11}' | sort | uniq -c | sort -rn | head", 10.8, '#4af29a', 'middle', 'normal', true)}
-${txt(390, 351, '→ قائمة الـ IPs التي تخمّن كلمات المرور، مرتبة بعدد المحاولات', 11, '#8b98ab', 'middle')}
+${txt(390, 28, '🔐 جلسة SSH كاملة: من الأمر الأول حتى الاتصال الآمن', 14, '#0f172a', 'middle', 'bold')}
+${box(20, 52, 250, 74, '#ecfdf5', '#059669', 10)}
+${txt(145, 74, '💻 لابتوبك', 12.5, '#047857', 'middle', 'bold')}
+${txt(145, 96, 'ssh ahmed@10.0.0.50', 11.5, '#b45309', 'middle', 'normal', true)}
+${txt(145, 116, 'المفتاح الخاص يبقى هنا 🔒', 10.5, '#5a6b82', 'middle')}
+${arrow(270, 89, 330, 89, '#0e7490', 'ah')}
+${txt(300, 78, 'تشفير', 10.5, '#5a6b82', 'middle')}
+${txt(300, 102, 'E2E', 10.5, '#5a6b82', 'middle')}
+${box(330, 52, 250, 74, '#ecfeff', '#0e7490', 10)}
+${txt(455, 74, '🖥️ السيرفر البعيد', 12.5, '#0e7490', 'middle', 'bold')}
+${txt(455, 96, 'sshd يسمع على المنفذ 22', 11.5, '#5a6b82', 'middle', 'normal', true)}
+${txt(455, 116, 'يتحقق من المفتاح العام', 10.5, '#1e293b', 'middle')}
+${box(620, 52, 140, 74, '#f5f3ff', '#7c3aed', 10)}
+${txt(690, 74, '🔑 التحقق', 12.5, '#7c3aed', 'middle', 'bold')}
+${txt(690, 96, 'هل الـ fingerprint', 10.5, '#5a6b82', 'middle')}
+${txt(690, 114, 'مطابق لأول مرة؟', 10.5, '#5a6b82', 'middle')}
+${arrow(580, 89, 620, 89, '#0e7490', 'ah')}
+${box(20, 160, 460, 100, '#ffffff', '#c3d0e2', 12)}
+${txt(250, 182, '🔑 زوج المفاتيح — الفكرة الأساسية', 12.5, '#0f172a', 'middle', 'bold')}
+${txt(250, 206, 'ssh-keygen -t ed25519', 12, '#047857', 'middle', 'normal', true)}
+${txt(250, 230, 'الخاص ~/.ssh/id_ed25519 (سِرّي — لا يغادر جهازك أبدًا)', 10.8, '#dc2626', 'middle')}
+${txt(250, 250, 'العام ~/.ssh/id_ed25519.pub (انسخه للسيرفر: ssh-copy-id)', 10.8, '#047857', 'middle')}
+${box(510, 160, 250, 100, '#fdf2f8', '#db2777', 12)}
+${txt(635, 182, '🛡️ تحصين sshd:', 12.5, '#db2777', 'middle', 'bold')}
+${txtR(528, 206, 'PasswordAuthentication no', 10.5, '#1e293b', 'start', 'normal', true)}
+${txtR(528, 228, 'PermitRootLogin no', 10.5, '#1e293b', 'start', 'normal', true)}
+${txtR(528, 250, 'تغيير المنفذ + fail2ban', 10.5, '#1e293b', 'start')}
+${box(20, 285, 740, 75, '#fffbeb', '#b45309', 12)}
+${txt(390, 307, '📊 أمر المحقق: من يحاول الدخول الآن؟', 12.5, '#b45309', 'middle', 'bold')}
+${txt(390, 331, "journalctl -u ssh | grep 'Failed password' | awk '{print $11}' | sort | uniq -c | sort -rn | head", 10.8, '#047857', 'middle', 'normal', true)}
+${txt(390, 351, '→ قائمة الـ IPs التي تخمّن كلمات المرور، مرتبة بعدد المحاولات', 11, '#5a6b82', 'middle')}
 </svg>`,
 
 /* Lesson 15: Firewall */
 'firewall': svgOpen(780, 380) + `
-${txt(390, 28, '🧱 جدار الحماية: حارس البوابة الذي يفحص كل حزمة', 14, '#fff', 'middle', 'bold')}
-${box(20, 55, 160, 64, 'rgba(255,95,110,.1)', '#ff5f6e', 10)}
-${txt(100, 78, '🌍 الإنترنت', 13, '#ff5f6e', 'middle', 'bold')}
-${txt(100, 102, 'كل شيء يحاول الدخول', 10.5, '#8b98ab', 'middle')}
-${arrow(180, 87, 260, 87, '#39c5cf', 'ah')}
-${txt(220, 77, 'حزم', 10.5, '#8b98ab', 'middle')}
-${box(260, 45, 260, 84, 'rgba(255,180,84,.1)', '#ffb454', 12)}
-${txt(390, 68, '🧱 nftables / firewalld / ufw', 12.5, '#ffb454', 'middle', 'bold')}
-${txt(390, 92, 'قاعدة 1: السماح 22 (SSH) ✓', 11.5, '#4af29a', 'middle', 'normal', true)}
-${txt(390, 112, 'قاعدة 2: السماح 80,443 (ويب) ✓', 11.5, '#4af29a', 'middle', 'normal', true)}
-${txt(390, 130, 'الافتراضي: DROP — كل ما عدا ذلك يُحرق 🔥', 11.5, '#ff8fa8', 'middle', 'normal', true)}
-${arrow(520, 87, 600, 87, '#39c5cf', 'ah')}
-${box(600, 55, 160, 64, 'rgba(61,220,132,.1)', '#3ddc84', 10)}
-${txt(680, 78, '🖥️ خدماتك', 13, '#4af29a', 'middle', 'bold')}
-${txt(680, 102, 'آمنة وخلف الجدار', 10.5, '#8b98ab', 'middle')}
-${box(20, 165, 350, 100, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(195, 187, '🐧 Debian/Ubuntu — ufw', 12.5, '#5eead4', 'middle', 'bold')}
-${txt(195, 211, 'ufw allow 22/tcp && ufw enable', 11, '#4af29a', 'middle', 'normal', true)}
-${txt(195, 233, 'ufw status verbose', 11, '#4af29a', 'middle', 'normal', true)}
-${txt(195, 255, 'ufw deny from 203.0.113.5', 11, '#ff8fa8', 'middle', 'normal', true)}
-${box(410, 165, 350, 100, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(585, 187, '🎩 Rocky/RHEL — firewalld', 12.5, '#5eead4', 'middle', 'bold')}
-${txt(585, 211, 'firewall-cmd --permanent --add-service=https', 10.3, '#4af29a', 'middle', 'normal', true)}
-${txt(585, 233, 'firewall-cmd --reload', 11, '#4af29a', 'middle', 'normal', true)}
-${txt(585, 255, 'firewall-cmd --list-all', 11, '#4af29a', 'middle', 'normal', true)}
-${box(20, 290, 740, 70, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(390, 312, '🛡️ مبدأ SOC: Default-Deny — امنع كل شيء ثم اسمح فقط بما تحتاجه الخدمة', 12, '#ff6ec7', 'middle', 'bold')}
-${txt(390, 336, 'فحص دوري: هل تغيّرت القواعد دون توثيق؟ راجع iptables -L -n -v و document التغييرات', 11.3, '#d5dde8')}
+${txt(390, 28, '🧱 جدار الحماية: حارس البوابة الذي يفحص كل حزمة', 14, '#0f172a', 'middle', 'bold')}
+${box(20, 55, 160, 64, '#fef2f2', '#dc2626', 10)}
+${txt(100, 78, '🌍 الإنترنت', 13, '#dc2626', 'middle', 'bold')}
+${txt(100, 102, 'كل شيء يحاول الدخول', 10.5, '#5a6b82', 'middle')}
+${arrow(180, 87, 260, 87, '#0e7490', 'ah')}
+${txt(220, 77, 'حزم', 10.5, '#5a6b82', 'middle')}
+${box(260, 45, 260, 92, '#fffbeb', '#b45309', 12)}
+${txt(390, 68, '🧱 nftables / firewalld / ufw', 12.5, '#b45309', 'middle', 'bold')}
+${txt(390, 92, 'قاعدة 1: السماح 22 (SSH) ✓', 11.5, '#047857', 'middle', 'normal', true)}
+${txt(390, 112, 'قاعدة 2: السماح 80,443 (ويب) ✓', 11.5, '#047857', 'middle', 'normal', true)}
+${txt(390, 130, 'الافتراضي: DROP — ما عداه يُحرق 🔥', 10.3, '#dc2626', 'middle', 'normal', true)}
+${arrow(520, 87, 600, 87, '#0e7490', 'ah')}
+${box(600, 55, 160, 64, '#ecfdf5', '#059669', 10)}
+${txt(680, 78, '🖥️ خدماتك', 13, '#047857', 'middle', 'bold')}
+${txt(680, 102, 'آمنة وخلف الجدار', 10.5, '#5a6b82', 'middle')}
+${box(20, 165, 350, 100, '#ffffff', '#c3d0e2', 12)}
+${txt(195, 187, '🐧 Debian/Ubuntu — ufw', 12.5, '#0f766e', 'middle', 'bold')}
+${txt(195, 211, 'ufw allow 22/tcp && ufw enable', 11, '#047857', 'middle', 'normal', true)}
+${txt(195, 233, 'ufw status verbose', 11, '#047857', 'middle', 'normal', true)}
+${txt(195, 255, 'ufw deny from 203.0.113.5', 11, '#dc2626', 'middle', 'normal', true)}
+${box(410, 165, 350, 100, '#ffffff', '#c3d0e2', 12)}
+${txt(585, 187, '🎩 Rocky/RHEL — firewalld', 12.5, '#0f766e', 'middle', 'bold')}
+${txt(585, 211, 'firewall-cmd --permanent --add-service=https', 10.3, '#047857', 'middle', 'normal', true)}
+${txt(585, 233, 'firewall-cmd --reload', 11, '#047857', 'middle', 'normal', true)}
+${txt(585, 255, 'firewall-cmd --list-all', 11, '#047857', 'middle', 'normal', true)}
+${box(20, 290, 740, 70, '#fdf2f8', '#db2777', 12)}
+${txt(390, 312, '🛡️ مبدأ SOC: Default-Deny — امنع كل شيء ثم اسمح فقط بما تحتاجه الخدمة', 12, '#db2777', 'middle', 'bold')}
+${txt(390, 336, 'فحص دوري: هل تغيّرت القواعد دون توثيق؟ راجع iptables -L -n -v و document التغييرات', 11.3, '#1e293b')}
 </svg>`,
 
 /* ============ Unit 4: Security/SOC ============ */
 
 /* Lesson 16: Security layers */
 'security-layers': svgOpen(780, 360) + `
-${txt(390, 28, '🛡️ الدفاع في العمق: طبقات تحمي السيرفر مثل قشور البصلة', 14, '#fff', 'middle', 'bold')}
-${box(240, 48, 300, 50, 'rgba(255,95,110,.1)', '#ff5f6e', 12)}
-${txt(390, 68, '🔥 الطبقة 1: الجدار الناري + الشبكة', 12.5, '#ff5f6e', 'middle', 'bold')}
-${txt(390, 88, 'من يدخل أصلًا؟ أغلق كل المنافذ غير الضرورية', 10.8, '#8b98ab', 'middle')}
-${box(260, 108, 260, 50, 'rgba(255,180,84,.1)', '#ffb454', 12)}
-${txt(390, 128, '🔑 الطبقة 2: المصادقة', 12.5, '#ffb454', 'middle', 'bold')}
-${txt(390, 148, 'مفاتيح SSH + كلمات مرور قوية + sudo مقيد', 10.8, '#8b98ab', 'middle')}
-${box(280, 168, 220, 50, 'rgba(61,220,132,.1)', '#3ddc84', 12)}
-${txt(390, 188, '👥 الطبقة 3: الصلاحيات', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(390, 208, 'أقل صلاحية ممكنة Least Privilege', 10.8, '#8b98ab', 'middle')}
-${box(300, 228, 180, 50, 'rgba(57,197,207,.1)', '#39c5cf', 12)}
-${txt(390, 248, '📄 الطبقة 4: SELinux', 12.5, '#39c5cf', 'middle', 'bold')}
-${txt(390, 268, 'حتى لو اخترقت الخدمة — محصورة', 10.8, '#8b98ab', 'middle')}
-${box(320, 288, 140, 50, 'rgba(180,140,255,.1)', '#b48cff', 12)}
-${txt(390, 308, '👀 الطبقة 5: المراقبة', 12.5, '#b48cff', 'middle', 'bold')}
-${txt(390, 328, 'سجلات + تنبيهات + تدقيق', 10.8, '#8b98ab', 'middle')}
-${txt(560, 80, '↔ كل طبقة تحمي ما تحتها', 11, '#8b98ab', 'middle')}
-${txt(560, 110, 'اختراق طبقة لا يعني السقوط الكامل', 11, '#8b98ab', 'middle')}
+${txt(390, 28, '🛡️ الدفاع في العمق: طبقات تحمي السيرفر مثل قشور البصلة', 14, '#0f172a', 'middle', 'bold')}
+${box(240, 48, 300, 50, '#fef2f2', '#dc2626', 12)}
+${txt(390, 68, '🔥 الطبقة 1: الجدار الناري + الشبكة', 12.5, '#dc2626', 'middle', 'bold')}
+${txt(390, 88, 'من يدخل أصلًا؟ أغلق كل المنافذ غير الضرورية', 10.8, '#5a6b82', 'middle')}
+${box(260, 108, 260, 50, '#fffbeb', '#b45309', 12)}
+${txt(390, 128, '🔑 الطبقة 2: المصادقة', 12.5, '#b45309', 'middle', 'bold')}
+${txt(390, 148, 'مفاتيح SSH + كلمات مرور قوية + sudo مقيد', 10.8, '#5a6b82', 'middle')}
+${box(280, 168, 220, 50, '#ecfdf5', '#059669', 12)}
+${txt(390, 188, '👥 الطبقة 3: الصلاحيات', 12.5, '#047857', 'middle', 'bold')}
+${txt(390, 208, 'أقل صلاحية ممكنة Least Privilege', 10.8, '#5a6b82', 'middle')}
+${box(300, 228, 180, 50, '#cffafe', '#0e7490', 12)}
+${txt(390, 248, '📄 الطبقة 4: SELinux', 12.5, '#0e7490', 'middle', 'bold')}
+${txt(390, 268, 'حتى لو اخترقت الخدمة — محصورة', 10.8, '#5a6b82', 'middle')}
+${box(320, 288, 140, 50, '#f5f3ff', '#7c3aed', 12)}
+${txt(390, 308, '👀 الطبقة 5: المراقبة', 12.5, '#7c3aed', 'middle', 'bold')}
+${txt(390, 328, 'سجلات + تنبيهات + تدقيق', 10.8, '#5a6b82', 'middle')}
+${txt(560, 80, '↔ كل طبقة تحمي ما تحتها', 11, '#5a6b82', 'middle')}
+${txt(560, 110, 'اختراق طبقة لا يعني السقوط الكامل', 11, '#5a6b82', 'middle')}
 </svg>`,
 
 /* Lesson 17: SELinux */
 'selinux': svgOpen(780, 380) + `
-${txt(390, 28, '🐕 SELinux: الحارس الذي يمنع حتى root من فعل ما لا يُسمح', 13.5, '#fff', 'middle', 'bold')}
-${box(20, 52, 340, 88, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(190, 74, '❌ بدون SELinux (Disabled)', 12.5, '#ff8fa8', 'middle', 'bold')}
-${txtR(38, 100, 'المهاجم يخترق nginx ← يصبح www-data', 11.3, '#d5dde8', 'start')}
-${txtR(38, 122, 'يقرأ /etc/shadow ← يعدّل موقعه ← يزرع باب خلفي', 11.3, '#d5dde8', 'start')}
-${txtR(38, 132, '', 11, '#d5dde8', 'start')}
-${txt(190, 140, 'كارثة كاملة 💀', 11.5, '#ff5f6e', 'middle', 'bold')}
-${box(420, 52, 340, 88, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(590, 74, '✅ مع SELinux (Enforcing)', 12.5, '#4af29a', 'middle', 'bold')}
-${txtR(438, 100, 'nginx (context: httpd_t) يخترقه المهاجم', 11.3, '#d5dde8', 'start')}
-${txtR(438, 122, 'يحاول قراءة shadow_t ← مرفوض! يحاول المنفذ 4444 ← مرفوض!', 10.9, '#d5dde8', 'start')}
-${txt(590, 140, 'الضرر محصور في حاوية السياسة 🛡️', 11.3, '#4af29a', 'middle', 'bold')}
-${box(20, 165, 740, 90, 'rgba(57,197,207,.06)', '#1e6e75', 12)}
-${txt(390, 187, '🏷️ كيف يعمل؟ كل شيء له Label (سياق أمان)', 12.5, '#39c5cf', 'middle', 'bold')}
-${txt(390, 212, 'المستخدم : الدور : النوع : المستوى    مثل  system_u:system_r:httpd_t:s0', 11.5, '#4af29a', 'middle', 'normal', true)}
-${txt(390, 238, 'القاعدة: النوع httpd_t يسمح له فقط بلمس أنواع ملفات محددة — وليس أكثر', 11.3, '#d5dde8', 'middle')}
-${box(20, 275, 350, 85, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(195, 296, '🛠️ أوامر التشخيص', 12.5, '#fff', 'middle', 'bold')}
-${txt(195, 318, 'getenforce  •  sestatus', 11.3, '#4af29a', 'middle', 'normal', true)}
-${txt(195, 341, 'ls -Z /var/www  •  ausearch -m avc -ts recent', 10.3, '#4af29a', 'middle', 'normal', true)}
-${box(410, 275, 350, 85, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(585, 296, '🛡️ زاوية SOC', 12.5, '#ff6ec7', 'middle', 'bold')}
-${txt(585, 318, 'AVC Denial في السجلات = محاولة تجاوز قيد', 11, '#d5dde8', 'middle')}
-${txt(585, 341, 'مصدر رائع لصيد الأنشطة المشبوهة!', 11, '#ffb454', 'middle')}
+${txt(390, 28, '🐕 SELinux: الحارس الذي يمنع حتى root من فعل ما لا يُسمح', 13.5, '#0f172a', 'middle', 'bold')}
+${box(20, 52, 340, 96, '#ffffff', '#c3d0e2', 12)}
+${txt(190, 74, '❌ بدون SELinux (Disabled)', 12.5, '#dc2626', 'middle', 'bold')}
+${txtR(38, 100, 'المهاجم يخترق nginx ← يصبح www-data', 11.3, '#1e293b', 'start')}
+${txtR(38, 122, 'يقرأ /etc/shadow ← يعدّل موقعه ← يزرع باب خلفي', 11.3, '#1e293b', 'start')}
+${txtR(38, 132, '', 11, '#1e293b', 'start')}
+${txt(190, 142, 'كارثة كاملة 💀', 11.5, '#dc2626', 'middle', 'bold')}
+${box(420, 52, 340, 96, '#ffffff', '#c3d0e2', 12)}
+${txt(590, 74, '✅ مع SELinux (Enforcing)', 12.5, '#047857', 'middle', 'bold')}
+${txtR(438, 100, 'nginx (context: httpd_t) يخترقه المهاجم', 11.3, '#1e293b', 'start')}
+${txtR(438, 122, 'يحاول قراءة shadow_t ← مرفوض! يحاول المنفذ 4444 ← مرفوض!', 10.9, '#1e293b', 'start')}
+${txt(590, 142, 'الضرر محصور في حاوية السياسة 🛡️', 11.3, '#047857', 'middle', 'bold')}
+${box(20, 165, 740, 90, '#ecfeff', '#0e9aa7', 12)}
+${txt(390, 187, '🏷️ كيف يعمل؟ كل شيء له Label (سياق أمان)', 12.5, '#0e7490', 'middle', 'bold')}
+${txt(390, 212, 'المستخدم : الدور : النوع : المستوى    مثل  system_u:system_r:httpd_t:s0', 11.5, '#047857', 'middle', 'normal', true)}
+${txt(390, 238, 'القاعدة: النوع httpd_t يسمح له فقط بلمس أنواع ملفات محددة — وليس أكثر', 11.3, '#1e293b', 'middle')}
+${box(20, 275, 350, 85, '#ffffff', '#c3d0e2', 12)}
+${txt(195, 296, '🛠️ أوامر التشخيص', 12.5, '#0f172a', 'middle', 'bold')}
+${txt(195, 318, 'getenforce  •  sestatus', 11.3, '#047857', 'middle', 'normal', true)}
+${txt(195, 341, 'ls -Z /var/www  •  ausearch -m avc -ts recent', 10.3, '#047857', 'middle', 'normal', true)}
+${box(410, 275, 350, 85, '#fdf2f8', '#db2777', 12)}
+${txt(585, 296, '🛡️ زاوية SOC', 12.5, '#db2777', 'middle', 'bold')}
+${txt(585, 318, 'AVC Denial في السجلات = محاولة تجاوز قيد', 11, '#1e293b', 'middle')}
+${txt(585, 341, 'مصدر رائع لصيد الأنشطة المشبوهة!', 11, '#b45309', 'middle')}
 </svg>`,
 
 /* Lesson 18: Hardening checklist */
 'hardening': svgOpen(780, 400) + `
-${txt(390, 28, '🏗️ قائمة تحصين السيرفر — 8 محطات نحو سيرفر حديدي', 14, '#fff', 'middle', 'bold')}
-${box(20, 55, 355, 150, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(197, 79, '🔐 المصادقة والوصول', 13, '#4af29a', 'middle', 'bold')}
-${txtR(38, 105, '☐ مفاتيح SSH + تعطيل كلمة المرور', 11.5, '#d5dde8', 'start')}
-${txtR(38, 127, '☐ تعطيل root login المباشر', 11.5, '#d5dde8', 'start')}
-${txtR(38, 149, '☐ fail2ban ضد التخمين الآلي', 11.5, '#d5dde8', 'start')}
-${txtR(38, 171, '☐ sudo مقيد — لا sudo ALL لكل أحد', 11.5, '#d5dde8', 'start')}
-${txtR(38, 193, '☐ 2FA للوصول الإداري الحساس', 11.5, '#d5dde8', 'start')}
-${box(405, 55, 355, 150, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(582, 79, '🧱 تقليل سطح الهجوم', 13, '#39c5cf', 'middle', 'bold')}
-${txtR(423, 105, '☐ حذف الحزم غير المستخدمة', 11.5, '#d5dde8', 'start')}
-${txtR(423, 127, '☐ إيقاف الخدمات غير الضرورية', 11.5, '#d5dde8', 'start')}
-${txtR(423, 149, '☐ إغلاق كل المنافذ إلا الضرورية', 11.5, '#d5dde8', 'start')}
-${txtR(423, 171, '☐ تحديثات أمنية دورية (unattended-upgrades / dnf-automatic)', 10.6, '#d5dde8', 'start')}
-${txtR(423, 193, '☐ تفعيل SELinux/AppArmor', 11.5, '#d5dde8', 'start')}
-${box(20, 225, 355, 120, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(197, 249, '📁 الملفات والنظام', 13, '#ffb454', 'middle', 'bold')}
-${txtR(38, 275, '☐ chmod 600 على مفاتيح وإعدادات حساسة', 11, '#d5dde8', 'start')}
-${txtR(38, 297, '☐ لا SUID غير موثق — راقب find / -perm -4000', 11, '#d5dde8', 'start')}
-${txtR(38, 319, '☐ umask آمن (027 مثلاً)', 11.5, '#d5dde8', 'start')}
-${txtR(38, 337, '☐ أقسام منفصلة مع noexec على /tmp', 11, '#d5dde8', 'start')}
-${box(405, 225, 355, 120, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(582, 249, '👁️ المراقبة والاستجابة', 13, '#b48cff', 'middle', 'bold')}
-${txtR(423, 275, '☐ سجلات مركزية بعيدة عن المتصفح', 11.5, '#d5dde8', 'start')}
-${txtR(423, 297, '☐ تنبيهات على الشذوذ (logins, new users)', 11.5, '#d5dde8', 'start')}
-${txtR(423, 319, '☐ auditd لتفعيل مسار التدقيق', 11.5, '#d5dde8', 'start')}
-${txtR(423, 337, '☐ نسخ احتياطية مُختبرة (لا نسخة = لا ندم)', 11.5, '#d5dde8', 'start')}
-${txt(390, 372, '🎯 القاعدة: التحصين عملية مستمرة وليست إعدادًا لمرة واحدة', 12, '#ffb454', 'middle', 'bold')}
+${txt(390, 28, '🏗️ قائمة تحصين السيرفر — 8 محطات نحو سيرفر حديدي', 14, '#0f172a', 'middle', 'bold')}
+${box(20, 55, 355, 150, '#ffffff', '#c3d0e2', 12)}
+${txt(197, 79, '🔐 المصادقة والوصول', 13, '#047857', 'middle', 'bold')}
+${txtR(38, 105, '☐ مفاتيح SSH + تعطيل كلمة المرور', 11.5, '#1e293b', 'start')}
+${txtR(38, 127, '☐ تعطيل root login المباشر', 11.5, '#1e293b', 'start')}
+${txtR(38, 149, '☐ fail2ban ضد التخمين الآلي', 11.5, '#1e293b', 'start')}
+${txtR(38, 171, '☐ sudo مقيد — لا sudo ALL لكل أحد', 11.5, '#1e293b', 'start')}
+${txtR(38, 193, '☐ 2FA للوصول الإداري الحساس', 11.5, '#1e293b', 'start')}
+${box(405, 55, 355, 150, '#ffffff', '#c3d0e2', 12)}
+${txt(582, 79, '🧱 تقليل سطح الهجوم', 13, '#0e7490', 'middle', 'bold')}
+${txtR(423, 105, '☐ حذف الحزم غير المستخدمة', 11.5, '#1e293b', 'start')}
+${txtR(423, 127, '☐ إيقاف الخدمات غير الضرورية', 11.5, '#1e293b', 'start')}
+${txtR(423, 149, '☐ إغلاق كل المنافذ إلا الضرورية', 11.5, '#1e293b', 'start')}
+${txtR(423, 171, '☐ تحديثات أمنية دورية (unattended-upgrades / dnf-automatic)', 10.6, '#1e293b', 'start')}
+${txtR(423, 193, '☐ تفعيل SELinux/AppArmor', 11.5, '#1e293b', 'start')}
+${box(20, 225, 355, 120, '#ffffff', '#c3d0e2', 12)}
+${txt(197, 249, '📁 الملفات والنظام', 13, '#b45309', 'middle', 'bold')}
+${txtR(38, 275, '☐ chmod 600 على مفاتيح وإعدادات حساسة', 11, '#1e293b', 'start')}
+${txtR(38, 297, '☐ لا SUID غير موثق — راقب find / -perm -4000', 11, '#1e293b', 'start')}
+${txtR(38, 319, '☐ umask آمن (027 مثلاً)', 11.5, '#1e293b', 'start')}
+${txtR(38, 337, '☐ أقسام منفصلة مع noexec على /tmp', 11, '#1e293b', 'start')}
+${box(405, 225, 355, 120, '#ffffff', '#c3d0e2', 12)}
+${txt(582, 249, '👁️ المراقبة والاستجابة', 13, '#7c3aed', 'middle', 'bold')}
+${txtR(423, 275, '☐ سجلات مركزية بعيدة عن المتصفح', 11.5, '#1e293b', 'start')}
+${txtR(423, 297, '☐ تنبيهات على الشذوذ (logins, new users)', 11.5, '#1e293b', 'start')}
+${txtR(423, 319, '☐ auditd لتفعيل مسار التدقيق', 11.5, '#1e293b', 'start')}
+${txtR(423, 337, '☐ نسخ احتياطية مُختبرة (لا نسخة = لا ندم)', 11.5, '#1e293b', 'start')}
+${txt(390, 372, '🎯 القاعدة: التحصين عملية مستمرة وليست إعدادًا لمرة واحدة', 12, '#b45309', 'middle', 'bold')}
 </svg>`,
 
 /* Lesson 19: Monitoring */
 'monitoring': svgOpen(780, 360) + `
-${txt(390, 28, '📡 منظومة المراقبة: مؤشرات الحياة الأربعة للسيرفر', 14, '#fff', 'middle', 'bold')}
-${box(20, 55, 170, 92, 'rgba(61,220,132,.08)', '#3ddc84', 10)}
-${txt(105, 77, '🧠 المعالج CPU', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(105, 100, 'top / htop', 11, '#8b98ab', 'middle', 'normal', true)}
-${txt(105, 122, 'load average', 10.5, '#8b98ab', 'middle', 'normal', true)}
-${txt(105, 140, '100% دائمًا = مشكلة', 10, '#ff8fa8', 'middle')}
-${box(210, 55, 170, 92, 'rgba(57,197,207,.08)', '#39c5cf', 10)}
-${txt(295, 77, '🐏 الذاكرة RAM', 12.5, '#39c5cf', 'middle', 'bold')}
-${txt(295, 100, 'free -h', 11, '#8b98ab', 'middle', 'normal', true)}
-${txt(295, 122, 'available هو المهم', 10.5, '#8b98ab', 'middle', 'normal', true)}
-${txt(295, 140, 'OOM يقتل عمليات!', 10, '#ff8fa8', 'middle')}
-${box(400, 55, 170, 92, 'rgba(255,180,84,.08)', '#ffb454', 10)}
-${txt(485, 77, '💽 القرص Disk', 12.5, '#ffb454', 'middle', 'bold')}
-${txt(485, 100, 'df -h / iostat', 10.8, '#8b98ab', 'middle', 'normal', true)}
-${txt(485, 122, 'inode تنفد أيضًا', 10.5, '#8b98ab', 'middle')}
-${txt(485, 140, '90%+ = إنذار', 10, '#ff8fa8', 'middle')}
-${box(590, 55, 170, 92, 'rgba(180,140,255,.08)', '#b48cff', 10)}
-${txt(675, 77, '🌐 الشبكة Net', 12.5, '#b48cff', 'middle', 'bold')}
-${txt(675, 100, 'iftop / vnstat', 10.8, '#8b98ab', 'middle', 'normal', true)}
-${txt(675, 122, 'مقارنة بالأساس baseline', 10.5, '#8b98ab', 'middle')}
-${txt(675, 140, 'قفزة = تفسير!', 10, '#ff8fa8', 'middle')}
-${box(20, 175, 460, 100, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(250, 197, '🩺 جلسة تشخيص سريعة (احفظها!)', 12.5, '#fff', 'middle', 'bold')}
-${txtR(38, 223, 'uptime          → منذ متى؟ والضغط الحالي؟', 11, '#4af29a', 'start', 'normal', true)}
-${txtR(38, 245, 'dmesg -T | tail → رسائل النواة الأخيرة', 11, '#4af29a', 'start', 'normal', true)}
-${txtR(38, 267, 'ps aux --sort=-%mem | head -5 → أكلة الذاكرة', 10.4, '#4af29a', 'start', 'normal', true)}
-${box(510, 175, 250, 100, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(635, 197, '🛡️ عين SOC:', 12.5, '#ff6ec7', 'middle', 'bold')}
-${txt(635, 221, 'شذوذ الموارد = إشارة هجوم', 11.3, '#d5dde8', 'middle')}
-${txt(635, 245, 'CPU قفز بلا سبب؟ crypto miner!', 10.8, '#ffb454', 'middle')}
-${txt(635, 266, 'انصت: crontab -l لكل مستخدم', 10.5, '#d5dde8', 'middle')}
-${box(20, 300, 740, 42, 'rgba(61,220,132,.05)', '#1f7a4d', 12)}
-${txt(390, 326, 'الصناعة الاحترافية: Prometheus + Grafana + Alertmanager ← لوحات ومؤشرات وتنبيهات آلية', 11.8, '#4af29a', 'middle', 'normal', true)}
+${txt(390, 28, '📡 منظومة المراقبة: مؤشرات الحياة الأربعة للسيرفر', 14, '#0f172a', 'middle', 'bold')}
+${box(20, 55, 170, 92, '#ecfdf5', '#059669', 10)}
+${txt(105, 77, '🧠 المعالج CPU', 12.5, '#047857', 'middle', 'bold')}
+${txt(105, 100, 'top / htop', 11, '#5a6b82', 'middle', 'normal', true)}
+${txt(105, 122, 'load average', 10.5, '#5a6b82', 'middle', 'normal', true)}
+${txt(105, 140, '100% دائمًا = مشكلة', 10, '#dc2626', 'middle')}
+${box(210, 55, 170, 92, '#ecfeff', '#0e7490', 10)}
+${txt(295, 77, '🐏 الذاكرة RAM', 12.5, '#0e7490', 'middle', 'bold')}
+${txt(295, 100, 'free -h', 11, '#5a6b82', 'middle', 'normal', true)}
+${txt(295, 122, 'available هو المهم', 10.5, '#5a6b82', 'middle', 'normal', true)}
+${txt(295, 140, 'OOM يقتل عمليات!', 10, '#dc2626', 'middle')}
+${box(400, 55, 170, 92, '#fffbeb', '#b45309', 10)}
+${txt(485, 77, '💽 القرص Disk', 12.5, '#b45309', 'middle', 'bold')}
+${txt(485, 100, 'df -h / iostat', 10.8, '#5a6b82', 'middle', 'normal', true)}
+${txt(485, 122, 'inode تنفد أيضًا', 10.5, '#5a6b82', 'middle')}
+${txt(485, 140, '90%+ = إنذار', 10, '#dc2626', 'middle')}
+${box(590, 55, 170, 92, '#f5f3ff', '#7c3aed', 10)}
+${txt(675, 77, '🌐 الشبكة Net', 12.5, '#7c3aed', 'middle', 'bold')}
+${txt(675, 100, 'iftop / vnstat', 10.8, '#5a6b82', 'middle', 'normal', true)}
+${txt(675, 122, 'مقارنة بالأساس baseline', 10.5, '#5a6b82', 'middle')}
+${txt(675, 140, 'قفزة = تفسير!', 10, '#b91c1c', 'middle')}
+${box(20, 175, 460, 100, '#ffffff', '#c3d0e2', 12)}
+${txt(250, 197, '🩺 جلسة تشخيص سريعة (احفظها!)', 12.5, '#0f172a', 'middle', 'bold')}
+${txtR(38, 223, 'uptime          → منذ متى؟ والضغط الحالي؟', 11, '#047857', 'start', 'normal', true)}
+${txtR(38, 245, 'dmesg -T | tail → رسائل النواة الأخيرة', 11, '#047857', 'start', 'normal', true)}
+${txtR(38, 267, 'ps aux --sort=-%mem | head -5 → أكلة الذاكرة', 10.4, '#047857', 'start', 'normal', true)}
+${box(510, 175, 250, 100, '#fdf2f8', '#db2777', 12)}
+${txt(635, 197, '🛡️ عين SOC:', 12.5, '#db2777', 'middle', 'bold')}
+${txt(635, 221, 'شذوذ الموارد = إشارة هجوم', 11.3, '#1e293b', 'middle')}
+${txt(635, 245, 'CPU قفز بلا سبب؟ crypto miner!', 10.8, '#b45309', 'middle')}
+${txt(635, 266, 'انصت: crontab -l لكل مستخدم', 10.5, '#1e293b', 'middle')}
+${box(20, 300, 740, 42, '#f0fdf4', '#047857', 12)}
+${txt(390, 326, 'الصناعة الاحترافية: Prometheus + Grafana + Alertmanager ← لوحات ومؤشرات وتنبيهات آلية', 11.8, '#047857', 'middle', 'normal', true)}
 </svg>`,
 
 /* ============ Unit 5: Bash ============ */
 
 /* Lesson 20: Script anatomy */
 'script-anatomy': svgOpen(780, 430) + `
-${txt(390, 26, '📜 تشريح سكربت Bash: كل سطر له وظيفة', 14, '#fff', 'middle', 'bold')}
-${box(140, 44, 500, 320, '#0c1119', '#2a3a52', 12)}
-${txtR(160, 76, '#!/usr/bin/env bash', 14, '#ff6ec7', 'start', 'bold', true)}
-${txt(660, 76, '← الشيبانغ: من سيترجم السكربت', 10.5, '#8b98ab', 'start')}
-${txtR(160, 104, 'set -euo pipefail', 14, '#ffb454', 'start', 'normal', true)}
-${txt(660, 104, '← أمان: اخرج عند أي خطأ', 10.5, '#8b98ab', 'start')}
-${txtR(160, 132, 'BACKUP_DIR="/var/backups/app"', 14, '#39c5cf', 'start', 'normal', true)}
-${txt(660, 132, '← متغير: صندوق يحفظ قيمة', 10.5, '#8b98ab', 'start')}
-${txtR(160, 160, 'log() { echo "[$(date +%F)] $*"; }', 14, '#b48cff', 'start', 'normal', true)}
-${txt(660, 160, '← دالة: كتلة قابلة لإعادة الاستخدام', 10.5, '#8b98ab', 'start')}
-${txtR(160, 192, 'if [ ! -d "$BACKUP_DIR" ]; then', 14, '#4af29a', 'start', 'normal', true)}
-${txtR(160, 216, '  mkdir -p "$BACKUP_DIR"', 14, '#d5dde8', 'start', 'normal', true)}
-${txtR(160, 240, 'fi', 14, '#4af29a', 'start', 'normal', true)}
-${txt(660, 216, '← شرط: تحقق قبل التصرف', 10.5, '#8b98ab', 'start')}
-${txtR(160, 268, 'for svc in nginx sshd; do', 14, '#4af29a', 'start', 'normal', true)}
-${txtR(160, 292, '  systemctl is-active "$svc" && log "$svc OK"', 13, '#d5dde8', 'start', 'normal', true)}
-${txtR(160, 316, 'done', 14, '#4af29a', 'start', 'normal', true)}
-${txt(660, 292, '← حلقة: كرر على قائمة', 10.5, '#8b98ab', 'start')}
-${txtR(160, 348, 'log "Backup done ✅"', 14, '#d5dde8', 'start', 'normal', true)}
-${txt(660, 348, '← استدعاء الدالة التي عرّفناها', 10.5, '#8b98ab', 'start')}
+${txt(390, 26, '📜 تشريح سكربت Bash: كل سطر له وظيفة', 14, '#0f172a', 'middle', 'bold')}
+${box(140, 44, 500, 320, '#eef2f8', '#c3d0e2', 12)}
+${txtR(160, 76, '#!/usr/bin/env bash', 14, '#db2777', 'start', 'bold', true)}
+${txt(635, 76, '← الشيبانغ: من سيترجم السكربت', 10.5, '#5a6b82', 'end')}
+${txtR(160, 104, 'set -euo pipefail', 14, '#b45309', 'start', 'normal', true)}
+${txt(635, 104, '← أمان: اخرج عند أي خطأ', 10.5, '#5a6b82', 'end')}
+${txtR(160, 132, 'BACKUP_DIR="/var/backups/app"', 14, '#0e7490', 'start', 'normal', true)}
+${txt(635, 132, '← متغير: صندوق يحفظ قيمة', 10.5, '#5a6b82', 'end')}
+${txtR(160, 160, 'log() { echo "[$(date +%F)] $*"; }', 14, '#7c3aed', 'start', 'normal', true)}
+${txt(635, 160, '← دالة: كتلة قابلة لإعادة الاستخدام', 10.5, '#5a6b82', 'end')}
+${txtR(160, 192, 'if [ ! -d "$BACKUP_DIR" ]; then', 14, '#047857', 'start', 'normal', true)}
+${txtR(160, 216, '  mkdir -p "$BACKUP_DIR"', 14, '#1e293b', 'start', 'normal', true)}
+${txtR(160, 240, 'fi', 14, '#047857', 'start', 'normal', true)}
+${txt(635, 216, '← شرط: تحقق قبل التصرف', 10.5, '#5a6b82', 'end')}
+${txtR(160, 268, 'for svc in nginx sshd; do', 14, '#047857', 'start', 'normal', true)}
+${txtR(160, 292, '  systemctl is-active "$svc" && log "$svc OK"', 13, '#1e293b', 'start', 'normal', true)}
+${txtR(160, 316, 'done', 14, '#047857', 'start', 'normal', true)}
+${txt(635, 292, '← حلقة: كرر على قائمة', 10.5, '#5a6b82', 'end')}
+${txtR(160, 348, 'log "Backup done ✅"', 14, '#1e293b', 'start', 'normal', true)}
+${txt(635, 348, '← استدعاء الدالة التي عرّفناها', 10.5, '#5a6b82', 'end')}
 ${box(140, 384, 500, 0)}
-${txt(390, 402, 'الصيغة الكاملة: chmod +x script.sh ثم ./script.sh', 12.5, '#ffb454', 'middle', 'bold', true)}
+${txt(390, 402, 'الصيغة الكاملة: chmod +x script.sh ثم ./script.sh', 12.5, '#b45309', 'middle', 'bold', true)}
 </svg>`,
 
 /* Lesson 21: Pipes */
 'pipes': svgOpen(780, 340) + `
-${txt(390, 28, '🔗 خطوط الأنابيب: أوامر صغيرة تتحد فتصنع المعجزات', 14, '#fff', 'middle', 'bold')}
-${box(20, 60, 200, 66, 'rgba(61,220,132,.08)', '#3ddc84', 10)}
-${txt(120, 82, '📄 مصدر البيانات', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(120, 106, 'cat /var/log/auth.log', 10.5, '#8b98ab', 'middle', 'normal', true)}
-${arrow(220, 93, 270, 93, '#39c5cf', 'ah')}
-${txt(245, 83, 'stdout |', 10.5, '#39c5cf', 'middle', 'normal', true)}
-${box(270, 60, 170, 66, 'rgba(57,197,207,.08)', '#39c5cf', 10)}
-${txt(355, 82, '🔍 فلترة', 12.5, '#39c5cf', 'middle', 'bold')}
-${txt(355, 106, 'grep "Failed"', 10.8, '#8b98ab', 'middle', 'normal', true)}
-${arrow(440, 93, 490, 93, '#39c5cf', 'ah')}
-${txt(465, 83, '|', 12, '#39c5cf', 'middle', 'bold', true)}
-${box(490, 60, 130, 66, 'rgba(255,180,84,.08)', '#ffb454', 10)}
-${txt(555, 82, '✂️ معالجة', 12.5, '#ffb454', 'middle', 'bold')}
-${txt(555, 106, "awk '{print $11}'", 10.5, '#8b98ab', 'middle', 'normal', true)}
-${arrow(620, 93, 660, 93, '#39c5cf', 'ah')}
-${txt(640, 83, '|', 12, '#39c5cf', 'middle', 'bold', true)}
-${box(660, 60, 100, 66, 'rgba(180,140,255,.08)', '#b48cff', 10)}
-${txt(710, 82, '📊 نتيجة', 12, '#b48cff', 'middle', 'bold')}
-${txt(710, 106, 'sort -u', 10.5, '#8b98ab', 'middle', 'normal', true)}
-${box(20, 155, 740, 66, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(390, 177, '💡 الفكرة: كل أمر يفعل شيئًا واحدًا ويتقنه — والأنبوب | يمرر خرجه للأمر التالي', 12, '#d5dde8', 'middle')}
-${txt(390, 203, 'فلسفة يونكس الأصلية: Write programs that do one thing and do it well', 11, '#8b98ab', 'middle', 'normal', true)}
-${box(20, 245, 460, 75, 'rgba(255,110,199,.06)', '#ff6ec7', 12)}
-${txt(250, 267, '🛡️ تحقيق SOC كامل بسطر واحد:', 12, '#ff6ec7', 'middle', 'bold')}
-${txt(250, 291, "grep 'Failed password' /var/log/auth.log | awk '{print $(NF-3)}' | sort | uniq -c | sort -rn", 9.8, '#4af29a', 'middle', 'normal', true)}
-${txt(250, 312, '→ أكثر الـ IPs تخمينًا لكلمات المرور', 10.5, '#ffb454', 'middle')}
-${box(510, 245, 250, 75, 'rgba(61,220,132,.06)', '#1f7a4d', 12)}
-${txt(635, 267, '⏱️ توفير وقت حقيقي:', 12, '#4af29a', 'middle', 'bold')}
-${txt(635, 291, 'ما يحتاج أداة GUI بمئات الدولارات', 11, '#d5dde8', 'middle')}
-${txt(635, 312, 'تحققه بسطر مجاني مكتوب بيدك', 11, '#d5dde8', 'middle')}
+${txt(390, 28, '🔗 خطوط الأنابيب: أوامر صغيرة تتحد فتصنع المعجزات', 14, '#0f172a', 'middle', 'bold')}
+${box(20, 60, 200, 66, '#ecfdf5', '#059669', 10)}
+${txt(120, 82, '📄 مصدر البيانات', 12.5, '#047857', 'middle', 'bold')}
+${txt(120, 106, 'cat /var/log/auth.log', 10.5, '#5a6b82', 'middle', 'normal', true)}
+${arrow(220, 93, 270, 93, '#0e7490', 'ah')}
+${txt(245, 83, 'stdout |', 10.5, '#0e7490', 'middle', 'normal', true)}
+${box(270, 60, 170, 66, '#ecfeff', '#0e7490', 10)}
+${txt(355, 82, '🔍 فلترة', 12.5, '#0e7490', 'middle', 'bold')}
+${txt(355, 106, 'grep "Failed"', 10.8, '#5a6b82', 'middle', 'normal', true)}
+${arrow(440, 93, 490, 93, '#0e7490', 'ah')}
+${txt(465, 83, '|', 12, '#0e7490', 'middle', 'bold', true)}
+${box(490, 60, 130, 66, '#fffbeb', '#b45309', 10)}
+${txt(555, 82, '✂️ معالجة', 12.5, '#b45309', 'middle', 'bold')}
+${txt(555, 106, "awk '{print $11}'", 10.5, '#5a6b82', 'middle', 'normal', true)}
+${arrow(620, 93, 660, 93, '#0e7490', 'ah')}
+${txt(640, 83, '|', 12, '#0e7490', 'middle', 'bold', true)}
+${box(660, 60, 100, 66, '#f5f3ff', '#7c3aed', 10)}
+${txt(710, 82, '📊 نتيجة', 12, '#7c3aed', 'middle', 'bold')}
+${txt(710, 106, 'sort -u', 10.5, '#5a6b82', 'middle', 'normal', true)}
+${box(20, 155, 740, 66, '#ffffff', '#c3d0e2', 12)}
+${txt(390, 177, '💡 الفكرة: كل أمر يفعل شيئًا واحدًا ويتقنه — والأنبوب | يمرر خرجه للأمر التالي', 12, '#1e293b', 'middle')}
+${txt(390, 203, 'فلسفة يونكس الأصلية: Write programs that do one thing and do it well', 11, '#5a6b82', 'middle', 'normal', true)}
+${box(20, 245, 460, 94, '#fdf2f8', '#db2777', 12)}
+${txt(250, 267, '🛡️ تحقيق SOC كامل بسطر واحد:', 12, '#db2777', 'middle', 'bold')}
+${txt(250, 291, "grep 'Failed password' /var/log/auth.log", 10.5, '#047857', 'middle', 'normal', true)}
+${txt(250, 308, "| awk '{print $(NF-3)}' | sort | uniq -c | sort -rn", 9.6, '#047857', 'middle', 'normal', true)}
+${txt(250, 324, '→ أكثر الـ IPs تخمينًا لكلمات المرور', 10.5, '#b45309', 'middle')}
+${box(510, 245, 250, 75, '#ecfdf5', '#047857', 12)}
+${txt(635, 267, '⏱️ توفير وقت حقيقي:', 12, '#047857', 'middle', 'bold')}
+${txt(635, 291, 'ما يحتاج أداة GUI بمئات الدولارات', 11, '#1e293b', 'middle')}
+${txt(635, 312, 'تحققه بسطر مجاني مكتوب بيدك', 11, '#1e293b', 'middle')}
 </svg>`,
 
 /* Lesson 22: Cron */
 'cron': svgOpen(780, 340) + `
-${txt(390, 28, '⏰ الأتمتة: اجعل النظام يعمل وأنت نائم', 14, '#fff', 'middle', 'bold')}
-${box(30, 55, 300, 70, 'rgba(61,220,132,.08)', '#3ddc84', 10)}
-${txt(180, 77, '⏰ cron — الجدولة الدورية', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(180, 101, 'كل يوم / كل ساعة / كل دقيقة', 10.8, '#8b98ab', 'middle')}
-${txt(180, 118, 'crontab -e ← حرر جدولك', 10.8, '#ffb454', 'middle', 'normal', true)}
-${box(410, 55, 340, 70, 'rgba(57,197,207,.08)', '#39c5cf', 10)}
-${txt(580, 77, '🔔 systemd timers — الحديث', 12.5, '#39c5cf', 'middle', 'bold')}
-${txt(580, 101, 'سجلات مدمجة + تبعيات + دقة أعلى', 10.5, '#8b98ab', 'middle')}
-${txt(580, 118, 'systemctl list-timers', 10.8, '#ffb454', 'middle', 'normal', true)}
-${box(30, 155, 720, 90, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(390, 177, '📖 قراءة سطر الـ crontab — خمس حقول قبل الأمر', 12.5, '#fff', 'middle', 'bold')}
-${txt(390, 205, '  م   س   س-ن   ي-ش   يوم-الأسبوع   الأمر', 12.5, '#4af29a', 'middle', 'normal', true)}
-${txt(390, 230, '0 3 * * *  /opt/backup.sh   ← كل يوم 3 فجرًا (نجم = كل قيمة)', 11.5, '#ffb454', 'middle', 'normal', true)}
-${box(30, 268, 350, 52, 'rgba(255,110,199,.06)', '#ff6ec7', 10)}
-${txt(205, 288, '🛡️ عين الـ SOC:', 12, '#ff6ec7', 'middle', 'bold')}
-${txt(205, 309, 'مهاجم يزرع cron job = استمرارية دائمة!', 10.8, '#d5dde8', 'middle')}
-${box(400, 268, 350, 52, 'rgba(255,180,84,.05)', '#ffb454', 10)}
-${txt(575, 288, '🔍 فحص دوري:', 12, '#ffb454', 'middle', 'bold')}
-${txt(575, 309, 'crontab -l + ls /etc/cron* + journalctl -t CROND', 10, '#4af29a', 'middle', 'normal', true)}
+${txt(390, 28, '⏰ الأتمتة: اجعل النظام يعمل وأنت نائم', 14, '#0f172a', 'middle', 'bold')}
+${box(30, 55, 300, 70, '#ecfdf5', '#059669', 10)}
+${txt(180, 77, '⏰ cron — الجدولة الدورية', 12.5, '#047857', 'middle', 'bold')}
+${txt(180, 101, 'كل يوم / كل ساعة / كل دقيقة', 10.8, '#5a6b82', 'middle')}
+${txt(180, 118, 'crontab -e ← حرر جدولك', 10.8, '#b45309', 'middle', 'normal', true)}
+${box(410, 55, 340, 70, '#ecfeff', '#0e7490', 10)}
+${txt(580, 77, '🔔 systemd timers — الحديث', 12.5, '#0e7490', 'middle', 'bold')}
+${txt(580, 101, 'سجلات مدمجة + تبعيات + دقة أعلى', 10.5, '#5a6b82', 'middle')}
+${txt(580, 118, 'systemctl list-timers', 10.8, '#b45309', 'middle', 'normal', true)}
+${box(30, 155, 720, 90, '#ffffff', '#c3d0e2', 12)}
+${txt(390, 177, '📖 قراءة سطر الـ crontab — خمس حقول قبل الأمر', 12.5, '#0f172a', 'middle', 'bold')}
+${txt(390, 205, '  م   س   س-ن   ي-ش   يوم-الأسبوع   الأمر', 12.5, '#047857', 'middle', 'normal', true)}
+${txt(390, 230, '0 3 * * *  /opt/backup.sh   ← كل يوم 3 فجرًا (نجم = كل قيمة)', 11.5, '#b45309', 'middle', 'normal', true)}
+${box(30, 268, 350, 52, '#fdf2f8', '#db2777', 10)}
+${txt(205, 288, '🛡️ عين الـ SOC:', 12, '#db2777', 'middle', 'bold')}
+${txt(205, 309, 'مهاجم يزرع cron job = استمرارية دائمة!', 10.8, '#1e293b', 'middle')}
+${box(400, 268, 350, 52, '#fffbeb', '#b45309', 10)}
+${txt(575, 288, '🔍 فحص دوري:', 12, '#b45309', 'middle', 'bold')}
+${txt(575, 309, 'crontab -l + ls /etc/cron* + journalctl -t CROND', 10, '#047857', 'middle', 'normal', true)}
 </svg>`,
 
 /* Lesson 23: Troubleshooting flow */
 'troubleshooting': svgOpen(780, 430) + `
-${txt(390, 26, '🔧 منهجية استكشاف الأخطاء — طريقة المهندس المحترف', 14, '#fff', 'middle', 'bold')}
-${box(290, 46, 200, 44, 'rgba(255,95,110,.1)', '#ff5f6e', 10)}
-${txt(390, 66, '1️⃣ ما المشكلة بالضبط؟', 12.5, '#ff5f6e', 'middle', 'bold')}
-${txt(390, 84, 'الموقع لا يعمل ≠ لا يفتح من خارج الشبكة', 10.3, '#8b98ab', 'middle')}
-${arrow(390, 90, 390, 108, '#39c5cf', 'ah')}
-${box(290, 110, 200, 44, 'rgba(255,180,84,.1)', '#ffb454', 10)}
-${txt(390, 130, '2️⃣ هل الخدمة تعمل؟', 12.5, '#ffb454', 'middle', 'bold')}
-${txt(390, 148, 'systemctl status nginx', 10.8, '#8b98ab', 'middle', 'normal', true)}
-${arrow(390, 154, 390, 172, '#39c5cf', 'ah')}
-${box(290, 174, 200, 44, 'rgba(61,220,132,.1)', '#3ddc84', 10)}
-${txt(390, 194, '3️⃣ تصلح: فشلت؟ اقرأ السجل', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(390, 212, 'journalctl -u nginx -n 50', 10.8, '#8b98ab', 'middle', 'normal', true)}
-${arrow(390, 218, 390, 236, '#39c5cf', 'ah')}
-${box(290, 238, 200, 44, 'rgba(57,197,207,.1)', '#39c5cf', 10)}
-${txt(390, 258, '4️⃣ الشبكة والجدار؟', 12.5, '#39c5cf', 'middle', 'bold')}
-${txt(390, 276, 'ss -tulpn | ufw status', 10.8, '#8b98ab', 'middle', 'normal', true)}
-${arrow(390, 282, 390, 300, '#39c5cf', 'ah')}
-${box(290, 302, 200, 44, 'rgba(180,140,255,.1)', '#b48cff', 10)}
-${txt(390, 322, '5️⃣ الموارد كافية؟', 12.5, '#b48cff', 'middle', 'bold')}
-${txt(390, 340, 'df -h / free -h / top', 10.8, '#8b98ab', 'middle', 'normal', true)}
-${arrow(390, 346, 390, 364, '#39c5cf', 'ah')}
-${box(290, 366, 200, 44, 'rgba(61,220,132,.1)', '#3ddc84', 10)}
-${txt(390, 386, '6️⃣ صلّح ← اختبر ← وثّق', 12.5, '#4af29a', 'middle', 'bold')}
-${txt(390, 404, 'ولمَّا تصلح — اكتب ما حدث!', 10.3, '#8b98ab', 'middle')}
-${box(520, 120, 230, 200, 'rgba(22,31,48,.8)', '#1e2a3d', 12)}
-${txt(635, 144, '🥇 قواعد ذهبية', 12.5, '#fff', 'middle', 'bold')}
-${txtR(538, 170, '• غيّر شيئًا واحدًا', 11, '#d5dde8', 'start')}
-${txtR(538, 192, '  واحدًا في كل مرة', 11, '#d5dde8', 'start')}
-${txtR(538, 214, '• السجل يقول الحقيقة', 11, '#d5dde8', 'start')}
-${txtR(538, 236, '  دائمًا — اقرأه قبل التخمين', 11, '#d5dde8', 'start')}
-${txtR(538, 258, '• لا تعمل production', 11, '#d5dde8', 'start')}
-${txtR(538, 280, '  تجارب بلا نسخة احتياطية', 11, '#d5dde8', 'start')}
-${txtR(538, 302, '• 90% من الحلول في', 11, '#d5dde8', 'start')}
-${txtR(538, 324, '  أول 3 خطوات أعلاه', 11, '#d5dde8', 'start')}
+${txt(390, 26, '🔧 منهجية استكشاف الأخطاء — طريقة المهندس المحترف', 14, '#0f172a', 'middle', 'bold')}
+${box(290, 46, 200, 44, '#fef2f2', '#dc2626', 10)}
+${txt(390, 66, '1️⃣ ما المشكلة بالضبط؟', 12.5, '#dc2626', 'middle', 'bold')}
+${txt(390, 84, 'الموقع لا يعمل ≠ لا يفتح من خارج الشبكة', 10.3, '#5a6b82', 'middle')}
+${arrow(390, 90, 390, 108, '#0e7490', 'ah')}
+${box(290, 110, 200, 44, '#fffbeb', '#b45309', 10)}
+${txt(390, 130, '2️⃣ هل الخدمة تعمل؟', 12.5, '#b45309', 'middle', 'bold')}
+${txt(390, 148, 'systemctl status nginx', 10.8, '#5a6b82', 'middle', 'normal', true)}
+${arrow(390, 154, 390, 172, '#0e7490', 'ah')}
+${box(290, 174, 200, 44, '#ecfdf5', '#059669', 10)}
+${txt(390, 194, '3️⃣ تصلح: فشلت؟ اقرأ السجل', 12.5, '#047857', 'middle', 'bold')}
+${txt(390, 212, 'journalctl -u nginx -n 50', 10.8, '#5a6b82', 'middle', 'normal', true)}
+${arrow(390, 218, 390, 236, '#0e7490', 'ah')}
+${box(290, 238, 200, 44, '#cffafe', '#0e7490', 10)}
+${txt(390, 258, '4️⃣ الشبكة والجدار؟', 12.5, '#0e7490', 'middle', 'bold')}
+${txt(390, 276, 'ss -tulpn | ufw status', 10.8, '#5a6b82', 'middle', 'normal', true)}
+${arrow(390, 282, 390, 300, '#0e7490', 'ah')}
+${box(290, 302, 200, 44, '#f5f3ff', '#7c3aed', 10)}
+${txt(390, 322, '5️⃣ الموارد كافية؟', 12.5, '#7c3aed', 'middle', 'bold')}
+${txt(390, 340, 'df -h / free -h / top', 10.8, '#5a6b82', 'middle', 'normal', true)}
+${arrow(390, 346, 390, 364, '#0e7490', 'ah')}
+${box(290, 366, 200, 44, '#ecfdf5', '#059669', 10)}
+${txt(390, 386, '6️⃣ صلّح ← اختبر ← وثّق', 12.5, '#047857', 'middle', 'bold')}
+${txt(390, 404, 'ولمَّا تصلح — اكتب ما حدث!', 10.3, '#5a6b82', 'middle')}
+${box(520, 120, 230, 216, '#ffffff', '#c3d0e2', 12)}
+${txt(635, 144, '🥇 قواعد ذهبية', 12.5, '#0f172a', 'middle', 'bold')}
+${txtR(538, 170, '• غيّر شيئًا واحدًا', 11, '#1e293b', 'start')}
+${txtR(538, 192, '  واحدًا في كل مرة', 11, '#1e293b', 'start')}
+${txtR(538, 214, '• السجل يقول الحقيقة', 11, '#1e293b', 'start')}
+${txtR(538, 236, '  دائمًا — اقرأه قبل التخمين', 11, '#1e293b', 'start')}
+${txtR(538, 258, '• لا تعمل production', 11, '#1e293b', 'start')}
+${txtR(538, 280, '  تجارب بلا نسخة احتياطية', 11, '#1e293b', 'start')}
+${txtR(538, 302, '• 90% من الحلول في', 11, '#1e293b', 'start')}
+${txtR(538, 324, '  أول ٣ خطوات أعلاه', 10.5, '#1e293b', 'start')}
 </svg>`,
 });
 
 
 /* ===== Lessons content — Unit 1: Foundations ===== */
 const U1 = {
-title: "الوحدة 1 — أساسيات لينكس",
+title: "المستوى الأول — الأساسيات",
 icon: "🐧",
 lessons: [
 {
@@ -1132,7 +1187,13 @@ mins: 20, level: 'مبتدئ',
 story: `في عام 1991، كان طالب فنلندي اسمه <b>لينوس تورفالدس</b> (21 سنة) محبطًا من نظام التشغيل Minix المستخدم في الجامعة. قرر أن يكتب نواة نظام تشغيل خاصة به "لمجرد التسلية" — ونشر رسالته الشهيرة في منتدى الأخبار: <i>"أنا أعمل على نظام تشغيل مجاني (مجرد هواية، لن يكون شيئًا ضخمًا ومحترفًا مثل GNU)"</i>. لم يكن يعلم أن هوايته ستشغّل يومًا 96% من أفضل مليون سيرفر في العالم، وكل أجهزة الأندرويد، ومحطات الفضاء الدولية!`,
 sections: [
 { h: 'التعريف الدقيق', body: `<p class="lead">لينكس ليس نظام تشغيل كاملًا بحد ذاته — إنه <b>النواة (Kernel)</b>: أول قطعة من الكود تُحمَّل في الذاكرة عند تشغيل الجهاز، وهي الوسيط بين البرامج والعتاد المادي.</p><p>النواة تدير: <b>المعالج</b> (من يعمل ومتى)، <b>الذاكرة</b> (من يأخذ كم)، <b>الأجهزة</b> (القرص، الشبكة، لوحة المفاتيح)، و<b>العمليات</b> (برامج تعمل الآن). كل نقرة تكتبها على لوحة المفاتيح تمر عبر النواة أولًا ثم تصل إلى البرنامج!</p>` },
-{ h: 'الطبقات الأربع — من إصبعك إلى الحديد', body: `<p>افتح الصورة التالية واحفظها جيدًا — ستراها في كل مقابلة عمل:</p>` , diagram: 'whatis-linux', diagramCap: 'طبقات نظام لينكس: أنت → تطبيقات → الصدفة → النواة → العتاد' },
+{ h: 'الطبقات الأربع — من إصبعك إلى الحديد', body: `<p>افتح الصورة التالية واحفظها جيدًا — ستراها في كل مقابلة عمل:</p>` , diagram: 'whatis-linux', diagramCap: 'طبقات نظام لينكس: أنت → تطبيقات → الصدفة → النواة → العتاد', keys: [
+   `النواة (Kernel) هي القلب — تدير المعالج والذاكرة والأجهزة`,
+   `الصدفة (Shell) تترجم أوامرك وتطلب تنفيذها من النواة`,
+   `التطبيقات تعمل في أعلى الطبقات ولا تلمس العتاد مباشرة`,
+   `التوزيعة = نواة لينكس + أدوات GNU + مثبت + أدوات إدارة`,
+   `<code class="ic">uname -r</code> يعرض إصدار نواتك الحالية`,
+   `Bash هي الصدفة المعيارية في كل التوزيعات`] },
 { h: 'ما هي الصدفة Shell؟', body: `<p>الصدفة هي <b>المترجم الفوري</b> بين لغتك البشرية ولغة النواة. عندما تكتب <code class="ic">ls</code> وتضغط Enter، تحدث سلسلة: الصدفة تقرأ السطر ← تفهم أنك تريد "list" ← تطلب من النواة قراءة محتويات المجلد ← النواة تنفّذ وتعيد النتيجة ← الصدفة تعرضها لك بشكل جميل.</p><p>الصدفة الأشهر هي <b>Bash</b> (Bourne Again Shell) — وسنتعلمها هنا لأنها المعيار في كل التوزيعات.</p>` },
 { h: 'مصطلحات لا تخلط بينها', body: `<div class="cmd-table-wrap"><table class="cmd">
 <tr><th>المصطلح</th><th>ما يعنيه فعلًا</th></tr>
@@ -1158,7 +1219,12 @@ desc: 'Debian vs Red Hat vs Arch — الفروق الحقيقية وأيها ت
 mins: 18, level: 'مبتدئ',
 story: `تخيل أن "لينكس" هو وصفة الكيك الأساسية (النواة + أدوات GNU)، وكل <b>توزيعة</b> هي مخبز يضيف لمساته: أحدها يضيف الشوكولاتة (Ubuntu السهل)، وآخر يلتزم بالوصفة الكلاسيكية الصارمة (Debian المستقر)، وثالث يخبز للشركات الكبرى بعقود دعم (Red Hat). كلها كيك لينكس — لكن بجمهور مختلف.`,
 sections: [
-{ h: 'العائلتان الكبيرتان', body: `<p>90% مما ستقابله في حياتك المهنية ينتمي لعائلتين، والفرق بينهما في الأساس هو <b>مدير الحزم</b> (كيف تثبّت البرامج):</p>` , diagram: 'distros', diagramCap: 'شجرة عائلات التوزيعات — عائلة Debian (حزم .deb) وعائلة Red Hat (حزم .rpm)' },
+{ h: 'العائلتان الكبيرتان', body: `<p>90% مما ستقابله في حياتك المهنية ينتمي لعائلتين، والفرق بينهما في الأساس هو <b>مدير الحزم</b> (كيف تثبّت البرامج):</p>` , diagram: 'distros', diagramCap: 'شجرة عائلات التوزيعات — عائلة Debian (حزم .deb) وعائلة Red Hat (حزم .rpm)', keys: [
+   `عائلة Debian: تثبيت بـ <code class="ic">apt</code> وحزم <code class="ic">.deb</code>`,
+   `عائلة Red Hat: تثبيت بـ <code class="ic">dnf</code> وحزم <code class="ic">.rpm</code>`,
+   `Ubuntu مشتقة من Debian، وRocky مشتقة من Red Hat`,
+   `للاستقرار: Debian و Rocky — للتعلم: Ubuntu — للأمن: Kali`,
+   `إتقان عائلة واحدة يجعل الثانية سؤال يوم واحد`] },
 { h: 'القارئ الذكي: متى تختار كل عائلة؟', body: `<div class="cmd-table-wrap"><table class="cmd">
 <tr><th>توزيعة</th><th>الأفضل لـ</th><th>مدير الحزم</th></tr>
 <tr><td><code>Debian</code></td><td>الاستقرار المطلق — سيرفرات تعمل سنوات بلا إعادة تشغيل<span class="cdesc">خيار المضيفين المحترفين الذين يكرهون المفاجآت</span></td><td><code>apt</code></td></tr>
@@ -1183,7 +1249,13 @@ desc: 'لماذا كل شيء في لينكس ملف؟ وأين تجد ما تب
 mins: 22, level: 'مبتدئ',
 story: `في ويندوز تعتاد على C: و D: وكل قرص له حرف. في لينكس قصة مختلفة تمامًا: <b>شجرة واحدة</b> جذورها <code class="ic">/</code> وكل شيء — حتى الأقراص الإضافية والأجهزة والعمليات — يُوصَل داخلها في مكان ما. القاعدة الذهبية التي ستسمعها في كل مكان: <b>"في لينكس كل شيء ملف"</b> — وسنفهم الآن ماذا تعني فعلًا.`,
 sections: [
-{ h: 'الشجرة الكاملة', body: `<p>احفظ خريطة المواقع التالية — إنها 90% من هذا الدرس:</p>` , diagram: 'fhs', diagramCap: 'شجرة FHS: كل مجلد له وظيفة محددة — المعيار الذي تلتزم به كل التوزيعات' },
+{ h: 'الشجرة الكاملة', body: `<p>احفظ خريطة المواقع التالية — إنها 90% من هذا الدرس:</p>` , diagram: 'fhs', diagramCap: 'شجرة FHS: كل مجلد له وظيفة محددة — المعيار الذي تلتزم به كل التوزيعات', keys: [
+   `الجذر <code class="ic">/</code> بداية الشجرة وكل شيء يتفرع منها`,
+   `<code class="ic">/etc</code> ملفات الإعدادات — <code class="ic">/var/log</code> السجلات`,
+   `<code class="ic">/home</code> مجلدات المستخدمين — <code class="ic">/tmp</code> الملفات المؤقتة`,
+   `<code class="ic">/dev</code> ملفات الأجهزة — <code class="ic">/mnt</code> نقاط التركيب`,
+   `"كل شيء ملف": نفس الأدوات تقرأ الأقراص والشبكة والعمليات`,
+   `<code class="ic">mount</code> يوصّل أي قرص داخل الشجرة`] },
 { h: 'لماذا "كل شيء ملف" عبقرية؟', body: `<p>المصممون قرروا أن يتعامل النظام مع كل شيء بنفس الواجهة الثلاثية: <b>اقرأ / اكتب / نفّذ</b>. النتيجة؟</p><ul class="list"><li>قرصك الصلب ملف: <code class="ic">/dev/sda</code> — يمكنك قراءة بياناته الخام وكأنه ملف نصي</li><li>معلومات المعالج ملف: <code class="ic">/proc/cpuinfo</code> — <code class="ic">cat /proc/cpuinfo</code> يعرض مواصفاته</li><li>الفأرة ملف، الشاشة ملف، وحتى مولّد الأرقام العشوائية ملف: <code class="ic">/dev/random</code></li></ul><p>هذا يعني أن أي أداة تعمل مع الملفات (grep, cat, less) تعمل تلقائيًا مع <b>الأجهزة والنظام</b> أيضًا — قوة هائلة بلا برمجة إضافية!</p>` },
 { h: 'المسارات: المطلق والنسبي', body: `<p><b>المسار المطلق</b> يبدأ من الجذر دائمًا: <code class="ic">/var/log/syslog</code> — يعمل من أي مكان كنت. <b>المسار النسبي</b> يبدأ من مكانك الحالي: إن كنت في <code class="ic">/home/ahmed</code> فـ <code class="ic">Documents/report.txt</code> يعني <code class="ic">/home/ahmed/Documents/report.txt</code>.</p><p>اختصارات العائلة: <code class="ic">~</code> = مجلدك المنزلي، <code class="ic">.</code> = المجلد الحالي، <code class="ic">..</code> = المجلد الأب.</p>` },
 { h: 'زاوية الأمن', body: `<div class="soc"><p>مجلد <code class="ic">/etc</code> هو كنز المهاجم: <code class="ic">/etc/passwd</code> قائمة المستخدمين، <code class="ic">/etc/shadow</code> الهاشات، <code class="ic">/etc/ssh/sshd_config</code> إعدادات الدخول البعيد، <code class="ic">/etc/crontab</code> المهام المجدولة. أول ما يفحصه المحقق بعد حادثة: <b>من عدّل /etc ومتى</b>. وستتعلم في درس الصلاحيات كيف تُحمى هذه الملفات.</p></div>` },
@@ -1202,7 +1274,12 @@ desc: 'افتح النافذة السوداء واكتب أول أوامرك ا�
 mins: 25, level: 'مبتدئ',
 story: `أول مرة يفتح فيها المبتدئ الطرفية، يشعر أنه في فيلم هاكرز — ثم يكتشف أنه لا يعرف ماذا يكتب! لا تقلق: بعد هذا الدرس ستحصل على "رخصة قيادة" الطرفية، وستكتشف أن الأسود ذاك هو أقوى أداة عملت عليها في حياتك.`,
 sections: [
-{ h: 'لماذا الطرفية وليس الواجهة الرسومية؟', body: `<div class="analogy"><p>الواجهة الرسومية مثل سيارة أوتوماتيك: مريحة للرحلات القصيرة. الطرفية مثل سيارة سباق بعلبة تروس يدوية: تحكم كامل، سرعة خارقة للمحترفين، وتعمل على أي سيرفر في العالم حتى لو لم يكن له شاشة أصلًا!</p></div>` , diagram: 'terminal-vs-gui', diagramCap: 'الفرق العملي بين GUI و Terminal — السيرفرات البعيدة لا ترسل واجهات رسومية، بل نصًا فقط' },
+{ h: 'لماذا الطرفية وليس الواجهة الرسومية؟', body: `<div class="analogy"><p>الواجهة الرسومية مثل سيارة أوتوماتيك: مريحة للرحلات القصيرة. الطرفية مثل سيارة سباق بعلبة تروس يدوية: تحكم كامل، سرعة خارقة للمحترفين، وتعمل على أي سيرفر في العالم حتى لو لم يكن له شاشة أصلًا!</p></div>` , diagram: 'terminal-vs-gui', diagramCap: 'الفرق العملي بين GUI و Terminal — السيرفرات البعيدة لا ترسل واجهات رسومية، بل نصًا فقط', keys: [
+   `السيرفرات البعيدة تعمل نصيًا فقط عبر SSH — لا واجهات رسومية`,
+   `الطرفية أسرع: سطر واحد ينجز ما تلاحق فيه القوائم`,
+   `الأوامر قابلة للأتمتة بالسكربتات — الواجهة لا تتكرر تلقائيًا`,
+   `مهندس الأمن يعيش داخل الطرفية: تحليل، استجابة، تحصين`,
+   `<code class="ic">ls</code> و <code class="ic">cd</code> و <code class="ic">pwd</code> أول ثلاث أوامر تحفظها`] },
 { h: 'أول 6 أوامر تنقذ حياتك', body: `<div class="cmd-table-wrap"><table class="cmd">
 <tr><th>الأمر</th><th>الوظيفة</th><th>مثال حي</th></tr>
 <tr><td><code>pwd</code></td><td>أين أنا الآن؟<span class="cdesc">print working directory</span></td><td><code>pwd</code> → <code>/home/ahmed</code></td></tr>
@@ -1230,7 +1307,12 @@ desc: 'find و grep و wildcard — العثور على أي شيء في ثوا�
 mins: 25, level: 'مبتدئ',
 story: `"أين وضعني ذلك الملف؟!" — سؤال يتكرر آلاف المرات في حياتك المهنية. في ويندوز تفتح البحث وتنتظر دقيقتين. في لينكس، سطر واحد يجيبك في أجزاء من الثانية <b>ويستطيع تنفيذ أمر على كل نتيجة تلقائيًا</b>. هذا الدرس يحوّلك من "باحث" إلى "قنّاص ملفات".`,
 sections: [
-{ h: 'بوصلة التنقل', body: `<p>قبل البحث، ترسّخ خريطة الحركة:</p>` , diagram: 'navigation', diagramCap: 'أوامر التنقل: من المنزل إلى أي مكان في الشجرة والعودة' },
+{ h: 'بوصلة التنقل', body: `<p>قبل البحث، ترسّخ خريطة الحركة:</p>` , diagram: 'navigation', diagramCap: 'أوامر التنقل: من المنزل إلى أي مكان في الشجرة والعودة', keys: [
+   `المسار المطلق يبدأ من الجذر <code class="ic">/</code> — المسار النسبي من موقعك`,
+   `<code class="ic">.</code> المجلد الحالي — <code class="ic">..</code> المجلد الأب`,
+   `<code class="ic">pwd</code> يخبرك أين أنت قبل أي حركة`,
+   `<code class="ic">find /etc -name "*.conf"</code> بحث بالاسم في أي عمق`,
+   `<code class="ic">locate</code> أسرع لأنه يبحث في فهرس جاهز`] },
 { h: 'find: قناص الملفات', body: `<p><code class="ic">find</code> يبحث في نظام الملفات الفعلي حسب <b>الاسم، النوع، الحجم، التاريخ، الصلاحيات</b>:</p>
 <div class="cmd-table-wrap"><table class="cmd">
 <tr><th>تبحث عن؟</th><th>الأمر</th></tr>
@@ -1268,7 +1350,7 @@ quiz: [
 
 /* ===== Lessons content — Unit 2: System Administration ===== */
 const U2 = {
-title: "الوحدة 2 — إدارة النظام",
+title: "المستوى الثاني — إدارة النظام",
 icon: "⚙️",
 lessons: [
 {
@@ -1278,7 +1360,13 @@ desc: 'uid، ملفات /etc الثلاثة، sudo، وأثرها الأمني',
 mins: 25, level: 'مبتدئ',
 story: `في شركة، لا يعطي المدير كل موظف مفتاح الخزنة الكبرى — بل كلٌ حسب وظيفته: عامل الاستقبال يفتح الاستقبال، والمحاسب يفتح مكتب المالية فقط. لينكس يطبق نفس المنطق بدقة عسكرية: <b>كل إنسان (أو برنامج) له هوية رقمية uid</b>، وكل ملف في النظام له مالك وجروب، والصلاحيات تُمنح حسب الانتماء. هذه البساطة هي أساس أمان لينكس كله.`,
 sections: [
-{ h: 'خريطة العلاقات', body: `<p>افهم هذه العلاقة الثلاثية وستفهم نصف أمان لينكس:</p>` , diagram: 'users-groups', diagramCap: 'المستخدم ينتمي لجروب، والجروب يملك صلاحيات على الملفات — والملفات الثلاثة في /etc تحفظ الخريطة كلها' },
+{ h: 'خريطة العلاقات', body: `<p>افهم هذه العلاقة الثلاثية وستفهم نصف أمان لينكس:</p>` , diagram: 'users-groups', diagramCap: 'المستخدم ينتمي لجروب، والجروب يملك صلاحيات على الملفات — والملفات الثلاثة في /etc تحفظ الخريطة كلها', keys: [
+   `كل مستخدم له UID رقم فريد — والجروب له GID`,
+   `root دائمًا UID 0 — أعلى صلاحية في النظام`,
+   `المستخدمون النظام (1–999) يشغلون الخدمات ولا يسجلون دخولًا`,
+   `الملفات: <code class="ic">/etc/passwd</code> و <code class="ic">/etc/shadow</code> و <code class="ic">/etc/group</code>`,
+   `<code class="ic">useradd</code> ينشئ — <code class="ic">usermod</code> يعدّل — <code class="ic">id</code> يعرض`,
+   `الجروب الثانوي يمنح صلاحيات إضافية مثل sudo`] },
 { h: 'الأنواع الثلاثة للمستخدمين', body: `<ul class="list"><li><b>root (uid=0)</b>: الملك المتوج — يفعل أي شيء في أي ملف. تخفّى به مؤقتًا عبر <code class="ic">sudo</code>.</li><li><b>مستخدمون عاديون (uid ≥ 1000)</b>: أنا وأنت — محصورون في ملفاتنا وصلاحياتنا.</li><li><b>مستخدمو خدمات (uid &lt; 1000)</b>: هويات للبرامج نفسها! nginx يعمل بهوية <code class="ic">www-data</code>، وقاعدة البيانات بهوية <code class="ic">mysql</code>. لو اخترق أحدها، يبقى محصورًا في صلاحيات هذا المستخدم الحقير — وليس root!</li></ul>` },
 { h: 'ملفات /etc الثلاثة الحاكمة', body: `<div class="term-win"><div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="ttitle">cat /etc/passwd | head -3</span></div><div class="term-body"><span class="p">root❯</span> <span class="c">cat /etc/passwd | head -3</span>
 <span class="o">root:x:0:0:root:/root:/bin/bash</span>
@@ -1313,7 +1401,13 @@ desc: 'rwx للمستخدم والجروب والآخرين — و chmod و SUID
 mins: 30, level: 'مبتدئ',
 story: `تخيل ناديًا فاخرًا: صاحب النادي (المالك owner) يدخل كل الغرف، وأعضاء النادي (الجروب) يدخلون غرف الأعضاء فقط، والزوار (others) ينتظرون في الردهية. كل ملف في لينكس يعمل بهذا النظام الثلاثي بدقة — ومن يفهمه يستطيع قراءة أي سطر صلاحيات بنظرة واحدة.`,
 sections: [
-{ h: 'فك شفرة ls -l', body: `<p>عندما ترى هذا السطر، ستقول الآن "أفهمك تمامًا":</p>` , diagram: 'permissions', diagramCap: 'تفكيك سطر الصلاحيات: نوع الملف ثم ثلاث مجموعات rwx للمالك والجروب والآخرين — والحساب الثماني المقابل' },
+{ h: 'فك شفرة ls -l', body: `<p>عندما ترى هذا السطر، ستقول الآن "أفهمك تمامًا":</p>` , diagram: 'permissions', diagramCap: 'تفكيك سطر الصلاحيات: نوع الملف ثم ثلاث مجموعات rwx للمالك والجروب والآخرين — والحساب الثماني المقابل', keys: [
+   `كل ملف: صلاحيات ثلاثية — Owner و Group و Other`,
+   `الترميز الرقمي: <code class="ic">r=4</code> و <code class="ic">w=2</code> و <code class="ic">x=1</code>`,
+   `755 = المالك كل شيء والجروب والآخرون قراءة وتنفيذ`,
+   `<code class="ic">chmod</code> يغيّر الصلاحيات — <code class="ic">chown</code> يغيّر المالك`,
+   `الصلاحية <code class="ic">x</code> على مجلد تعني الدخول إليه وليس تشغيله`,
+   `SUID على ملف تنفيذي = تشغيله بصلاحيات مالكه`] },
 { h: 'chmod: غيّر الصلاحيات', body: `<p>طريقتان — الرمزية للأمانة والثمانية للسرعة:</p>
 <div class="cmd-table-wrap"><table class="cmd">
 <tr><th>الطريقة</th><th>الأمر</th><th>المعنى</th></tr>
@@ -1343,7 +1437,13 @@ desc: 'PID والأشارات و ps و top — من يشغّل ماذا؟',
 mins: 25, level: 'مبتدئ',
 story: `كل برنامج يعمل الآن على جهازك — نعم حتى الطرفية التي تقرأ منها — هو <b>عملية Process</b> لها رقم تعريف PID ومالك وحالة واستهلاك. تخيل مطعمًا: الشيف الكبير (systemd رقم 1) يشغّل طهاةً (الخدمات)، وكل طبق يُطلب (أمرك) يمرر لطباخ مختص. فهم من يعمل ومَن يستهلك ماذا = إدارة النظام الحقيقية.`,
 sections: [
-{ h: 'شجرة العائلة والولادة', body: `<p>كل عملية تولد من أخرى (parent ← child) وكلها تنحدر من <b>systemd (PID 1)</b>:</p>` , diagram: 'processes', diagramCap: 'شجرة العمليات: systemd جدّ الكل — والعملية اليتيمة تُتبنّى، والميتة تُصبح زومبي حتى يقرأ والدها نتيجتها' },
+{ h: 'شجرة العائلة والولادة', body: `<p>كل عملية تولد من أخرى (parent ← child) وكلها تنحدر من <b>systemd (PID 1)</b>:</p>` , diagram: 'processes', diagramCap: 'شجرة العمليات: systemd جدّ الكل — والعملية اليتيمة تُتبنّى، والميتة تُصبح زومبي حتى يقرأ والدها نتيجتها', keys: [
+   `كل عملية لها PID و PPID — الأب الذي أنشأها`,
+   `<code class="ic">systemd</code> الأب الأول PID 1 — يتبنى اليتامى`,
+   `العملية Zombie انتهت ولم يجمعها أبها — علامة خلل`,
+   `<code class="ic">ps aux</code> لقطة كاملة — <code class="ic">top</code> عرض حي`,
+   `<code class="ic">kill</code> يرسل إشارات: 15 لإنهاء نظيف و 9 قسري`,
+   `شجرة العمليات تفضح ما يشتبك خلف الواجهة`] },
 { h: 'أدوات التجسس على العمليات', body: `<div class="cmd-table-wrap"><table class="cmd">
 <tr><th>الأمر</th><th>الاستخدام</th></tr>
 <tr><td><code>ps aux</code></td><td>لقطة فورية لكل العمليات<span class="cdesc">a=الكل u=مفصل x=حتى بلا طرفية</span></td></tr>
@@ -1378,7 +1478,13 @@ desc: 'الخدمة لا تعمل؟ هذا الدرس يجيب — systemctl ب�
 mins: 28, level: 'متوسط',
 story: `الساعة 3 فجرًا: مكالمة أن الموقع لا يعمل. تلجأ للسيرفر وتكتب <code class="ic">systemctl status nginx</code> — خلال ثانيتين تعرف: الخدمة ميتة منذ ساعة، آخر 10 أسطر من سجلها أمامك، وسبب الوفاة واضح (خطأ إعدادات بعد آخر تعديل). تصلح السطر، <code class="ic">systemctl restart nginx</code>، وتعود للنوم. <b>هذا الدرس هو جوهر عمل مدير النظام</b>.`,
 sections: [
-{ h: 'رحلة الإقلاع — أين يجلس systemd؟', body: `<p>systemd ليس "خدمة" عادية — إنه <b>مدير النظام بالكامل</b> الذي يستلم السلطة من النواة مباشرة:</p>` , diagram: 'systemd', diagramCap: 'رحلة الإقلاع: BIOS → GRUB → Kernel → systemd → الخدمات حسب الـ target المطلوب' },
+{ h: 'رحلة الإقلاع — أين يجلس systemd؟', body: `<p>systemd ليس "خدمة" عادية — إنه <b>مدير النظام بالكامل</b> الذي يستلم السلطة من النواة مباشرة:</p>` , diagram: 'systemd', diagramCap: 'رحلة الإقلاع: BIOS → GRUB → Kernel → systemd → الخدمات حسب الـ target المطلوب', keys: [
+   `رحلة الإقلاع: BIOS/UEFI ← Bootloader ← Kernel ← systemd`,
+   `systemd يدير كل الخدمات كـ units لها حالة`,
+   `الأهداف: <code class="ic">multi-user.target</code> نصي و <code class="ic">graphical.target</code> بواجهة`,
+   `<code class="ic">systemctl status</code> يشخّص أي خدمة فورًا`,
+   `<code class="ic">journalctl -u</code> يعرض سجل خدمة بعينها`,
+   `الخدمة failed أول شيء تفحصه عند أي مشكلة`] },
 { h: 'الأوامر الخمسة التي تستخدمها يوميًا', body: `<div class="cmd-table-wrap"><table class="cmd">
 <tr><th>الهدف</th><th>الأمر</th></tr>
 <tr><td>حالة الخدمة + آخر سجلاتها</td><td><code>systemctl status nginx</code></td></tr>
@@ -1423,7 +1529,13 @@ desc: 'apt ضد dnf — المستودعات والتبعيات وترقية ا�
 mins: 22, level: 'مبتدئ',
 story: `في ويندوز تبحث عن برنامج في مواقع مشبوهة، تحمّل exe من حجم مجهول، وتدخل جحيم "التالي... التالي..." — ومعه أدوات شريرة ملتصقة. في لينكس ثورة كاملة: <b>مستودع رسمي واحد</b> تفحصه التوزيعة أمنيًا، وأمر واحد يجلب البرنامج <b>مع كل ما يحتاجه</b> (التبعيات) ويثبته ويحدثه — من مصدر موثوق وموقّع رقميًا.`,
 sections: [
-{ h: 'دورة حياة الحزمة', body: `<p>افهم الصورة وستفهم كل مديري الحزم دفعة واحدة:</p>` , diagram: 'packages', diagramCap: 'من المستودع إلى نظامك: التحميل، حل التبعيات، التثبيت — والتوثيق الكامل لكل عملية' },
+{ h: 'دورة حياة الحزمة', body: `<p>افهم الصورة وستفهم كل مديري الحزم دفعة واحدة:</p>` , diagram: 'packages', diagramCap: 'من المستودع إلى نظامك: التحميل، حل التبعيات، التثبيت — والتوثيق الكامل لكل عملية', keys: [
+   `المستودعات repositories هي المصدر الموثوق للحزم`,
+   `التثبيت يجلب الحزمة وكل تبعياتها تلقائيًا`,
+   `Debian: <code class="ic">apt update && apt install</code> — Red Hat: <code class="ic">dnf install</code>`,
+   `<code class="ic">apt update</code> يحدّث الفهرس قبل أي تثبيت`,
+   `<code class="ic">apt upgrade</code> يرقّي كل الحزم المثبتة`,
+   `لا تثبّت من مصادر خارج المستودعات إلا لثقة موثقة`] },
 { h: 'أوامر apt اليومية (Debian/Ubuntu)', body: `<div class="cmd-table-wrap"><table class="cmd">
 <tr><th>المهمة</th><th>الأمر</th></tr>
 <tr><td>تحديث فهرس المستودعات (وليس البرامج!)</td><td><code>sudo apt update</code></td></tr>
@@ -1463,7 +1575,13 @@ desc: 'df و lsblk و mount — وفهم السحر خلف مساحة القرص
 mins: 28, level: 'متوسط',
 story: `السيناريو المروع لكل مدير نظام: السيرفر توقف فجرًا، اكتشفت أن القرص <b>امتلأ 100%</b> — الخدمات تسقط كالذباب والسجلات لا تُكتب. لو فهمت هذا الدرس، ستعرف: أين تبحث عن المتهم (من أكل المساحة؟)، كيف تعالج فورًا، وكيف تجهز تخزينًا مرنًا بـ LVM يتوسع <b>بلا إيقاف الخدمة</b>.`,
 sections: [
-{ h: 'الطبقات: من الحديد للمجلد', body: `<p>قرصك الصلب مجرد "بحر بيانات" — يحتاج طبقات تنظيم قبل أن تراه كمجلدات:</p>` , diagram: 'storage', diagramCap: 'القرص ← التقسيم ← نظام الملفات ← نقطة التحميل — و LVM طبقة مرونة بين التقسيم والنظام' },
+{ h: 'الطبقات: من الحديد للمجلد', body: `<p>قرصك الصلب مجرد "بحر بيانات" — يحتاج طبقات تنظيم قبل أن تراه كمجلدات:</p>` , diagram: 'storage', diagramCap: 'القرص ← التقسيم ← نظام الملفات ← نقطة التحميل — و LVM طبقة مرونة بين التقسيم والنظام', keys: [
+   `الطبقات: قرص فيزيائي ← أقسام ← نظام ملفات ← مجلدات`,
+   `أسماء الأقراص: <code class="ic">/dev/sda</code> والأقسام <code class="ic">/dev/sda1</code>`,
+   `أنظمة الملفات: <code class="ic">ext4</code> و <code class="ic">XFS</code>`,
+   `LVM: PV ← VG ← LV — توسيع المساحة دون إعادة تقسيم`,
+   `<code class="ic">lsblk</code> يرسم الخريطة كاملة بأمر واحد`,
+   `التركيب الدائم يُكتب في <code class="ic">/etc/fstab</code>`] },
 { h: 'أدوات التشخيص الأساسية', body: `<div class="cmd-table-wrap"><table class="cmd">
 <tr><th>الأمر</th><th>يجيب عن سؤال</th></tr>
 <tr><td><code>lsblk</code></td><td>ما شكل أقراصي وأقسامي؟ (شجرة جميلة)</td></tr>
@@ -1500,7 +1618,13 @@ desc: 'journald و rsyslog وقراءة ملفات /var/log كمحترف',
 mins: 25, level: 'متوسط',
 story: `السجلات هي <b>كاميرات المراقبة</b> للنظام: كل دخول، كل خطأ، كل أمر sudo — كل شيء مُسجّل بتاريخه ووقته. المهاجم يعرف ذلك، وأول ما يفعله بعد الاختراق هو <b>مسح آثاره</b> أو تعطيل الكاميرات. صراع SOC كله يدور حول: سجلات كاملة محمية ↔ مهاجم يحاول طمسها. من يفهم السجلات يملك القصة كاملة.`,
 sections: [
-{ h: 'إلى أين تذهب الأحداث؟', body: `<p>خط أنابيب واحد بفرعين — افهمه تحفظ نصف الموضوع:</p>` , diagram: 'logs', diagramCap: 'الحدث → journald (قاعدة ثنائية ضغطية) → rsyslog يوزّعها لملفات /var/log حسب النوع' },
+{ h: 'إلى أين تذهب الأحداث؟', body: `<p>خط أنابيب واحد بفرعين — افهمه تحفظ نصف الموضوع:</p>` , diagram: 'logs', diagramCap: 'الحدث → journald (قاعدة ثنائية ضغطية) → rsyslog يوزّعها لملفات /var/log حسب النوع', keys: [
+   `journald يجمع كل أحداث systemd في قاعدة موحدة`,
+   `rsyslog يكتب الملفات الكلاسيكية تحت <code class="ic">/var/log</code>`,
+   `<code class="ic">/var/log/auth.log</code> سجل الدخول والمصادقة — كنز SOC`,
+   `مستويات الخطورة: info ← warning ← err ← crit`,
+   `<code class="ic">journalctl -u nginx</code> — <code class="ic">tail -f</code> للبث الحي`,
+   `كل حادثة أمنية تُقرأ من السجلات أولًا`] },
 { h: 'خريطة ملفات /var/log', body: `<div class="cmd-table-wrap"><table class="cmd">
 <tr><th>الملف</th><th>ماذا يحوي</th><th>أهميته للـ SOC</th></tr>
 <tr><td><code>auth.log</code> <span style="color:#8b98ab">(Debian)</span> / <code>secure</code> <span style="color:#8b98ab">(Rocky)</span></td><td>دخول SSH، sudo، تبديل هويات</td><td>⭐⭐⭐ الملف الأول في أي تحقيق</td></tr>
@@ -1527,7 +1651,7 @@ quiz: [
 
 /* ===== Lessons content — Unit 3: Networking ===== */
 const U3 = {
-title: "الوحدة 3 — الشبكات",
+title: "المستوى الثالث — الشبكات وإدارة الاتصال",
 icon: "🌐",
 lessons: [
 {
@@ -1537,7 +1661,13 @@ desc: 'IP والمنافذ والأدوات — كيف تتخاطب الأجهز
 mins: 30, level: 'متوسط',
 story: `السيرفر "لا يصل" للإنترنت — بلاغ كلاسيكي يرعب المبتدئين. المحترف يبتسم: لديه <b>منهجية فحص من 5 خطوات</b> تحدد الخلل في دقيقتين: هل للجهاز IP أصلًا؟ هل البوابة ترد؟ هل DNS يترجم؟ هل المنفذ مفتوح؟ هل الخدمة تسمع؟ هذا الدرس يبني لك هذه المنهجية حجرًا حجرًا.`,
 sections: [
-{ h: 'رحلة الحزمة', body: `<p>عندما تفتح موقعًا، تحدث رحلة من ثلاث محطات — احفظها وستقرأ أي مشكلة شبكة:</p>` , diagram: 'network-stack', diagramCap: 'العميل ← DNS يترجم الاسم ← TCP المصافحة ← الخادم يسمع على منفذ — وأدوات التشخيص لكل محطة' },
+{ h: 'رحلة الحزمة', body: `<p>عندما تفتح موقعًا، تحدث رحلة من ثلاث محطات — احفظها وستقرأ أي مشكلة شبكة:</p>` , diagram: 'network-stack', diagramCap: 'العميل ← DNS يترجم الاسم ← TCP المصافحة ← الخادم يسمع على منفذ — وأدوات التشخيص لكل محطة', keys: [
+   `الحزمة تخرج من iface بعنوان IP نحو الـ gateway`,
+   `DNS يترجم الأسماء لعناوين — تعطله يفصل الاسم لا الاتصال`,
+   `<code class="ic">ip addr</code> العناوين — <code class="ic">ip route</code> مسارات`,
+   `<code class="ic">ping</code> يختبر الوصول — <code class="ic">ss -tulpn</code> المنافذ المفتوحة`,
+   `المنافذ تحت 1024 للخدمات المعروفة (22, 80, 443)`,
+   `منفذ يسمع على 0.0.0.0 مكشوف لكل الشبكة`] },
 { h: 'IP: عنوانك الرقمي', body: `<p>كل جهاز له عنوان IP — مثل رقم منزلك. داخل شبكتك عنوان <b>خاص</b> (192.168.x.x أو 10.x.x.x) لا يُوجَّه عبر الإنترنت، والخوادم العامة لها عناوين <b>عامة</b>. والمنفذ Port رقم إضافي يحدد <b>البرنامج المستقبِل</b> داخل الجهاز — مثل رقم الشقة داخل العمارة.</p>
 <div class="cmd-table-wrap"><table class="cmd">
 <tr><th>المنفذ</th><th>الخدمة</th><th>ملاحظة أمنية</th></tr>
@@ -1573,7 +1703,13 @@ desc: 'المفاتيح، الجلسات، تحصين sshd، ونقل الملف
 mins: 30, level: 'متوسط',
 story: `الساعة 2 صباحًا: تنبيه بخلل في سيرفر باليابان. من سريرك، تفتح الطرفية: <code class="ic">ssh admin@prod-jp-01</code> — وخلال ثوانٍ أنت تعمل على السيرفر كأنه أمامك، بأمان مشفر من طرف لطرف. هذه القوة اليومية العادية هي SSH — مهارة السطر الأول في أي وظيفة DevOps أو أمن.`,
 sections: [
-{ h: 'كيف تعمل الجلسة؟', body: `<p>ثلاث خطوات صامتة تحدث في أقل من ثانية:</p>` , diagram: 'ssh', diagramCap: 'المصادقة بالمفتاح: الخاص عندك لا يغادر أبدًا، والعام في السيرفر يتحقق — والتشفير يُتفق عليه قبل كل شيء' },
+{ h: 'كيف تعمل الجلسة؟', body: `<p>ثلاث خطوات صامتة تحدث في أقل من ثانية:</p>` , diagram: 'ssh', diagramCap: 'المصادقة بالمفتاح: الخاص عندك لا يغادر أبدًا، والعام في السيرفر يتحقق — والتشفير يُتفق عليه قبل كل شيء', keys: [
+   `المصافحة: TCP ثم تبادل المفاتيح ثم المصادقة`,
+   `المفاتيح أقوى من كلمات المرور — مفتاح خاص لا يُنقل أبدًا`,
+   `<code class="ic">ssh-keygen</code> ينشئ الزوج — <code class="ic">ssh-copy-id</code> ينسخ العام`,
+   `<code class="ic">known_hosts</code> يحفظ بصمة كل سيرفر اتصلت به`,
+   `<code class="ic">/etc/ssh/sshd_config</code> مركز التحكم بالسيرفر`,
+   `تعطيل PasswordAuthentication يغلق أوسع أبواب الهجوم`] },
 { h: 'الطريقة القديمة vs المفاتيح', body: `<p><b>كلمة المرور</b>: بسيطة لكن قابلة للتخمين (سنرى سجلات هجمات حقيقية في درس السجلات!). <b>المفاتيح</b>: زوج رياضي — الخاص لا يُرسل أبدًا، فيستحيل "تخمينه". الترقية دقيقتان:</p>
 <div class="term-win"><div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="ttitle">إنشاء المفتاح ونشره</span></div><div class="term-body"><span class="cm"># على جهازك: ولّد زوج ed25519 (الأحدث والأقصر)</span>
 <span class="p">you❯</span> <span class="c">ssh-keygen -t ed25519 -C "ahmed@laptop"</span>
@@ -1611,7 +1747,13 @@ desc: 'ufw و firewalld — سياسة Default-Deny بلا خوف',
 mins: 25, level: 'متوسط',
 story: `قلعة العصور الوسطى لم تكن تعتمد على باب واحد قوي — بل على <b>خندق، ثم سور، ثم حراس البوابة يسألون كل داخل: من أنت وماذا تريد؟</b>. الجدار الناري هو حارس البوابة الرقمي: كل حزمة تطرق الباب، فيُطبَّق عليها سؤال القواعد — تسمح أو تُحرق. والقاعدة الاحترافية الذهبية: <b>امنع كل شيء، ثم اسمح فقط بما تحتاجه الخدمة</b> (Default-Deny).`,
 sections: [
-{ h: 'كيف يفكر الحارس؟', body: `<p>القواعد تُطبَّق بالترتيب، وأول تطابق يحسم — لذا الترتيب يهم:</p>` , diagram: 'firewall', diagramCap: 'حزم الإنترنت تواجه سلسلة القواعد: ما يطابق يمر، والباقي يُحرق افتراضيًا' },
+{ h: 'كيف يفكر الحارس؟', body: `<p>القواعد تُطبَّق بالترتيب، وأول تطابق يحسم — لذا الترتيب يهم:</p>` , diagram: 'firewall', diagramCap: 'حزم الإنترنت تواجه سلسلة القواعد: ما يطابق يمر، والباقي يُحرق افتراضيًا', keys: [
+   `القواعد تُطبَّق بالترتيب — أول قاعدة تطابق تحسم`,
+   `السياسة الافتراضية: رفض الداخل والسماح للصادر`,
+   `افتح المنافذ الضرورية فقط: 22 و 80 و 443`,
+   `Debian: <code class="ic">ufw allow 22/tcp</code> — Rocky: <code class="ic">firewall-cmd --add-port</code>`,
+   `الحارس يرى الحزمة قبل أن تصل للخدمة`,
+   `كل منفذ مفتوح بلا حاجة = باب هجوم مفتوح`] },
 { h: 'ufw — بساطة Debian/Ubuntu', body: `<div class="term-win"><div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="ttitle">ufw — الجدار السهل القوي</span></div><div class="term-body"><span class="p">root❯</span> <span class="c">ufw allow 22/tcp</span>   <span class="cm"># اسمح لـ SSH أولًا! (وإلا تحبس نفسك)</span>
 <span class="o">Rule added</span>
 <span class="p">root❯</span> <span class="c">ufw allow 80,443/tcp</span>  <span class="cm"># الويب</span>
@@ -1651,7 +1793,7 @@ quiz: [
 
 /* ===== Lessons content — Unit 4: Security & SOC ===== */
 const U4 = {
-title: "الوحدة 4 — الأمن و SOC",
+title: "المستوى الرابع — الأمن السيبراني و SOC",
 icon: "🛡️",
 lessons: [
 {
@@ -1661,7 +1803,13 @@ desc: 'Defense in Depth — لماذا طبقة واحدة انتحار؟',
 mins: 22, level: 'متوسط',
 story: `قائد روماني قديم قال: <b>خندق واحد لا يحمي مدينة</b>. في الأمن السيبراني نفس المبدأ باسم <b>Defense in Depth</b> (الدفاع في العمق): لا تضع رهانك على جدار واحد مهما بدا قويًا — لأنه يومًا ما سيُخترق، والفرق بين "حادث مزعج" و"كارثة وطنية" هو ماذا وجد المهاجم <b>بعد</b> الطبقة الأولى.`,
 sections: [
-{ h: 'البصلة الخمس طبقات', body: `<p>كل طبقة تفترض أن التي قبلها سقطت — وتحمي ما تحتها:</p>` , diagram: 'security-layers', diagramCap: 'الدفاع في العمق: شبكة ← مصادقة ← صلاحيات ← SELinux ← مراقبة — اختراق طبقة لا يعني السقوط الكامل' },
+{ h: 'البصلة الخمس طبقات', body: `<p>كل طبقة تفترض أن التي قبلها سقطت — وتحمي ما تحتها:</p>` , diagram: 'security-layers', diagramCap: 'الدفاع في العمق: شبكة ← مصادقة ← صلاحيات ← SELinux ← مراقبة — اختراق طبقة لا يعني السقوط الكامل', keys: [
+   `الدفاع في العمق: 5 طبقات تفترض فشل ما قبلها`,
+   `الحد الأدنى للصلاحيات: لا تعطِ أكثر مما يلزم`,
+   `التحصين يقلل السطح — المراقبة تكشف ما تسلل`,
+   `السجلات هي الذاكرة: بلا رؤية لا يوجد كشف`,
+   `<code class="ic">sudo</code> بدل الجلسات الجذرية — <code class="ic">fail2ban</code> يصدّ التخمين`,
+   `المهاجم يبحث عن أضعف حلقة — أنت تغلق كل الحلقات`] },
 { h: 'طبقة طبقة: ماذا تضع فيها؟', body: `<div class="cmd-table-wrap"><table class="cmd">
 <tr><th>الطبقة</th><th>أدواتها</th><th>السؤال الذي تجيب عنه</th></tr>
 <tr><td><b>الشبكة</b></td><td>firewall, VPN, segmentation</td><td>من يصل أصلًا؟</td></tr>
@@ -1688,7 +1836,13 @@ desc: 'السياقات والأنماط الثلاثة — ولماذا لا ت
 mins: 30, level: 'متقدم',
 story: `SSH مشفّرة، الجدار مغلق، الصلاحيات محكمة — لكن ثغرة في nginx سمحت للمهاجم بتنفيذ أوامر بهوية الخدمة. الآن يركض داخل نظامك... ويصطدم بجدار غير مرئي: كل أمر يكتبه يُرفض! يحاول قراءة <code class="ic">/etc/shadow</code> — <b>Denied</b>. يفتح منفذًا خلفيًا — <b>Denied</b>. هذا هو <b>SELinux</b>: حارس لا يثق حتى بالملك root نفسه، ويعامل كل عملية حسب هويتها المكتوبة على جبينها (label).</p>`,
 sections: [
-{ h: 'المشهد قبل وبعد', body: `<p>لماذا يسميه المحترفون "الفرق بين سيرفر محترف وآخر للهواة"؟</p>` , diagram: 'selinux', diagramCap: 'بدون SELinux: اختراق الخدمة = تسلسل حر. معه: كل حركة خارج السياسة تُرفض وتُسجَّل — الضرر محصور' },
+{ h: 'المشهد قبل وبعد', body: `<p>لماذا يسميه المحترفون "الفرق بين سيرفر محترف وآخر للهواة"؟</p>` , diagram: 'selinux', diagramCap: 'بدون SELinux: اختراق الخدمة = تسلسل حر. معه: كل حركة خارج السياسة تُرفض وتُسجَّل — الضرر محصور', keys: [
+   `SELinux طبقة تحكم إجباري MAC فوق صلاحيات الملفات`,
+   `كل عملية وملف له سياق context — القواعد تتحكم بالانتقالات`,
+   `الأوضاع: enforcing يمنع — permissive يسجل فقط — disabled معطل`,
+   `<code class="ic">getenforce</code> يسأل — <code class="ic">setenforce 0</code> يخفف مؤقتًا`,
+   `أشهر سبب لفشل خدمة سليمة: رفض SELinux غير مشخّص`,
+   `<code class="ic">ausearch -m avc</code> يقرأ قرارات الرفض`] },
 { h: 'الفكرة: كل شيء يحمل بطاقة', body: `<p>SELinux يوسّع نظام الملفات بـ <b>labels (سياقات أمان)</b> تُلصق على الملفات والعمليات والمنافذ. العملية من نوع <code class="ic">httpd_t</code> (nginx) لها قائمة صريحة: تلمس ملفات <code class="ic">httpd_sys_content_t</code> وتفتح منفذ <code class="ic">http_port_t</code> — وكل ما عدا ذلك يُرفض <b>حتى لو كانت الصلاحيات التقليدية تسمح وحتى لو كان root</b>! هذا نموذج <b>MAC</b> (تحكم إلزامي) مقابل نموذج لينكس التقليدي <b>DAC</b> (تحكم تقديري بيد المالك).</p>
 <div class="term-win"><div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="ttitle">ls -Z — إظهار السياقات</span></div><div class="term-body"><span class="p">root❯</span> <span class="c">ls -Z /var/www/html/index.html</span>
 <span class="o">unconfined_u:object_r:httpd_sys_content_t:s0 /var/www/html/index.html</span>
@@ -1721,7 +1875,13 @@ desc: 'قائمة عمل من 8 محاور تحوّل السيرفر لقلعة'
 mins: 35, level: 'متقدم',
 story: `سلموك سيرفرًا سحابيًا جديدًا اليوم. الإعداد الافتراضي مناسب للتجارب — لكنه في الإنتاج <b>باب مفتوح بمصباح مكتوب عليه "ادخل"</b>: تسجيل root عن بعد بكلمة مرور، خدمات لم تطلبها، تحديثات مؤجلة، وسجلات قابلة للمسح. هذا الدرس هو <b>ورشة العمل</b>: قائمة تحقق مجربة تحوّل الجهاز العاري إلى قلعة — نفس القوائم التي تتبناها معايير CIS Benchmarks العالمية.`,
 sections: [
-{ h: 'خريطة القلعة', body: `<p>ثمانية محاور — كلٌ يغلق بابًا معروفًا من أبواب المهاجمين:</p>` , diagram: 'hardening', diagramCap: 'قائمة التحصين الثمانية: مصادقة، سطح هجوم، ملفات، مراقبة — طبقات متكاملة لا تختر واحدًا منها' },
+{ h: 'خريطة القلعة', body: `<p>ثمانية محاور — كلٌ يغلق بابًا معروفًا من أبواب المهاجمين:</p>` , diagram: 'hardening', diagramCap: 'قائمة التحصين الثمانية: مصادقة، سطح هجوم، ملفات، مراقبة — طبقات متكاملة لا تختر واحدًا منها', keys: [
+   `ثمانية محاور: تحديثات، SSH، جدار، مستخدمون، صلاحيات، خدمات، سجلات، نسخ`,
+   `تعطيل دخول root وتثبيت المفاتيح أول خطوتين`,
+   `أقل الخدمات = أصغر سطح هجوم: <code class="ic">systemctl disable</code>`,
+   `التحديثات الدورية تُغلق الثغرات المعروفة`,
+   `<code class="ic">sshd_config</code>: PermitRootLogin no و PasswordAuthentication no`,
+   `التحصين إجراء متكرر وليس مهمة لمرة واحدة`] },
 { h: 'الجولة العملية (نفّذها بالترتيب)', body: `<div class="term-win"><div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="ttitle">Hardening Runbook — أول 15 دقيقة</span></div><div class="term-body"><span class="cm">### 1. حدّث كل شيء أولًا (ثغرات معروفة = أسهل طرق الاختراق)</span>
 <span class="p">root❯</span> <span class="c">apt update && apt full-upgrade -y</span>   <span class="cm"># أو: dnf update -y</span>
 
@@ -1773,7 +1933,13 @@ desc: 'CPU والذاكرة والقرص والشبكة — نبض السيرف�
 mins: 25, level: 'متوسط',
 story: `الطبيب لا ينتظر سقوط المريض ليقيس نبضه — القياس المستمر هو الطب. في عالم السيرفرات: انهيار مفاجئ لا يوجد في الحقيقة؛ يوجد <b>إنذار صامت مهمل لأسابيع</b>: قرص يتضخم 1% يوميًا، ذاكرة تُرشح ببطء، معالج يرتفع قليلًا كل ليلة... هذا الدرس يعطيك "جهاز قياس الضغط" الكامل — يدويًا ثم بمنظومات كاملة.`,
 sections: [
-{ h: 'المؤشرات الأربعة الحيوية', body: `<p>أربعة أرقام تحكي صحة أي سيرفر — تعلّم قراءتها:</p>` , diagram: 'monitoring', diagramCap: 'المؤشرات الأربعة: CPU و RAM و Disk و Network — وأدوات قياس كل واحد منها' },
+{ h: 'المؤشرات الأربعة الحيوية', body: `<p>أربعة أرقام تحكي صحة أي سيرفر — تعلّم قراءتها:</p>` , diagram: 'monitoring', diagramCap: 'المؤشرات الأربعة: CPU و RAM و Disk و Network — وأدوات قياس كل واحد منها', keys: [
+   `المؤشرات الأربعة: CPU والذاكرة والقرص والشبكة`,
+   `<code class="ic">top</code> لحظي حي — load average فوق 1.0 لكل نواة إنذار`,
+   `<code class="ic">free -h</code> الذاكرة — راقب available لا free`,
+   `<code class="ic">df -h</code> امتلاء القرص — 90%+ سبب أعطال كلاسيكي`,
+   `<code class="ic">ss -tulpn</code> من يتصل ومن يسمع`,
+   `قفزة مفاجئة = عملية غريبة تستحق التحقيق`] },
 { h: 'قراءة top كمحترف', body: `<div class="term-win"><div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="ttitle">top — نافذتك الحية</span></div><div class="term-body"><span class="o">top - 14:32:07 up 42 days,  3:12,  2 users,  load average: <span class="hl">0.42, 0.38, 0.35</span></span>
 <span class="o">Tasks: 128 total,   1 running, 127 sleeping</span>
 <span class="o">%Cpu(s):  3.2 us,  1.1 sy,  <span class="hl">95.7 id</span>    <span class="cm"># id = الخمول (الصحة!)</span></span>
@@ -1804,7 +1970,7 @@ quiz: [
 
 /* ===== Lessons content — Unit 5: Bash & Automation ===== */
 const U5 = {
-title: "الوحدة 5 — Bash والأتمتة",
+title: "المستوى الخامس — Bash والأتمتة الاحترافية",
 icon: "📜",
 lessons: [
 {
@@ -1814,7 +1980,13 @@ desc: 'المتغيرات والشروط والحلقات — ولادة أول 
 mins: 30, level: 'متوسط',
 story: `كررت نفس الخمسة أوامر عشر مرات هذا الأسبوع؟ مبروك: أنت تكرر عمل الحاسوب بدلًا عنه — والحاسوب لا يمل. <b>السكربت</b> هو تعليماتك مكتوبة مرة واحدة تعمل ألف مرة. في هذا الدرس تكتب أول أداة حقيقية بيدك — وستشعر بقوتها فورًا.`,
 sections: [
-{ h: 'تشريح السكربت', body: `<p>افتح هذا التشريح واقرأه سطرًا سطرًا — كل سطر له وظيفة تعرفها الآن:</p>` , diagram: 'script-anatomy', diagramCap: 'هيكل السكربت: الشيبانغ، الأمان، المتغيرات، الدوال، الشرط، الحلقة — ثم التشغيل' },
+{ h: 'تشريح السكربت', body: `<p>افتح هذا التشريح واقرأه سطرًا سطرًا — كل سطر له وظيفة تعرفها الآن:</p>` , diagram: 'script-anatomy', diagramCap: 'هيكل السكربت: الشيبانغ، الأمان، المتغيرات، الدوال، الشرط، الحلقة — ثم التشغيل', keys: [
+   `السطر الأول <code class="ic">#!/bin/bash</code> يحدد المفسّر`,
+   `المتغيرات بدون مسافات حول = — والاقتباس يحمي المسافات`,
+   `<code class="ic">if [[ -d dir ]]</code> الشروط — <code class="ic">$?</code> كود آخر أمر`,
+   `<code class="ic">set -euo pipefail</code> يوقف السكربت عند أول خطأ`,
+   `<code class="ic">chmod +x</code> ثم <code class="ic">./script.sh</code> للتشغيل`,
+   `السكربت الجيد: تعليقات و تحقق من المدخلات`] },
 { h: 'المتغيرات: صناديق القيم', body: `<div class="term-win"><div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="ttitle">variables.sh</span></div><div class="term-body"><span class="c">NAME="Ahmed"</span>          <span class="cm"># لا مسافات حول = إطلاقًا!</span>
 <span class="c">AGE=25</span>
 <span class="c">echo "Hello $NAME, age $AGE"</span>   <span class="cm"># $ لقراءة القيمة</span>
@@ -1873,7 +2045,13 @@ desc: '| و > و >> — فلسفة يونكس التي شكّلت كل شيء',
 mins: 25, level: 'متوسط',
 story: `في السبعينات، وضع مصممو يونكس فلسفة غيّرت الحوسبة للأبد: <b>"اكتب برامج تفعل شيئًا واحدًا وتتقنه، وتربطها معًا كقطع الليغو"</b>. النتيجة بعد 50 سنة: أوامر صغيرة عمرها عقود ما زالت الأقوى في العالم — لأن قوتها ليست في كل أمر وحده، بل في <b>تركيباتها اللانهائية</b>. سطر واحد اليوم يفعل ما كانت تتطلب برمجة أيام.</p>`,
 sections: [
-{ h: 'خط التجميع', body: `<p>كل أمر يتقن شيئًا واحدًا — والأنبوب يمرر خرجه للتالي:</p>` , diagram: 'pipes', diagramCap: 'الأنبوب | يمرر stdout لكل مرحلة: قراءة ← فلترة ← استخراج ← نتيجة — قطع ليغو تتضاعف قوتها بالتركيب' },
+{ h: 'خط التجميع', body: `<p>كل أمر يتقن شيئًا واحدًا — والأنبوب يمرر خرجه للتالي:</p>` , diagram: 'pipes', diagramCap: 'الأنبوب | يمرر stdout لكل مرحلة: قراءة ← فلترة ← استخراج ← نتيجة — قطع ليغو تتضاعف قوتها بالتركيب', keys: [
+   `الأنبوب <code class="ic">|</code> يمرّر خرج أمر لمدخل التالي`,
+   `<code class="ic">grep</code> يرشّح — <code class="ic">sort</code> يرتب — <code class="ic">uniq -c</code> يجمع ويعّد`,
+   `<code class='ic'>awk '{print $1}'</code> يستخرج الحقول — <code class='ic'>wc -l</code> يعدّ`,
+   `خط التحليل الكلاسيكي: cat | grep | sort | uniq -c | sort -rn`,
+   `كل أمر يتقن شيئًا واحدًا — والتركيب يبني الذكاء`,
+   `أكثر الـ IPs تكرارًا في access.log أول مرشح للتحقيق`] },
 { h: 'الثلاثي المقدس: grep, awk, sort', body: `<div class="cmd-table-wrap"><table class="cmd">
 <tr><th>الأداة</th><th>تتقن</th><th>مثال ذهبي</th></tr>
 <tr><td><code>grep</code></td><td>فلترة الأسطر</td><td><code>grep "Failed" auth.log</code></td></tr>
@@ -1912,7 +2090,13 @@ desc: 'دع النظام يعمل وأنت نائم — جدولة وجلسات 
 mins: 25, level: 'متوسط',
 story: `موظف النسخ الاحتياطي القديم كان يأتِ كل ليلة في الثالثة فجرًا ليضغط ملفات الشركة ويحملها للخزانة — بلا أخطاء وبلا تأخير وبلا راتب. اسمه في لينكس: <b>cron</b>. وأنت الآن ستبني هذا "الموظف" لكل مهمة متكررة: نسخ، تنظيف، تقارير، فحوصات أمنية — ثم تنام مرتاح البال.</p>`,
 sections: [
-{ h: 'مواعيد cron و timers', body: `<p>عالمان للجدولة — القديم الموثوق والحديث المدمج:</p>` , diagram: 'cron', diagramCap: 'cron: خمس حقول زمنية قبل الأمر — و systemd timers بديل حديث بسجلات وتبعيات أغنى' },
+{ h: 'مواعيد cron و timers', body: `<p>عالمان للجدولة — القديم الموثوق والحديث المدمج:</p>` , diagram: 'cron', diagramCap: 'cron: خمس حقول زمنية قبل الأمر — و systemd timers بديل حديث بسجلات وتبعيات أغنى', keys: [
+   `cron للمواعيد الدورية — صيغة 5 حقول: دقيقة ساعة يوم شهر أسبوع`,
+   `<code class="ic">crontab -e</code> يحرر — <code class="ic">crontab -l</code> يعرض`,
+   `systemd timers البديل الحديث مع سجلات مدمجة`,
+   `tmux جلسة تعيش بعد قطع الاتصال — تنقذ المهام الطويلة عبر SSH`,
+   `<code class="ic">tmux new -s name</code> ينشئ — <code class="ic">tmux attach</code> يعود`,
+   `كل مهمة مجدولة بلا سجل output نقطة عمياء`] },
 { h: 'crontab عمليًا', body: `<div class="term-win"><div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="ttitle">crontab -e — محرر جدولك</span></div><div class="term-body"><span class="cm"># م  س  س-ن  ي-ش  يوم-الأسبوع  الأمر</span>
 <span class="cm"># نسخ احتياطي يومي 3 فجرًا:</span>
 <span class="c">0 3 * * * /opt/scripts/backup.sh &gt;&gt; /var/log/backup.log 2&gt;&amp;1</span>
@@ -1952,7 +2136,13 @@ desc: 'خطة المحترف الست خطوات — من "لا يعمل!" إل�
 mins: 28, level: 'متقدم',
 story: `مكالمة الساعة 3 فجرًا: <b>"الموقع لا يعمل!!"</b>. المبتدئ يجمّد: من أين أبدأ؟ يخمّن ويجرب عشوائيًا — وربما يفسد ما كان سليمًا. المحترف يفتح قائمته: <b>ست خطوات مرتبة لا تتغير</b> — يحدد المشكلة بدقة، يفحص الخدمة، يقرأ السجل، يفحص الشبكة، يقيس الموارد، ثم يصلّح ويوثّق. بعد هذا الدرس، ستكون معتك الفوضى إلى منهج.</p>`,
 sections: [
-{ h: 'الخطة الذهبية', body: `<p>احفظ هذا الترتيب — فهو يقتل 90% من المشاكل في أول 3 خطوات:</p>` , diagram: 'troubleshooting', diagramCap: 'المنهجية: تعريف ← الخدمة ← السجل ← الشبكة ← الموارد ← الإصلاح والتوثيق — ومعها القواعد الذهبية' },
+{ h: 'الخطة الذهبية', body: `<p>احفظ هذا الترتيب — فهو يقتل 90% من المشاكل في أول 3 خطوات:</p>` , diagram: 'troubleshooting', diagramCap: 'المنهجية: تعريف ← الخدمة ← السجل ← الشبكة ← الموارد ← الإصلاح والتوثيق — ومعها القواعد الذهبية', keys: [
+   `الترتيب: عرّف الأعراض ← اقرأ السجلات ← اختبر فرضية واحدة`,
+   `لا تفترض أبدًا — تحقق بأمر: <code class="ic">systemctl status</code>`,
+   `<code class="ic">journalctl -u</code> للخدمة — <code class="ic">df -h</code> و <code class="ic">free -h</code> للموارد`,
+   `غيّر شيئًا واحدًا كل مرة وإلا فقدت الخيط`,
+   `<code class="ic">ss -tulpn</code> عندما تكون المشكلة شبكية`,
+   `وثّق الحل — المشكلة نفسها ستعود لاحقًا`] },
 { h: 'القصة الكاملة: سيناريو حي', body: `<div class="story"><p><b>البلاغ</b>: "الموقع بطيء جدًا ولا يفتح أحيانًا منذ مساء أمس".</p><p><b>1️⃣ التعريف</b>: "بطيء" لمن؟ من أين؟ كله أم صفحات معينة؟ — اتضح: الجميع، من كل مكان، صفحات PHP فقط (الستاتيك يفتح!).</p><p><b>2️⃣ الخدمة</b>: <code class="ic">systemctl status nginx php-fpm</code> — nginx أخضر... php-fpm أخضر لكن <code class="o">Watchdog: 8s</code> مع restarts متكررة!</p><p><b>3️⃣ السجل</b>: <code class="ic">journalctl -u php-fpm -n 50</code> — "server reached pm.max_children setting" — نفدت عمليات PHP!</p><p><b>4️⃣ الشبكة</b>: <code class="ic">ss -s</code> — عدد اتصالات establised ضخم من IP واحد: <b>bot يستنزف PHP</b>.</p><p><b>5️⃣ الموارد</b>: <code class="ic">free -h</code> — الذاكرة ممتلئة والتبادل (swap) يعمل بجنون.</p><p><b>6️⃣ الإصلاح الموثق</b>: حظر IP عبر الجدار + رفع pm.max_children بحدود الذاكرة + تفعيل rate limiting في nginx — ثم تقرير بالسبب والحل والإجراء الوقائي.</p><p class="mor">لاحظ: كل خطوة بنَت على سابقتها — بلا تخمين واحد. هكذا يعمل المحترفون.</p></div>` },
 { h: 'أدوات كل خطوة (احفظ المجموعة)', body: `<div class="cmd-table-wrap"><table class="cmd">
 <tr><th>الخطوة</th><th>الأوامر</th></tr>
@@ -2289,7 +2479,19 @@ return { session, execute, prompt: () => `${session.user}@${session.host}:~$` };
 
 /* ===== App logic: router, rendering, quiz, progress, simulator UI ===== */
 const UNITS = [U1, U2, U3, U4, U5];
+/* signature color per level (academic rainbow like the reference decks) */
+const LEVEL_STYLE = [
+  'background:rgba(61,220,132,.1);border:1px solid rgba(61,220,132,.35)',
+  'background:rgba(77,163,255,.1);border:1px solid rgba(77,163,255,.35)',
+  'background:rgba(57,197,207,.1);border:1px solid rgba(57,197,207,.35)',
+  'background:rgba(255,180,84,.1);border:1px solid rgba(255,180,84,.35)',
+  'background:rgba(180,140,255,.1);border:1px solid rgba(180,140,255,.35)',
+];
 const allLessons = UNITS.flatMap((u, ui) => u.lessons.map(l => ({...l, unitIdx: ui})));
+/* global lesson number 01-23 + level number, academic style like the reference */
+const unitLessonStart = [];
+UNITS.reduce((n, u) => { unitLessonStart.push(n); return n + u.lessons.length; }, 0);
+const lessonNo = id => { const i = allLessons.findIndex(l => l.id === id); return i < 0 ? '' : String(i + 1).padStart(2, '0'); };
 const lessonById = id => allLessons.find(l => l.id === id);
 
 /* --- Progress (localStorage — hardened with in-memory fallback) --- */
@@ -2303,7 +2505,38 @@ const store = {
   set done(v) { storage.set('lxdojo_done', JSON.stringify(v)); },
   get distro() { return storage.get('lxdojo_distro') || 'deb'; },
   set distro(v) { storage.set('lxdojo_distro', v); },
+  get bm() { try { return JSON.parse(storage.get('lxdojo_bm') || '[]'); } catch (e) { return []; } },
+  set bm(v) { storage.set('lxdojo_bm', JSON.stringify(v)); },
 };
+/* bookmarks: save/restore lessons, shown in sidebar section */
+window.toggleBM = id => {
+  let b = store.bm;
+  if (b.includes(id)) b = b.filter(x => x !== id); else { b.push(id); b.sort((x,y) => allLessons.findIndex(l=>l.id===x) - allLessons.findIndex(l=>l.id===y)); }
+  store.bm = b;
+  const btn = document.querySelector('.bm-btn');
+  if (btn) { const on = b.includes(id); btn.classList.toggle('on', on); btn.textContent = on ? '🔖' : '📑'; }
+  const sec = document.getElementById('bm-list');
+  if (sec) renderBM();
+  showToast(b.includes(id) ? '🔖 تم حفظ الدرس في المرجعيات' : 'تمت الإزالة من المرجعيات');
+};
+function renderBM() {
+  const sec = document.getElementById('bm-list');
+  if (!sec) return;
+  const b = store.bm;
+  sec.innerHTML = b.length
+    ? b.map(id => { const l = lessonById(id); return l ? `<div class="toc-lesson" onclick="go('${id}')"><span class="lnum">${lessonNo(id)}</span><span class="ltitle">${l.title}</span></div>` : ''; }).join('')
+    : '<div class="bm-empty">لا توجد دروس محفوظة بعد — اضغط 📑 في أي درس لحفظه هنا</div>';
+  const wrap = document.getElementById('bm-wrap');
+  if (wrap) wrap.style.display = b.length ? '' : 'none';
+}
+let toastTimer = null;
+function showToast(msg) {
+  let t = document.getElementById('toast');
+  if (!t) { t = document.createElement('div'); t.id = 'toast'; document.body.appendChild(t); }
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
 function markDone(id, on) {
   let d = store.done;
   if (on) { if (!d.includes(id)) d.push(id); } else { d = d.filter(x => x !== id); }
@@ -2335,7 +2568,7 @@ function buildTOC() {
       <div class="toc-lessons">
         ${u.lessons.map((l, li) => `
           <div class="toc-lesson" data-lid="${l.id}" onclick="go('${l.id}')">
-            <span class="lnum">${ui+1}.${li+1}</span>
+            <span class="lnum">${String(unitLessonStart[ui]+li+1).padStart(2,'0')}</span>
             <span class="ltitle">${l.title}</span>
             <span class="ldone">✓</span>
           </div>`).join('')}
@@ -2353,7 +2586,7 @@ function renderHome() {
     <p class="hero-sub">أكاديمية لينكس التفاعلية بالعربية — من أول سطر في الطرفية حتى مستوى مهندس الأمن السيبراني: شروحات بالصور والقصص، محاكي طرفية حي، واختبار بعد كل درس.</p>
     <div class="hero-badges">
       <div class="h-badge">📚 <b>${allLessons.length}</b> درسًا احترافيًا</div>
-      <div class="h-badge">🎨 <b>23</b> مخططًا تفاعليًا</div>
+      <div class="h-badge">🎨 <b>23</b> إنفوغرافيك تعليمي</div>
       <div class="h-badge">🎮 محاكي طرفية</div>
       <div class="h-badge">🛡️ زاوية SOC في كل درس</div>
     </div>
@@ -2375,19 +2608,19 @@ function renderHome() {
   </div>
 
   <div class="roadmap">
-    <h2>🗺️ خريطة الرحلة — 5 وحدات متدرجة</h2>
-    <p class="rm-sub">كل وحدة تبني على سابقتها — والزاوية الأمنية (SOC) مرافقة في كل درس</p>
+    <h2>🗺️ خريطة الرحلة — 5 مستويات أكاديمية متدرجة</h2>
+    <p class="rm-sub">كل مستوى يبني على سابقه — من الأساسيات حتى الأتمتة الاحترافية، والزاوية الأمنية (SOC) مرافقة في كل درس</p>
     <div class="units-grid">
       ${UNITS.map((u, ui) => `
       <div class="unit-card" data-ui="${ui}" onclick="go('${u.lessons[0].id}')">
         <div class="uc-bar"><i></i></div>
         <div class="uc-top">
-          <div class="uc-ico" style="background:rgba(61,220,132,.08);border:1px solid rgba(61,220,132,.2)">${u.icon}</div>
-          <div><div class="uc-n">UNIT ${ui+1}</div><h3>${u.title.split('— ')[1]}</h3></div>
+          <div class="uc-ico" style="${LEVEL_STYLE[ui]}">${u.icon}</div>
+          <div><div class="uc-n">LEVEL ${ui+1} — المستوى ${['الأول','الثاني','الثالث','الرابع','الخامس'][ui]}</div><h3>${u.title.split('— ')[1]}</h3></div>
         </div>
-        <p>${u.lessons[0].desc.split('—')[0]}${u.lessons.length>1?` — حتى ${u.lessons[u.lessons.length-1].title}`:''}</p>
+        <p>${u.lessons[0].title}${u.lessons.length>1?` ← حتى ${u.lessons[u.lessons.length-1].title}`:''}</p>
         <div class="uc-meta">
-          <span>📖 ${u.lessons.length} دروس</span>
+          <span>📖 دروس ${unitLessonStart[ui]+1}–${unitLessonStart[ui]+u.lessons.length}</span>
           <span>⏱️ ${u.lessons.reduce((s,l)=>s+l.mins,0)} دقيقة</span>
           <span>✅ <i class="uc-prog">0/${u.lessons.length}</i></span>
         </div>
@@ -2396,12 +2629,13 @@ function renderHome() {
   </div>
 
   <div class="features">
-    <div class="feat"><div class="fi">🖼️</div><h4>مخططات لكل مفهوم</h4><p>23 مخططًا مرسومًا يشرح العلاقات والبنية والعمليات خطوة بخطوة</p></div>
+    <div class="feat"><div class="fi">🗂️</div><h4>بطاقات مراجعة</h4><p>بطاقة مراجعة سريعة بخلاصة كل درس — للمذاكرة قبل الامتحان أو مقابلة العمل</p></div>
     <div class="feat"><div class="fi">📖</div><h4>قصص توضيحية</h4><p>كل درس يبدأ بقصة حقيقية تثبّت المفهوم — لا حفظ بلا فهم</p></div>
     <div class="feat"><div class="fi">🎮</div><h4>محاكي طرفية</h4><p>نظام ملفات افتراضي حي: نفّذ الأوامر وتعلّم بالممارسة الفعلية</p></div>
     <div class="feat"><div class="fi">🐧🎩</div><h4>Debian + Rocky</h4><p>شرح موحّد مع مفتاح تبديل فوري عند اختلاف الأوامر بين العائلتين</p></div>
     <div class="feat"><div class="fi">🛡️</div><h4>زاوية SOC</h4><p>في كل درس: كيف يستخدم المهاجم هذا المفهوم وكيف تصطاده</p></div>
     <div class="feat"><div class="fi">📝</div><h4>اختبارات تفاعلية</h4><p>3 أسئلة بعد كل درس مع شرح فوري للإجابة الصحيحة والخاطئة</p></div>
+    <div class="feat"><div class="fi">🔖</div><h4>مرجعيات</h4><p>احفظ أي درس بضغطة واحدة وراجع قائمة محفوظاتك في الشريط الجانبي</p></div>
   </div>
 
   <div class="page-foot">LinuxDojo — مذكرتك الاحترافية لإتقان لينكس 🥋 | تقدمك محفوظ محليًا في متصفحك</div>`;
@@ -2414,10 +2648,14 @@ function renderLesson(lesson) {
   const secs = lesson.sections.map((s, si) => `
     <h3 class="sec"><span class="n">${si+1}</span>${s.h}</h3>
     ${s.body || ''}
-    ${s.diagram ? `<div class="figure">${DIAGRAMS[s.diagram]||''}<div class="fig-cap"><b>شكل ${si+1}:</b> ${s.diagramCap||''}</div></div>` : ''}
+    ${s.diagram ? `<div class="figure"><div class="fig-title"><span class="ft-no">${lessonNo(lesson.id)}.${si+1}</span>${s.diagramCap||''}</div>${DIAGRAMS[s.diagram]||''}</div>
+    ${s.keys ? `<ul class="kp-list">${s.keys.map(k=>`<li>${k}</li>`).join('')}</ul>` : ''}` : ''}
     ${s.sim ? `<div class="term-win" style="cursor:pointer" onclick="openSim('${s.sim}')"><div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="ttitle">interactive-terminal — اضغط للتجربة</span></div><div class="term-body"><span class="p">ahmed@prod-web-01:~$</span> <span class="c">_</span><br><span class="cm">👆 اضغط هنا لفتح محاكي الطرفية وتنفيذ التمرين</span></div></div>` : ''}
   `).join('');
 
+  /* summary section → reference card (cheat sheet) like the reference decks */
+  const summarySec = lesson.sections.find(sec => sec.h.includes('تلخيص'));
+  const cheatItems = summarySec ? summarySec.body : '';
   const quiz = lesson.quiz.map((q, qi) => `
     <div class="q-item" data-qi="${qi}">
       <div class="q-text">${qi+1}. ${q.q}</div>
@@ -2429,14 +2667,20 @@ function renderLesson(lesson) {
       <div class="q-fb" id="fb-${qi}"></div>
     </div>`).join('');
 
+  const lv = lesson.unitIdx + 1;
+  const no = lessonNo(lesson.id);
   return `
   <div class="lesson-head">
     <div class="lesson-kicker">
-      <span class="k-chip">${UNITS[lesson.unitIdx].title}</span>
+      <span class="k-chip">${UNITS[lesson.unitIdx].icon} ${UNITS[lesson.unitIdx].title}</span>
       <span class="k-chip time">⏱️ ${lesson.mins} دقيقة</span>
       <span class="k-chip level">${lesson.level}</span>
     </div>
-    <h2 class="lesson-title">${lesson.title}</h2>
+    <div class="lesson-title-row">
+      <span class="lesson-no">${no}</span>
+      <h2 class="lesson-title">${lesson.title}</h2>
+      <button class="bm-btn ${store.bm.includes(lesson.id)?'on':''}" onclick="toggleBM('${lesson.id}')" title="حفظ الدرس في المرجعيات" aria-label="حفظ الدرس في المرجعيات">${store.bm.includes(lesson.id)?'🔖':'📑'}</button>
+    </div>
     <p class="lesson-sub">${lesson.desc}</p>
   </div>
   <div class="story">${lesson.story}${lesson.story.includes('class="mor"')?'':'<p class="mor">الهدف من القصة: فهم "لماذا" قبل "كيف" — فالمفاهيم تُبنى بالقصص لا بالحفظ.</p>'}</div>
@@ -2448,9 +2692,15 @@ function renderLesson(lesson) {
       <button class="btn-ghost" onclick="resetQuiz()">🔄 إعادة الاختبار</button>
     </div>
   </div>
+  ${cheatItems ? `
+  <div class="cheat-card">
+    <div class="cheat-head"><span class="ch-ico">🗂️</span><div><div class="ch-t">بطاقة المراجعة السريعة</div><div class="ch-s">احفظ هذه النقاط — هي خلاصة الدرس ${lessonNo(lesson.id)} للمذاكرة قبل الامتحان أو مقابلة العمل</div></div><span class="ch-no">${lessonNo(lesson.id)}</span></div>
+    <div class="cheat-body">${cheatItems}</div>
+  </div>` : ''}
   <div class="mark-done">
     <button id="md-btn" onclick="toggleDone('${lesson.id}')">${store.done.includes(lesson.id)?'✓ مكتمل — أحسنت!':'▢ وضع علامة "أكملت الدرس"'}</button>
   </div>
+  <button class="scroll-fab" onclick="scrollNext()" title="القسم التالي" aria-label="القسم التالي">↓</button>
   <div class="lesson-nav">
     ${prev?`<div class="nav-card" onclick="go('${prev.id}')"><div class="nl">→ الدرس السابق</div><div class="nt">${prev.title}</div></div>`:'<div></div>'}
     ${next?`<div class="nav-card next" onclick="go('${next.id}')"><div class="nl">الدرس التالي ←</div><div class="nt">${next.title}</div></div>`:`<div class="nav-card next" onclick="go('home')"><div class="nl">اكتملت الرحلة 🎉</div><div class="nt">العودة للرئيسية</div></div>`}
@@ -2526,7 +2776,7 @@ function route() {
     currentLesson = lesson;
     main.innerHTML = `<div class="page">${renderLesson(lesson)}</div>`;
     document.getElementById('crumbs').innerHTML =
-      `<span class="c-unit">${UNITS[lesson.unitIdx].icon} ${UNITS[lesson.unitIdx].title.split('— ')[1]}</span><span class="sep">‹</span><span class="c-lesson">${lesson.title}</span>`;
+      `<span class="c-unit">${UNITS[lesson.unitIdx].icon} المستوى ${['الأول','الثاني','الثالث','الرابع','الخامس'][lesson.unitIdx]} — ${UNITS[lesson.unitIdx].title.split('— ')[1]}</span><span class="sep">‹</span><span class="c-lesson">${lessonNo(lesson.id)} · ${lesson.title}</span>`;
     document.querySelectorAll('.toc-lesson').forEach(el => el.classList.toggle('active', el.dataset.lid === id));
     // apply saved distro preference to inline notes
     document.querySelectorAll('.distro-note').forEach(note => {
@@ -2540,6 +2790,28 @@ function route() {
   window.scrollTo({top:0});
 }
 window.addEventListener('hashchange', () => { try { route(); } catch (e) { console.error('route failed:', e); } });
+
+/* floating scroll button: jump to next section; past the last section → next lesson */
+window.scrollNext = () => {
+  const secs = [...document.querySelectorAll('.lesson-head, h3.sec, .quiz, .cheat-card')];
+  const y = window.scrollY;
+  // a section counts as "already viewed" once its top is near/above the viewport top edge
+  let idx = -1;
+  secs.forEach((el, i) => { if (el.getBoundingClientRect().top + y < y + 100) idx = i; });
+  const target = secs[idx + 1];
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const tAbs = target ? target.getBoundingClientRect().top + y : null;
+  if (target && tAbs > y + 100 && tAbs - 18 <= maxScroll + 1) {
+    window.scrollTo({ top: tAbs - 18, behavior: 'smooth' });
+    return;
+  }
+  // no more sections — go to next lesson
+  if (currentLesson) {
+    const li = allLessons.findIndex(l => l.id === currentLesson.id);
+    const next = allLessons[li+1];
+    if (next) go(next.id); else go('home');
+  }
+};
 
 /* --- Simulator UI --- */
 window.openSim = task => {
@@ -2602,6 +2874,7 @@ function filterTOC(q) {
 /* --- Init --- */
 function initApp() {
   buildTOC();
+  renderBM();
   document.getElementById('distroSeg').querySelectorAll('button').forEach(b => {
     b.classList.toggle('on', b.dataset.d === store.distro);
   });
